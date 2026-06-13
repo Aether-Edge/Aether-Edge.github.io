@@ -1,0 +1,35 @@
+name: Sync TradingView catalog
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run sync
+        run: node tools/sync-tradingview.mjs
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "ae-sync-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/scripts-data.js
+          git diff --cached --quiet || (git commit -m "chore: sync TradingView catalog" && git push)
