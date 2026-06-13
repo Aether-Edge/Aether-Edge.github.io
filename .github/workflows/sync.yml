@@ -2,8 +2,8 @@ name: Sync TradingView catalog
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
-  workflow_dispatch:
+    - cron: '0 */6 * * *'   # 6時間ごとに自動同期
+  workflow_dispatch:          # 手動実行も可能
 
 permissions:
   contents: write
@@ -12,11 +12,11 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
