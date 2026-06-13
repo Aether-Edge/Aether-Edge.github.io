@@ -3,333 +3,9 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-06-13T19:34:16.533Z",
-  "totalPublished": 106,
+  "updated": "2026-06-13T19:49:20.668Z",
+  "totalPublished": 95,
   "scripts": [
-    {
-      "code": "AE-QUORUM",
-      "name": "Ensemble Signal Engine",
-      "type": "indicator",
-      "cat": "signal",
-      "access": "invite",
-      "color": "cyan",
-      "tags": [
-        "ENSEMBLE",
-        "CONFORMAL"
-      ],
-      "boosts": 0,
-      "slug": null,
-      "url": null,
-      "featured": true,
-      "ja": "6つのTAエキスパートをレジーム別オンライン学習で統合するスタッキング型シグナルエンジン。コンフォーマル予測で較正済み確率と「待機」判定を出力。",
-      "en": "Stacking ensemble that learns regime-dependent weights over six TA experts online. Conformal prediction yields calibrated probabilities — and an honest WAIT state."
-    },
-    {
-      "code": "AE-TIDE",
-      "name": "Flow Exhaustion Oscillator",
-      "type": "indicator",
-      "cat": "oscillator",
-      "access": "invite",
-      "color": "emerald",
-      "tags": [
-        "FLOW",
-        "BAYES"
-      ],
-      "boosts": 0,
-      "slug": null,
-      "url": null,
-      "featured": false,
-      "ja": "マネーフロー枯渇のタイミングをRLで学習するオシレーター。ダイバージェンスにはベイズ信頼度スコアを付与。",
-      "en": "Money-flow exhaustion oscillator with RL-learned timing. Divergences carry a Bayesian confidence score."
-    },
-    {
-      "code": "AE-HELM",
-      "name": "Regime + RL Position Manager",
-      "type": "indicator",
-      "cat": "risk",
-      "access": "invite",
-      "color": "purple",
-      "tags": [
-        "REGIME",
-        "REINFORCE"
-      ],
-      "boosts": 0,
-      "slug": null,
-      "url": null,
-      "featured": true,
-      "ja": "市場レジームをオンライン分類し、REINFORCE方策勾配でポジション戦略を学習する建玉マネージャ。",
-      "en": "Classifies market regimes online and learns a position-management policy via REINFORCE."
-    },
-    {
-      "code": "AE-VECTOR",
-      "name": "Conformal Forecast Bands",
-      "type": "indicator",
-      "cat": "forecast",
-      "access": "invite",
-      "color": "magenta",
-      "tags": [
-        "FORECAST",
-        "ONLINE-ML"
-      ],
-      "boosts": 0,
-      "slug": null,
-      "url": null,
-      "featured": true,
-      "ja": "オンライン回帰で先行きを予測し、コンフォーマル較正されたターゲット帯を描画。統計的な被覆保証付き。",
-      "en": "Online-regression price forecast with conformally calibrated target bands — statistically guaranteed coverage."
-    },
-    {
-      "code": "AE-ATB",
-      "name": "Adaptive Trend Bandit",
-      "type": "indicator",
-      "cat": "trend",
-      "access": "invite",
-      "color": "cyan",
-      "tags": [
-        "K-MEANS",
-        "UCB-BANDIT"
-      ],
-      "boosts": 0,
-      "slug": "9tSQp67Y",
-      "url": "https://www.tradingview.com/script/9tSQp67Y/",
-      "featured": true,
-      "ja": "ストリーミングk-meansでボラティリティをクラスタリングし、UCBバンディットがSuperTrend係数を適応選択。",
-      "en": "Streaming k-means clusters volatility while a UCB bandit adaptively selects SuperTrend factors."
-    },
-    {
-      "code": "AE-IRM",
-      "name": "Inefficiency Refill Model",
-      "type": "indicator",
-      "cat": "smc",
-      "access": "invite",
-      "color": "emerald",
-      "tags": [
-        "LIQUIDITY",
-        "SURVIVAL"
-      ],
-      "boosts": 0,
-      "slug": "6ApL5pgy",
-      "url": "https://www.tradingview.com/script/6ApL5pgy/",
-      "featured": false,
-      "ja": "流動性ボイド（非効率）を検出し、学習型リフィル確率と生存時間モデルで「いつ埋まるか」を推定。",
-      "en": "Detects liquidity voids and estimates refill probability and timing with a learned survival model."
-    },
-    {
-      "code": "AE-AMF",
-      "name": "Adaptive MTF Fusion",
-      "type": "indicator",
-      "cat": "mtf",
-      "access": "invite",
-      "color": "purple",
-      "tags": [
-        "MTF",
-        "ONLINE-ML"
-      ],
-      "boosts": 0,
-      "slug": "AJmXcJOe",
-      "url": "https://www.tradingview.com/script/AJmXcJOe/",
-      "featured": false,
-      "ja": "複数タイムフレームのモメンタムを融合。TF別の重みをオンライン学習で市場に適応させる。",
-      "en": "Fuses momentum across timeframes; per-timeframe weights adapt through online learning."
-    },
-    {
-      "code": "AE-FAM",
-      "name": "Flow Anomaly Markov",
-      "type": "indicator",
-      "cat": "regime",
-      "access": "invite",
-      "color": "magenta",
-      "tags": [
-        "ANOMALY",
-        "MARKOV"
-      ],
-      "boosts": 0,
-      "slug": null,
-      "url": null,
-      "featured": false,
-      "ja": "2Dマハラノビス距離で出来高×値動きの異常を検知し、条件付きマルコフ連鎖で次の状態遷移を確率予測。",
-      "en": "2D Mahalanobis anomaly detection on flow × price, with a conditional Markov chain forecasting the next state transition."
-    },
-    {
-      "code": "AE-OBQ",
-      "name": "Order Block Quality",
-      "type": "indicator",
-      "cat": "smc",
-      "access": "invite",
-      "color": "cyan",
-      "tags": [
-        "ORDER-BLOCK",
-        "SCREENER"
-      ],
-      "boosts": 0,
-      "slug": "VkKnnX2M",
-      "url": "https://www.tradingview.com/script/VkKnnX2M/",
-      "featured": false,
-      "ja": "オーダーブロックの品質をオンラインMLで採点。同一モデルの複数銘柄スクリーナーを同梱。",
-      "en": "Scores order-block quality with online ML — and ships a multi-symbol screener built on the same model."
-    },
-    {
-      "code": "AE-BLP",
-      "name": "Bayesian Level Probabilities",
-      "type": "indicator",
-      "cat": "probability",
-      "access": "invite",
-      "color": "emerald",
-      "tags": [
-        "BAYES",
-        "LEVELS"
-      ],
-      "boosts": 0,
-      "slug": "nxv2N5Wm",
-      "url": "https://www.tradingview.com/script/nxv2N5Wm/",
-      "featured": false,
-      "ja": "統計的レベルの保持/ブレイクをBeta-Bernoulliベイズ推定。条件付き確率と信用区間を表示。",
-      "en": "Beta-Bernoulli Bayesian estimates of level hold/break — conditional probabilities with credible intervals."
-    },
-    {
-      "code": "AE-KALMAN",
-      "name": "Kalman State-Space Trend",
-      "type": "indicator",
-      "cat": "trend",
-      "access": "invite",
-      "color": "purple",
-      "tags": [
-        "KALMAN",
-        "STATE-SPACE"
-      ],
-      "boosts": 0,
-      "slug": null,
-      "url": null,
-      "featured": false,
-      "ja": "カルマンフィルタによる状態空間トレンド推定。ノイズと真のトレンドを数学的に分離する。",
-      "en": "State-space trend estimation via Kalman filtering — mathematically separating noise from trend."
-    },
-    {
-      "code": "AE-STRATA",
-      "name": "SMC × Machine Learning",
-      "type": "indicator",
-      "cat": "smc",
-      "access": "invite",
-      "color": "magenta",
-      "tags": [
-        "SMC",
-        "ML/RL"
-      ],
-      "boosts": 0,
-      "slug": null,
-      "url": null,
-      "featured": true,
-      "ja": "スマートマネー・コンセプト（SMC）の構造検出にML/RLレイヤーを統合した次世代SMCツール。",
-      "en": "Next-gen Smart Money Concepts: structure detection fused with ML/RL layers."
-    },
-    {
-      "code": "AE-BPE Lite",
-      "name": "Breakout Probability Engine",
-      "type": "indicator",
-      "cat": "probability",
-      "access": "free",
-      "color": "emerald",
-      "tags": [
-        "BREAKOUT",
-        "FREE"
-      ],
-      "boosts": 0,
-      "slug": null,
-      "url": null,
-      "featured": true,
-      "ja": "ブレイクアウト成功確率エンジンの無料版。コア確率モデルをそのまま体験できるエントリーモデル。",
-      "en": "Free tier of the Breakout Probability Engine — experience the core probability model at no cost."
-    },
-    {
-      "code": "AE-BPE Pro",
-      "name": "Breakout Probability Engine",
-      "type": "indicator",
-      "cat": "probability",
-      "access": "invite",
-      "color": "cyan",
-      "tags": [
-        "BREAKOUT",
-        "PROBABILITY"
-      ],
-      "boosts": 0,
-      "slug": null,
-      "url": null,
-      "featured": false,
-      "ja": "学習型の成功確率推定と高度なフィルターを備えたフル機能版。",
-      "en": "Full-featured tier with learned success-probability estimation and advanced filters."
-    },
-    {
-      "code": "AE-BPE Pro+",
-      "name": "Breakout Probability Engine",
-      "type": "indicator",
-      "cat": "probability",
-      "access": "invite",
-      "color": "purple",
-      "tags": [
-        "BREAKOUT",
-        "FLAGSHIP"
-      ],
-      "boosts": 0,
-      "slug": null,
-      "url": null,
-      "featured": false,
-      "ja": "全機能＋上位フィルター/アラートを備えたフラッグシップ・ティア。",
-      "en": "Flagship tier — every feature plus premium filters and alerts."
-    },
-    {
-      "code": "AE-PWRC",
-      "name": "Personal WinRate Coach",
-      "type": "indicator",
-      "cat": "risk",
-      "access": "open",
-      "color": "emerald",
-      "tags": [
-        "SELF-COACH",
-        "REGIME"
-      ],
-      "boosts": 0,
-      "slug": "qjPbh7py",
-      "url": "https://www.tradingview.com/script/qjPbh7py/",
-      "featured": false,
-      "ja": "自分のトレード結果を記録し、勝ちやすいレジームを学習してHUDで助言するセルフコーチング・ツール。",
-      "en": "Logs your trade outcomes, learns which regimes you win in, and coaches you in the HUD."
-    },
-    {
-      "code": "AE-VPSA",
-      "name": "Volume Profile Session Analyzer",
-      "type": "indicator",
-      "cat": "volume",
-      "access": "open",
-      "color": "cyan",
-      "tags": [
-        "VOLUME-PROFILE",
-        "SESSION"
-      ],
-      "boosts": 0,
-      "slug": "pt732MUy",
-      "url": "https://www.tradingview.com/script/pt732MUy/",
-      "featured": false,
-      "ja": "セッション単位の出来高プロファイルを動的に構築・延長するアナライザー。",
-      "en": "Builds and extends session-anchored volume profiles dynamically."
-    },
-    {
-      "code": "NRO",
-      "name": "Neuro-Regime Oracle",
-      "type": "strategy",
-      "cat": "ai",
-      "access": "free",
-      "color": "purple",
-      "tags": [
-        "DUELING-Q",
-        "WALK-FORWARD"
-      ],
-      "boosts": 0,
-      "slug": null,
-      "url": null,
-      "featured": false,
-      "ja": "予測コア／オーダーフロー／レジーム検出／Dueling-Q学習を9フェーズ統合した適応型AI戦略。ウォークフォワード検証付き。",
-      "en": "A 9-phase adaptive AI strategy: forecasting core, order flow, regime detection and Dueling-Q learning — with walk-forward validation."
-    },
     {
       "code": "TIDE | Flow + RL Oscillator",
       "name": "",
@@ -345,6 +21,96 @@ window.AE_DATA = /*__DATA_START__*/{
       "needsReview": true,
       "ja": "",
       "en": ""
+    },
+    {
+      "code": "Bayesian Level Probabilities",
+      "name": "Bayesian Level Probabilities",
+      "type": "indicator",
+      "cat": "probability",
+      "access": "open",
+      "color": "emerald",
+      "tags": [
+        "BAYES",
+        "LEVELS"
+      ],
+      "boosts": 0,
+      "slug": "nxv2N5Wm",
+      "url": "https://www.tradingview.com/script/nxv2N5Wm/",
+      "featured": false,
+      "ja": "統計的レベルの保持/ブレイクをBeta-Bernoulliベイズ推定。条件付き確率と信用区間を表示。",
+      "en": "Beta-Bernoulli Bayesian estimates of level hold/break — conditional probabilities with credible intervals."
+    },
+    {
+      "code": "Order Block Quality",
+      "name": "Order Block Quality",
+      "type": "indicator",
+      "cat": "smc",
+      "access": "open",
+      "color": "cyan",
+      "tags": [
+        "ORDER-BLOCK",
+        "SCREENER"
+      ],
+      "boosts": 0,
+      "slug": "VkKnnX2M",
+      "url": "https://www.tradingview.com/script/VkKnnX2M/",
+      "featured": false,
+      "ja": "オーダーブロックの品質をオンラインMLで採点。同一モデルの複数銘柄スクリーナーを同梱。",
+      "en": "Scores order-block quality with online ML — and ships a multi-symbol screener built on the same model."
+    },
+    {
+      "code": "Adaptive MTF Fusion",
+      "name": "Adaptive MTF Fusion",
+      "type": "indicator",
+      "cat": "mtf",
+      "access": "open",
+      "color": "purple",
+      "tags": [
+        "MTF",
+        "ONLINE-ML"
+      ],
+      "boosts": 0,
+      "slug": "AJmXcJOe",
+      "url": "https://www.tradingview.com/script/AJmXcJOe/",
+      "featured": false,
+      "ja": "複数タイムフレームのモメンタムを融合。TF別の重みをオンライン学習で市場に適応させる。",
+      "en": "Fuses momentum across timeframes; per-timeframe weights adapt through online learning."
+    },
+    {
+      "code": "Inefficiency Refill Model",
+      "name": "Inefficiency Refill Model",
+      "type": "indicator",
+      "cat": "smc",
+      "access": "open",
+      "color": "emerald",
+      "tags": [
+        "LIQUIDITY",
+        "SURVIVAL"
+      ],
+      "boosts": 0,
+      "slug": "6ApL5pgy",
+      "url": "https://www.tradingview.com/script/6ApL5pgy/",
+      "featured": false,
+      "ja": "流動性ボイド（非効率）を検出し、学習型リフィル確率と生存時間モデルで「いつ埋まるか」を推定。",
+      "en": "Detects liquidity voids and estimates refill probability and timing with a learned survival model."
+    },
+    {
+      "code": "Adaptive Trend Bandit",
+      "name": "Adaptive Trend Bandit",
+      "type": "indicator",
+      "cat": "trend",
+      "access": "open",
+      "color": "cyan",
+      "tags": [
+        "K-MEANS",
+        "UCB-BANDIT"
+      ],
+      "boosts": 0,
+      "slug": "9tSQp67Y",
+      "url": "https://www.tradingview.com/script/9tSQp67Y/",
+      "featured": true,
+      "ja": "ストリーミングk-meansでボラティリティをクラスタリングし、UCBバンディットがSuperTrend係数を適応選択。",
+      "en": "Streaming k-means clusters volatility while a UCB bandit adaptively selects SuperTrend factors."
     },
     {
       "code": "VECTOR | Conformal Forecast",
@@ -539,7 +305,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Bayesian Changepoint Detecti",
+      "code": "Bayesian Changepoint Detection",
       "name": "Bayesian Changepoint Detection",
       "type": "strategy",
       "cat": "",
@@ -699,6 +465,24 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
+      "code": "Personal WinRate Coach",
+      "name": "Personal WinRate Coach",
+      "type": "indicator",
+      "cat": "risk",
+      "access": "open",
+      "color": "emerald",
+      "tags": [
+        "SELF-COACH",
+        "REGIME"
+      ],
+      "boosts": 0,
+      "slug": "qjPbh7py",
+      "url": "https://www.tradingview.com/script/qjPbh7py/",
+      "featured": false,
+      "ja": "自分のトレード結果を記録し、勝ちやすいレジームを学習してHUDで助言するセルフコーチング・ツール。",
+      "en": "Logs your trade outcomes, learns which regimes you win in, and coaches you in the HUD."
+    },
+    {
       "code": "Mini Multi-Agent Consensus",
       "name": "",
       "type": "indicator",
@@ -715,7 +499,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Adaptive Volume Surge Detect",
+      "code": "Adaptive Volume Surge Detector",
       "name": "Adaptive Volume Surge Detector",
       "type": "indicator",
       "cat": "",
@@ -811,7 +595,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Hypercube Heatmap (Horizon F",
+      "code": "Hypercube Heatmap (Horizon Field)",
       "name": "Hypercube Heatmap (Horizon Field)",
       "type": "indicator",
       "cat": "",
@@ -843,7 +627,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Contrastive Similarity Engin",
+      "code": "Contrastive Similarity Engine",
       "name": "Contrastive Similarity Engine",
       "type": "indicator",
       "cat": "",
@@ -875,7 +659,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "PULSE Adaptive Signal Intell",
+      "code": "PULSE Adaptive Signal Intelligence",
       "name": "PULSE Adaptive Signal Intelligence",
       "type": "indicator",
       "cat": "",
@@ -891,7 +675,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "STRUCTURA Adaptive Price-Act",
+      "code": "STRUCTURA Adaptive Price-Action Intelligence",
       "name": "STRUCTURA Adaptive Price-Action Intelligence",
       "type": "indicator",
       "cat": "",
@@ -939,7 +723,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Quantum-Inspired Entanglemen",
+      "code": "Quantum-Inspired Entanglement Detector",
       "name": "Quantum-Inspired Entanglement Detector",
       "type": "indicator",
       "cat": "",
@@ -987,7 +771,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Portfolio Regime Hedge Optim",
+      "code": "Portfolio Regime Hedge Optimizer",
       "name": "Portfolio Regime Hedge Optimizer",
       "type": "indicator",
       "cat": "",
@@ -1003,7 +787,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Hierarchical Temporal Memory",
+      "code": "Hierarchical Temporal Memory Inspired",
       "name": "Hierarchical Temporal Memory Inspired",
       "type": "indicator",
       "cat": "",
@@ -1019,7 +803,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Sentiment-Proxy Correlation ",
+      "code": "Sentiment-Proxy Correlation Mapper",
       "name": "Sentiment-Proxy Correlation Mapper",
       "type": "indicator",
       "cat": "",
@@ -1035,7 +819,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Fractal Geometry + Diffusion",
+      "code": "Fractal Geometry + Diffusion Predictor",
       "name": "Fractal Geometry + Diffusion Predictor",
       "type": "indicator",
       "cat": "",
@@ -1051,7 +835,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Multi-Agent RL Consensus Eng",
+      "code": "Multi-Agent RL Consensus Engine",
       "name": "Multi-Agent RL Consensus Engine",
       "type": "strategy",
       "cat": "",
@@ -1067,7 +851,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Transformer-Inspired Attenti",
+      "code": "Transformer-Inspired Attention Bias",
       "name": "Transformer-Inspired Attention Bias",
       "type": "indicator",
       "cat": "",
@@ -1083,7 +867,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Bayesian Neural Market Micro",
+      "code": "Bayesian Neural Market Microstructure",
       "name": "Bayesian Neural Market Microstructure",
       "type": "indicator",
       "cat": "",
@@ -1099,7 +883,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Self-Evolving RL Dashboard L",
+      "code": "Self-Evolving RL Dashboard Lite",
       "name": "Self-Evolving RL Dashboard Lite",
       "type": "indicator",
       "cat": "",
@@ -1211,7 +995,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Hybrid Quantum-In",
+      "code": "AetherEdge Hybrid Quantum-Inspired Predictor",
       "name": "AetherEdge Hybrid Quantum-Inspired Predictor",
       "type": "strategy",
       "cat": "",
@@ -1227,7 +1011,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Volatility Regime",
+      "code": "AetherEdge Volatility Regime GAN Simulator",
       "name": "AetherEdge Volatility Regime GAN Simulator",
       "type": "strategy",
       "cat": "",
@@ -1243,7 +1027,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Multi-Feature Neu",
+      "code": "AetherEdge Multi-Feature Neural Divergence Hunter",
       "name": "AetherEdge Multi-Feature Neural Divergence Hunter",
       "type": "strategy",
       "cat": "",
@@ -1259,7 +1043,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge RL Signal Optimiz",
+      "code": "AetherEdge RL Signal Optimizer",
       "name": "AetherEdge RL Signal Optimizer",
       "type": "strategy",
       "cat": "",
@@ -1275,7 +1059,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge SMC AI Confidence",
+      "code": "AetherEdge SMC AI Confidence Engine",
       "name": "AetherEdge SMC AI Confidence Engine",
       "type": "indicator",
       "cat": "",
@@ -1291,7 +1075,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Adaptive LSTM-ins",
+      "code": "AetherEdge Adaptive LSTM-inspired Forecaster",
       "name": "AetherEdge Adaptive LSTM-inspired Forecaster",
       "type": "strategy",
       "cat": "",
@@ -1307,7 +1091,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge KNN Regime Classi",
+      "code": "AetherEdge KNN Regime Classifier",
       "name": "AetherEdge KNN Regime Classifier",
       "type": "strategy",
       "cat": "",
@@ -1323,7 +1107,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge NeuraNet Trend Pr",
+      "code": "AetherEdge NeuraNet Trend Predictor",
       "name": "AetherEdge NeuraNet Trend Predictor",
       "type": "indicator",
       "cat": "",
@@ -1355,7 +1139,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Liquidity Sweep & Raid Detec",
+      "code": "Liquidity Sweep & Raid Detector",
       "name": "Liquidity Sweep & Raid Detector",
       "type": "strategy",
       "cat": "",
@@ -1371,7 +1155,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "WaveTrend Oscillator Enhance",
+      "code": "WaveTrend Oscillator Enhanced",
       "name": "WaveTrend Oscillator Enhanced",
       "type": "strategy",
       "cat": "",
@@ -1403,7 +1187,25 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Hull MA Ribbon + Momentum Fi",
+      "code": "Volume Profile Session Analyzer",
+      "name": "Volume Profile Session Analyzer",
+      "type": "indicator",
+      "cat": "volume",
+      "access": "open",
+      "color": "cyan",
+      "tags": [
+        "VOLUME-PROFILE",
+        "SESSION"
+      ],
+      "boosts": 0,
+      "slug": "pt732MUy",
+      "url": "https://www.tradingview.com/script/pt732MUy/",
+      "featured": false,
+      "ja": "セッション単位の出来高プロファイルを動的に構築・延長するアナライザー。",
+      "en": "Builds and extends session-anchored volume profiles dynamically."
+    },
+    {
+      "code": "Hull MA Ribbon + Momentum Filter",
       "name": "Hull MA Ribbon + Momentum Filter",
       "type": "indicator",
       "cat": "",
@@ -1467,7 +1269,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "Multi-Timeframe Trend Scanne",
+      "code": "Multi-Timeframe Trend Scanner",
       "name": "Multi-Timeframe Trend Scanner",
       "type": "indicator",
       "cat": "",
@@ -1483,7 +1285,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Self-Evolving S/R",
+      "code": "AetherEdge Self-Evolving S/R Grid",
       "name": "AetherEdge Self-Evolving S/R Grid",
       "type": "strategy",
       "cat": "",
@@ -1499,7 +1301,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Quantum-Inspired ",
+      "code": "AetherEdge Quantum-Inspired Breakout Scanner",
       "name": "AetherEdge Quantum-Inspired Breakout Scanner",
       "type": "indicator",
       "cat": "",
@@ -1515,7 +1317,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Liquidity Void De",
+      "code": "AetherEdge Liquidity Void Detector",
       "name": "AetherEdge Liquidity Void Detector",
       "type": "indicator",
       "cat": "",
@@ -1531,7 +1333,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Regime-Aware Tren",
+      "code": "AetherEdge Regime-Aware Trend Channel",
       "name": "AetherEdge Regime-Aware Trend Channel",
       "type": "strategy",
       "cat": "",
@@ -1547,7 +1349,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Adaptive Fibonacc",
+      "code": "AetherEdge Adaptive Fibonacci AI",
       "name": "AetherEdge Adaptive Fibonacci AI",
       "type": "indicator",
       "cat": "",
@@ -1563,7 +1365,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Neural Order Bloc",
+      "code": "AetherEdge Neural Order Block Evolution",
       "name": "AetherEdge Neural Order Block Evolution",
       "type": "strategy",
       "cat": "",
@@ -1579,7 +1381,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge KNN Breakout Fort",
+      "code": "AetherEdge KNN Breakout Fortress",
       "name": "AetherEdge KNN Breakout Fortress",
       "type": "strategy",
       "cat": "",
@@ -1595,7 +1397,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge AI Dynamic Trendl",
+      "code": "AetherEdge AI Dynamic Trendline Architect",
       "name": "AetherEdge AI Dynamic Trendline Architect",
       "type": "strategy",
       "cat": "",
@@ -1627,7 +1429,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Reinforcement Fil",
+      "code": "AetherEdge Reinforcement Filter MA",
       "name": "AetherEdge Reinforcement Filter MA",
       "type": "strategy",
       "cat": "",
@@ -1643,7 +1445,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Cluster Probabili",
+      "code": "AetherEdge Cluster Probability Line",
       "name": "AetherEdge Cluster Probability Line",
       "type": "indicator",
       "cat": "",
@@ -1659,7 +1461,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Liquidity AI Sent",
+      "code": "AetherEdge Liquidity AI Sentinel",
       "name": "AetherEdge Liquidity AI Sentinel",
       "type": "indicator",
       "cat": "",
@@ -1675,7 +1477,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge AI Divergence Gho",
+      "code": "AetherEdge AI Divergence Ghost",
       "name": "AetherEdge AI Divergence Ghost",
       "type": "indicator",
       "cat": "",
@@ -1691,7 +1493,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Adaptive Super Ne",
+      "code": "AetherEdge Adaptive Super Neural",
       "name": "AetherEdge Adaptive Super Neural",
       "type": "indicator",
       "cat": "",
@@ -1707,7 +1509,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Neural Regime Swi",
+      "code": "AetherEdge Neural Regime Switch",
       "name": "AetherEdge Neural Regime Switch",
       "type": "strategy",
       "cat": "",
@@ -1723,7 +1525,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge AI Trend Pulse [K",
+      "code": "AetherEdge AI Trend Pulse [KNN+NeuraLib]",
       "name": "AetherEdge AI Trend Pulse [KNN+NeuraLib]",
       "type": "indicator",
       "cat": "",
