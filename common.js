@@ -249,8 +249,8 @@
         '<div class="thumb h-32 flex items-center justify-center mb-5 border border-white/10">' +
           '<svg class="spark text-ae-' + color + '" width="200" height="64" viewBox="0 0 200 64" fill="none" aria-hidden="true">' + spark + '</svg>' +
         '</div>' +
-        '<h3 class="font-orbitron font-bold text-lg tracking-wider text-white">' + (s.code || '') + '</h3>' +
-        '<p class="text-[.7rem] tracking-[.2em] uppercase text-ae-' + color + '/80 mt-1">' + (s.name || '&nbsp;') + '</p>' +
+        '<h3 class="font-orbitron font-bold text-base tracking-wider text-white leading-tight">' + (s.code || '') + '</h3>' +
+        '<p class="text-[.7rem] tracking-[.2em] uppercase text-ae-' + color + '/80 mt-1">' + (s.name || catLabel(s.type, s.cat)) + '</p>' +
         '<p class="text-[.8rem] leading-7 text-gray-400 mt-3 flex-1">' + desc + '</p>' +
         '<div class="flex flex-wrap gap-2 mt-4">' + tagsHtml + '</div>' +
         '<div class="flex items-end justify-between mt-5 pt-4 border-t border-white/10">' +
