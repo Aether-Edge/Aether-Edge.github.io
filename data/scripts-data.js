@@ -3,9 +3,25 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-06-15T18:11:29.136Z",
-  "totalPublished": 95,
+  "updated": "2026-06-16T18:21:27.644Z",
+  "totalPublished": 96,
   "scripts": [
+    {
+      "code": "Smart Money Flow",
+      "name": "",
+      "type": "indicator",
+      "cat": "",
+      "access": "open",
+      "color": "cyan",
+      "tags": [],
+      "boosts": 0,
+      "slug": "jkgBMcNr",
+      "url": "https://www.tradingview.com/script/jkgBMcNr/",
+      "featured": false,
+      "needsReview": true,
+      "ja": "",
+      "en": ""
+    },
     {
       "code": "TIDE | Flow + RL Oscillator",
       "name": "",
