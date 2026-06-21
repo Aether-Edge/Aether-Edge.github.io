@@ -1,26 +1,20 @@
 /* ============================================================
-   AetherEdge — TradingView catalog sync (v2)
+   AetherEdge — TradingView catalog sync (v3)
    ------------------------------------------------------------
    公開プロフィール（#published-scripts）から全スクリプトを取得し、
    data/scripts-data.js を安全マージします。
 
-   ◆ v2の重要な設計（重複を作らない）:
-     - スクレイプ結果（slug付き）を「唯一の正」とする
-     - 既存データとの照合は slug のみで行う（タイトル照合は廃止）
-       → 過去の手動エントリと重複しない
-     - 全スクリプトは access="open"（このプロフィールは全て公開ソース）
-     - slug を持たない既存エントリ（手動の古いデータ）は破棄する
-       → これにより 106本/Invite-Only の復活を防ぐ
+   v3の変更点:
+     - ロケールを en-US に固定（boost等のaria-labelが英語で安定）
+     - ブースト取得を多段フォールバックに（class/aria-label/title/
+       data-name + 数値テキスト + ラベル内数値、EN/JA両対応）
+     - 取得できたブースト>0が0件のときは、先頭カードのHTMLを
+       自動でログ出力して原因診断できるようにした（AE_DEBUG=1で常時）
 
-   保持されるフィールド（手動編集が消えない、slugで紐付く限り）:
-     cat / ja / en / tags / color / featured
+   保持されるフィールド（slugで紐付く限り手動編集が消えない）:
+     cat / ja / en / tags / color / featured / needsReview
    自動更新されるフィールド:
      code / boosts / url / slug / type / totalPublished / updated
-
-   使い方:
-     npm install
-     npx playwright install chromium
-     npm run sync
    ============================================================ */
 
 import { chromium } from 'playwright';
@@ -33,6 +27,7 @@ const DATA_FILE = join(__dirname, '..', 'data', 'scripts-data.js');
 const PROFILE_URL = 'https://www.tradingview.com/u/AetherEdge/#published-scripts';
 const COLOR_CYCLE = ['cyan', 'emerald', 'purple', 'magenta'];
 const MAX_SCROLL_ROUNDS = 80;
+const DEBUG = !!process.env.AE_DEBUG;
 
 /* ---------- data file io ---------- */
 
@@ -85,15 +80,23 @@ async function autoLoadAll(page) {
 async function extractScripts(page) {
   return page.evaluate(() => {
     const seen = new Map();
+    const debugCards = [];
     const anchors = Array.from(document.querySelectorAll('a[href*="/script/"]'));
+
+    const digits = (s) => {
+      const m = (s || '').replace(/,/g, '').match(/\d+/);
+      return m ? parseInt(m[0], 10) : null;
+    };
+
     for (const a of anchors) {
       const href = a.getAttribute('href') || '';
       const m = href.match(/\/script\/([A-Za-z0-9]+)(?:-|\/|$)/);
       if (!m) continue;
       const slug = m[1];
 
+      // climb to a card-sized container
       let card = a;
-      for (let i = 0; i < 6 && card.parentElement; i++) {
+      for (let i = 0; i < 8 && card.parentElement; i++) {
         card = card.parentElement;
         if ((card.innerText || '').length > 30) break;
       }
@@ -103,38 +106,74 @@ async function extractScripts(page) {
         (a.textContent || '').trim() ||
         (img && (img.getAttribute('alt') || '').trim()) ||
         '';
-      // 「AetherEdge - 」接頭辞を除去
       title = title.replace(/^AetherEdge\s*[-–—:]\s*/i, '').trim();
 
-      const text = (card.innerText || '').toLowerCase();
+      const text = (card.innerText || '');
+      const lower = text.toLowerCase();
 
-      let boosts = 0;
+      /* ---- boosts: multi-strategy ---- */
+      let boosts = null;
+
+      // 1) explicit boost-ish element (EN + JA), number from its labels or text
       const boostEl = card.querySelector(
-        '[data-name*="boost" i], [class*="boost" i], [aria-label*="boost" i], [title*="boost" i]'
+        '[aria-label*="boost" i],[title*="boost" i],[data-name*="boost" i],' +
+        '[class*="boost" i],[aria-label*="ブースト"],[title*="ブースト"]'
       );
       if (boostEl) {
-        const n = (boostEl.textContent || '').replace(/[^\d]/g, '');
-        if (n) boosts = parseInt(n, 10);
+        boosts =
+          digits(boostEl.getAttribute('aria-label')) ??
+          digits(boostEl.getAttribute('title')) ??
+          digits((boostEl.closest('button, a, div') || boostEl).textContent);
       }
 
-      const typeRaw = /strategy|ストラテジー/.test(text)
+      // 2) any button/anchor labelled boost (EN/JA) -> its number
+      if (boosts === null) {
+        for (const b of card.querySelectorAll('button, a, span, div')) {
+          const lbl =
+            (b.getAttribute('aria-label') || '') + ' ' + (b.getAttribute('title') || '');
+          if (/boost|ブースト/i.test(lbl)) {
+            boosts = digits(lbl) ?? digits(b.textContent);
+            if (boosts !== null) break;
+          }
+        }
+      }
+
+      // 3) rocket/boost svg use href -> nearest number
+      if (boosts === null) {
+        const use = card.querySelector('use[*|href*="boost" i], use[href*="boost" i]');
+        if (use) {
+          const host = use.closest('button, a, div, span');
+          if (host) boosts = digits(host.textContent);
+        }
+      }
+
+      if (boosts === null) boosts = 0;
+
+      const typeRaw = /strategy|ストラテジー/.test(lower)
         ? 'strategy'
-        : /library|ライブラリ/.test(text)
+        : /library|ライブラリ/.test(lower)
           ? 'library'
           : 'indicator';
 
       const prev = seen.get(slug);
-      if (!prev || (title && !prev.title)) {
+      const better =
+        !prev ||
+        (title && !prev.title) ||
+        boosts > (prev ? prev.boosts : 0);
+      if (better) {
         seen.set(slug, {
           slug,
-          title,
+          title: title || (prev && prev.title) || '',
           boosts: Math.max(boosts, prev ? prev.boosts : 0),
           typeRaw,
           url: 'https://www.tradingview.com/script/' + slug + '/'
         });
       }
+
+      if (debugCards.length < 3) debugCards.push((card.outerHTML || '').slice(0, 2200));
     }
-    return Array.from(seen.values());
+
+    return { items: Array.from(seen.values()), debug: debugCards };
   });
 }
 
@@ -150,7 +189,6 @@ function fixedOrder(entry) {
 }
 
 function merge(existing, scraped) {
-  // 既存データを slug => entry のMapにするだけのIndex（slugなしは捨てる）
   const bySlug = new Map();
   for (const s of existing.scripts) {
     if (s.slug) bySlug.set(s.slug, s);
@@ -167,10 +205,9 @@ function merge(existing, scraped) {
 
     const prev = bySlug.get(item.slug);
     if (prev) {
-      // 既存: 手動編集(cat/ja/en/tags/color/featured)を保持、機械項目を更新
       prev.code = item.title || prev.code;
       prev.type = item.typeRaw;
-      prev.access = 'open';        // このプロフィールは全て公開ソース
+      prev.access = 'open';
       prev.boosts = item.boosts;
       prev.slug = item.slug;
       prev.url = item.url;
@@ -178,7 +215,6 @@ function merge(existing, scraped) {
       result.push(fixedOrder(prev));
       updated += 1;
     } else {
-      // 新規: cat/ja/en は空でneedsReview
       const entry = {
         code: item.title || item.slug,
         name: '',
@@ -211,13 +247,13 @@ function merge(existing, scraped) {
 /* ---------- main ---------- */
 
 async function main() {
-  console.log('▶ AetherEdge catalog sync (v2)');
+  console.log('▶ AetherEdge catalog sync (v3)');
   const { text, data } = readData();
   console.log('  existing entries:', data.scripts.length);
 
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({
-    locale: 'ja-JP',
+    locale: 'en-US',
     viewport: { width: 1440, height: 1000 },
     userAgent:
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
@@ -228,14 +264,20 @@ async function main() {
     await page.goto(PROFILE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await page.waitForTimeout(3000);
     await autoLoadAll(page);
-    const scraped = await extractScripts(page);
-    console.log('  scraped scripts:', scraped.length);
+
+    const { items: scraped, debug } = await extractScripts(page);
+    const withBoost = scraped.filter((s) => s.boosts > 0).length;
+    console.log('  scraped scripts:', scraped.length, '| with boosts>0:', withBoost);
 
     if (scraped.length === 0) {
       console.error('✗ 0 scripts scraped — DOMセレクタが変わった可能性があります。');
-      console.error('  Claude Code に extractScripts の修正を依頼してください。');
       process.exitCode = 1;
       return;
+    }
+
+    if (withBoost === 0 || DEBUG) {
+      console.log('⚠ boost診断: 先頭カードのHTMLを出力します（セレクタ調整用）');
+      debug.forEach((h, i) => console.log(`\n────── CARD #${i} ──────\n${h}\n`));
     }
 
     const { updated, added, newOnes } = merge(data, scraped);
@@ -243,6 +285,8 @@ async function main() {
 
     console.log('✓ merged:', updated, 'updated /', added, 'new');
     console.log('  total now:', data.scripts.length);
+    const top = [...data.scripts].sort((a, b) => (b.boosts || 0) - (a.boosts || 0)).slice(0, 5);
+    console.log('  top boosts:', top.map((s) => `${s.code}=${s.boosts}`).join(', '));
     if (newOnes.length) {
       console.log('── 新規スクリプト（cat と ja/en 説明文の追加が必要）──');
       for (const a of newOnes) console.log('  •', a.code, '(' + a.url + ')');
