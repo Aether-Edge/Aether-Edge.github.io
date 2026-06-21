@@ -32,6 +32,7 @@
       "sc_updated": "最終同期: {updated}",
       "tab_ind": "Indicators",
       "tab_str": "Strategies",
+      "tab_lib": "Libraries",
       "view_cat": "カテゴリー別",
       "view_rank": "人気ランキング",
       "chip_all": "すべて",
@@ -79,6 +80,7 @@
       "sc_updated": "Last synced: {updated}",
       "tab_ind": "Indicators",
       "tab_str": "Strategies",
+      "tab_lib": "Libraries",
       "view_cat": "By Category",
       "view_rank": "Popularity",
       "chip_all": "All",
@@ -137,7 +139,8 @@
       { id: 'swing',         ja: 'スイング',             en: 'Swing' },
       { id: 'scalping',      ja: 'スキャルピング',        en: 'Scalping' },
       { id: 'session',       ja: 'セッション・時間帯',   en: 'Session-Based' }
-    ]
+    ],
+    library: []
   };
 
   /* ============================================================
