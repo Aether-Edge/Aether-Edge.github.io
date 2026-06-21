@@ -201,8 +201,6 @@ function merge(existing, scraped) {
   const newOnes = [];
 
   for (const item of scraped) {
-    if (item.typeRaw === 'library') continue; // ライブラリは対象外
-
     const prev = bySlug.get(item.slug);
     if (prev) {
       prev.code = item.title || prev.code;
@@ -218,7 +216,7 @@ function merge(existing, scraped) {
       const entry = {
         code: item.title || item.slug,
         name: '',
-        type: item.typeRaw === 'strategy' ? 'strategy' : 'indicator',
+        type: item.typeRaw,
         cat: '',
         access: 'open',
         color: COLOR_CYCLE[colorIdx % COLOR_CYCLE.length],
