@@ -3,8 +3,8 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-06-21T18:09:30.694Z",
-  "totalPublished": 105,
+  "updated": "2026-06-21T18:25:31.837Z",
+  "totalPublished": 108,
   "scripts": [
     {
       "code": "Market Scanner",
@@ -42,17 +42,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Seasonality",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "probability",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "seasonality",
+        "empirical-bayes",
+        "t-stat",
+        "statistics"
+      ],
       "boosts": 3,
       "slug": "3Br0G8Y8",
       "url": "https://www.tradingview.com/script/3Br0G8Y8/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "時間帯・曜日・月ごとのリターンをt統計量と経験的ベイズ縮小で検定するシーズナリティ指標。",
+      "en": "Computes mean return, win-rate, and t-stat per hour/weekday/month bucket, applying empirical-Bayes shrinkage to penalize low-sample estimates."
     },
     {
       "code": "Adaptive Risk Engine",
@@ -74,17 +79,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Pattern Edge Learner",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "probability",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "kernel regression",
+        "candlestick",
+        "pattern",
+        "non-parametric"
+      ],
       "boosts": 6,
       "slug": "Zc7zhbEn",
       "url": "https://www.tradingview.com/script/Zc7zhbEn/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ATR正規化シグネチャとカーネル回帰で過去類似パターンの上昇確率と期待値を推定する。",
+      "en": "Encodes recent bars as ATR-normalized shape signatures and estimates forward up-probability via Nadaraya-Watson kernel regression over historical analogues."
     },
     {
       "code": "Mean-Reversion Bands",
@@ -138,17 +148,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Adaptive Volume Profile",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "volume",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "volume-profile",
+        "logistic-regression",
+        "breakout",
+        "ucb-bandit"
+      ],
       "boosts": 11,
       "slug": "HiRgqVon",
       "url": "https://www.tradingview.com/script/HiRgqVon/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "POC・VAH・VALを算出し、オンラインロジスティック回帰でバリューエリア端のブレイク受容確率を推定する。",
+      "en": "Builds a volume profile (POC, VAH, VAL) and estimates breakout acceptance probability at value-area edges via online logistic regression with a UCB-tuned threshold."
     },
     {
       "code": "Smart Money Flow",
@@ -158,9 +173,25 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "cyan",
       "tags": [],
-      "boosts": 525,
+      "boosts": 526,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
+      "featured": false,
+      "needsReview": true,
+      "ja": "",
+      "en": ""
+    },
+    {
+      "code": "Flow Anomaly Markov",
+      "name": "",
+      "type": "library",
+      "cat": "",
+      "access": "open",
+      "color": "purple",
+      "tags": [],
+      "boosts": 5,
+      "slug": "cEvBEkmc",
+      "url": "https://www.tradingview.com/script/cEvBEkmc/",
       "featured": false,
       "needsReview": true,
       "ja": "",
@@ -276,33 +307,43 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "VECTOR | Conformal Forecast",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "conformal prediction",
+        "regression",
+        "prediction interval",
+        "atr-normalized"
+      ],
       "boosts": 3,
       "slug": "M0KTXsDX",
       "url": "https://www.tradingview.com/script/M0KTXsDX/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "オンライン線形回帰とコンフォーマル予測でHバー先の価格変動幅を推定する。",
+      "en": "Projects an H-bar price target via online SGD linear regression with a conformal prediction interval calibrated to ~1−α empirical coverage."
     },
     {
       "code": "HELM | Regime + RL Manager",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "regime",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "regime",
+        "reinforcement learning",
+        "trade management",
+        "position sizing"
+      ],
       "boosts": 7,
       "slug": "P07r06gT",
       "url": "https://www.tradingview.com/script/P07r06gT/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ロジスティック回帰でトレンド/レンジを分類し、REINFORCEエージェントがエクスポージャーを管理する。",
+      "en": "Online logistic classifier labels trend vs range regimes; a REINFORCE policy-gradient agent manages target exposure across five discrete levels."
     },
     {
       "code": "KALMAN | State-Space Trend",
@@ -340,33 +381,43 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Self-Attention Focus",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "self-attention",
+        "transformer",
+        "forecast",
+        "machine-learning"
+      ],
       "boosts": 20,
       "slug": "hAUvPolk",
       "url": "https://www.tradingview.com/script/hAUvPolk/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "過去バーとの類似度をself-attentionで計算し、加重平均で価格予測を行うインジケーター。",
+      "en": "Applies transformer self-attention (query-key dot product, softmax normalization) over a 4-D feature vector to forecast price from analogous past bars."
     },
     {
       "code": "Particle Swarm Filter",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "trend",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "particle-filter",
+        "monte-carlo",
+        "uncertainty",
+        "trend"
+      ],
       "boosts": 10,
       "slug": "fBAL7mVM",
       "url": "https://www.tradingview.com/script/fBAL7mVM/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "逐次モンテカルロ粒子フィルターで隠れトレンド状態を推定するインジケーター。",
+      "en": "Estimates hidden trend state via a particle filter (sequential Monte Carlo) with a damped constant-velocity model and ATR-scaled noise."
     },
     {
       "code": "Gaussian Process Bands",
@@ -388,17 +439,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Hidden Markov Regime",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "regime",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "hmm",
+        "regime",
+        "probability",
+        "gaussian"
+      ],
       "boosts": 19,
       "slug": "9fBuHHkN",
       "url": "https://www.tradingview.com/script/9fBuHHkN/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "3状態HMMの前向きアルゴリズムでBull/Bear/Rangeの確率を推定し、オンラインEMでガウス分布パラメータを自動更新する。",
+      "en": "Infers Bull/Bear/Range probabilities via a 3-state HMM forward algorithm with online EM learning of per-state Gaussian emission parameters."
     },
     {
       "code": "Bayesian Changepoint Shift",
@@ -468,65 +524,85 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Bayesian Changepoint Detection",
       "name": "Bayesian Changepoint Detection",
       "type": "strategy",
-      "cat": "",
+      "cat": "ai",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "bayesian",
+        "changepoint",
+        "regime-detection",
+        "probabilistic"
+      ],
       "boosts": 4,
       "slug": "HxBDk9yC",
       "url": "https://www.tradingview.com/script/HxBDk9yC/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ベイズ逐次更新でランレング事後分布を維持し、構造的変化点の確率をリアルタイムに推定する。",
+      "en": "Implements Adams & MacKay BOCPD to recursively estimate run-length posteriors and output continuous changepoint probability per bar."
     },
     {
       "code": "Principal Component Analysis",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "regime",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "pca",
+        "correlation",
+        "eigenvalue",
+        "systemic-risk"
+      ],
       "boosts": 0,
       "slug": "glhV5HTd",
       "url": "https://www.tradingview.com/script/glhV5HTd/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "バスケット資産の相関行列にローリングPCAを適用し、吸収比率（λ₁/N）と上位2主成分を算出する。",
+      "en": "Applies rolling PCA to a basket's correlation matrix via power iteration, computing the absorption ratio (λ₁/N) and top two eigenvectors to measure systemic correlation concentration."
     },
     {
       "code": "Spectral Cycle Engine",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "dft",
+        "cycles",
+        "spectrogram",
+        "fourier"
+      ],
       "boosts": 21,
       "slug": "FJu1N0Pe",
       "url": "https://www.tradingview.com/script/FJu1N0Pe/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "DFTで価格の支配的サイクルを検出し、フーリエ再構成で将来波形を投影する。",
+      "en": "Applies a rolling DFT to linearly-detrended price to extract dominant cycles, reconstruct a filtered waveform, and project it forward as a Fourier forecast."
     },
     {
       "code": "Kalman State Filter",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "kalman",
+        "adaptive",
+        "uncertainty",
+        "trend"
+      ],
       "boosts": 7,
       "slug": "aIi6k14x",
       "url": "https://www.tradingview.com/script/aIi6k14x/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "カルマンフィルタで価格の水準と速度を推定し、不確実性コーンを前方投影する。",
+      "en": "Two-state Kalman filter estimating price level and velocity with adaptive noise and a forward-projected uncertainty cone."
     },
     {
       "code": "Gaussian Mixture Regimes",
@@ -548,17 +624,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Q-Learning Regime Agent",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "regime",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "q-learning",
+        "regime",
+        "reinforcement-learning",
+        "signal"
+      ],
       "boosts": 6,
       "slug": "j6hnLjfP",
       "url": "https://www.tradingview.com/script/j6hnLjfP/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "トレンド・モメンタム・ボラティリティで27状態に離散化し、表形式Qラーニングでロング・ショート・フラットを学習するエージェント。",
+      "en": "Tabular Q-learning agent discretizes price action into 27 Trend×Momentum×Volatility regimes and learns a Long/Flat/Short policy via TD(0) updates each bar."
     },
     {
       "code": "Echo State Network",
@@ -662,17 +743,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Adaptive Volume Surge Detector",
       "name": "Adaptive Volume Surge Detector",
       "type": "indicator",
-      "cat": "",
+      "cat": "volume",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "volume",
+        "z-score",
+        "logistic-regression",
+        "signal-filter"
+      ],
       "boosts": 7,
       "slug": "dcNqtPeI",
       "url": "https://www.tradingview.com/script/dcNqtPeI/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ボリュームzスコア急増を検出し、オンラインロジスティック回帰で実シグナルとノイズを分類する。",
+      "en": "Detects volume surges via z-score and classifies real vs. noise using online logistic regression with delayed ATR-continuation labels."
     },
     {
       "code": "Pattern Probability Scanner",
@@ -694,17 +780,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "RL Momentum Filter",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "macd",
+        "momentum",
+        "adaptive-filter",
+        "signal"
+      ],
       "boosts": 21,
       "slug": "Ri3VZ3lS",
       "url": "https://www.tradingview.com/script/Ri3VZ3lS/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "MACDとモメンタムのゼロクロスをRL値関数で重み付けし、両者一致時のみシグナルを出力する。",
+      "en": "Weights MACD histogram and Momentum zero-cross signals via an online Q-value table updated from ATR-scaled price outcomes, emitting labels only on agreement."
     },
     {
       "code": "Self-Evolving S/R",
@@ -726,17 +817,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "OneButton Trend Master",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "regime",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "ema",
+        "knn",
+        "regime",
+        "signal"
+      ],
       "boosts": 23,
       "slug": "iMUZhIc3",
       "url": "https://www.tradingview.com/script/iMUZhIc3/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "EMAスタックとKNN（k=7、過去250本）の一致でbuy/sell/waitを背景色で表示。",
+      "en": "Classifies trend regime as buy, sell, or wait by requiring agreement between a 3-EMA stack and a 7-nearest-neighbor vote over 250-bar history."
     },
     {
       "code": "Adaptive Smart RSI",
@@ -806,17 +902,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Generative Flow Synthesizer",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "generative",
+        "path-simulation",
+        "uncertainty",
+        "ewma"
+      ],
       "boosts": 4,
       "slug": "vb4Mne7r",
       "url": "https://www.tradingview.com/script/vb4Mne7r/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "VAEの数学構造を参考に、EWMAで推定した潜在分布から複数の将来価格パスをサンプリングするインジケーター。",
+      "en": "Generates multiple future price paths via VAE-inspired latent sampling (z = μ + σ·ε) with EWMA-adapted drift and volatility."
     },
     {
       "code": "PULSE Adaptive Signal Intelligence",
@@ -1078,17 +1179,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Q-Learning Trendline Drawer",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "trend",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "trendline",
+        "q-learning",
+        "reinforcement-learning",
+        "auto-draw"
+      ],
       "boosts": 30,
       "slug": "0potdaSN",
       "url": "https://www.tradingview.com/script/0potdaSN/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "Q学習のベルマン更新で状態を離散化し、サポート・レジスタンスラインを自動描画する。",
+      "en": "Tabular Q-learning agent auto-draws support and resistance trendlines; line width, color, and opacity reflect learned Q-values."
     },
     {
       "code": "RainbowDQN Multi-Component",
@@ -1254,17 +1360,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "AetherEdge KNN Regime Classifier",
       "name": "AetherEdge KNN Regime Classifier",
       "type": "strategy",
-      "cat": "",
+      "cat": "ai",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "knn",
+        "regime-detection",
+        "machine-learning",
+        "multi-factor"
+      ],
       "boosts": 5,
       "slug": "nLqX6lQy",
       "url": "https://www.tradingview.com/script/nLqX6lQy/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "k-NNで最大2,000パターンを記憶し、8次元特徴量から5種の相場レジームをリアルタイムに多数決分類する。",
+      "en": "Implements k-NN with up to 2,000 stored patterns and an 8-feature vector to classify bars into five market regimes via majority or distance-weighted voting."
     },
     {
       "code": "AetherEdge NeuraNet Trend Predictor",
@@ -1334,17 +1445,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "SuperTrend Multi-Factor",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "supertrend",
+        "confluence",
+        "atr",
+        "ema"
+      ],
       "boosts": 256,
       "slug": "FHHAvW1O",
       "url": "https://www.tradingview.com/script/FHHAvW1O/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "SuperTrend・EMA・出来高の3要素スコアで売買シグナルを生成し、ATRベースのSL/TPを自動算出する。",
+      "en": "Combines SuperTrend direction, EMA filter, and volume threshold into a 3-factor confluence score with ATR-derived SL/TP levels."
     },
     {
       "code": "Volume Profile Session Analyzer",
@@ -1400,17 +1516,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Smart RSI Divergence Hunter",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "oscillator",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "rsi",
+        "divergence",
+        "price-structure",
+        "pivot"
+      ],
       "boosts": 525,
       "slug": "mAd4iDWL",
       "url": "https://www.tradingview.com/script/mAd4iDWL/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "RSIの4種類のダイバージェンスを価格構造（HH/HL/LH/LL）およびOB/OSフィルターで検出する。",
+      "en": "Detects all four RSI divergence types (regular/hidden bullish/bearish) confirmed by price structure labels and overbought/oversold zones."
     },
     {
       "code": "Volatility Squeeze Breaker",
@@ -1432,17 +1553,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Multi-Timeframe Trend Scanner",
       "name": "Multi-Timeframe Trend Scanner",
       "type": "indicator",
-      "cat": "",
+      "cat": "mtf",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "mtf",
+        "trend",
+        "ema",
+        "adx"
+      ],
       "boosts": 170,
       "slug": "uxRRcTtQ",
       "url": "https://www.tradingview.com/script/uxRRcTtQ/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "4時間足でEMA構造・ADX・RSIを集計し、−2〜+2のトレンドスコアとコンセンサス値をテーブル表示するインジケーター。",
+      "en": "Scans four user-defined timeframes using EMA structure, ADX strength, and RSI to output a consensus trend score from −2 to +2."
     },
     {
       "code": "AetherEdge Self-Evolving S/R Grid",
@@ -1461,36 +1587,62 @@ window.AE_DATA = /*__DATA_START__*/{
       "en": ""
     },
     {
-      "code": "AetherEdge Quantum-Inspired Breakout Scanner",
-      "name": "AetherEdge Quantum-Inspired Breakout Scanner",
-      "type": "indicator",
+      "code": "AetherEdge Pattern Recognition Trendline",
+      "name": "",
+      "type": "library",
       "cat": "",
       "access": "open",
-      "color": "cyan",
+      "color": "magenta",
       "tags": [],
-      "boosts": 8,
-      "slug": "dLjt3zl2",
-      "url": "https://www.tradingview.com/script/dLjt3zl2/",
+      "boosts": 11,
+      "slug": "5QmKn0b2",
+      "url": "https://www.tradingview.com/script/5QmKn0b2/",
       "featured": false,
       "needsReview": true,
       "ja": "",
       "en": ""
     },
     {
+      "code": "AetherEdge Quantum-Inspired Breakout Scanner",
+      "name": "AetherEdge Quantum-Inspired Breakout Scanner",
+      "type": "indicator",
+      "cat": "probability",
+      "access": "open",
+      "color": "cyan",
+      "tags": [
+        "knn",
+        "breakout",
+        "probability",
+        "pattern-recognition"
+      ],
+      "boosts": 8,
+      "slug": "dLjt3zl2",
+      "url": "https://www.tradingview.com/script/dLjt3zl2/",
+      "featured": false,
+      "needsReview": false,
+      "ja": "KNNと6次元特徴ベクトルで過去パターンを照合し、上昇・下降・横ばいの確率をソフトマックスで出力するブレイクアウト検知インジケーター。",
+      "en": "Applies KNN lookup across a 6-dimensional feature vector (return, volatility, RSI, momentum, volume, trend) to output softmax Up/Down/Sideways probabilities with ATR-based break confirmation."
+    },
+    {
       "code": "AetherEdge Liquidity Void Detector",
       "name": "AetherEdge Liquidity Void Detector",
       "type": "indicator",
-      "cat": "",
+      "cat": "smc",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "smc",
+        "liquidity",
+        "probability",
+        "volume"
+      ],
       "boosts": 31,
       "slug": "1qQUsW5r",
       "url": "https://www.tradingview.com/script/1qQUsW5r/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ウィック反発とATRフィルターで流動性ボイドを検出し、4特徴量シグモイドで充填確率を算出するSMC系インジケーター。",
+      "en": "Identifies liquidity voids via wick-rejection sweeps and ATR sizing, then scores each void's fill probability with a 4-feature weighted sigmoid."
     },
     {
       "code": "AetherEdge Regime-Aware Trend Channel",
@@ -1608,33 +1760,43 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "AetherEdge Cluster Probability Line",
       "name": "AetherEdge Cluster Probability Line",
       "type": "indicator",
-      "cat": "",
+      "cat": "probability",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "k-means",
+        "markov",
+        "regime",
+        "forecast"
+      ],
       "boosts": 0,
       "slug": "cyVgZFWP",
       "url": "https://www.tradingview.com/script/cyVgZFWP/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "K-meansで3市場レジームに分類し、マルコフ遷移行列で次状態確率を推定して前方投影する。",
+      "en": "Classifies price action into 3 regimes via K-means and estimates next-state probabilities using a Markov-style 3×3 transition matrix."
     },
     {
       "code": "AetherEdge Liquidity AI Sentinel",
       "name": "AetherEdge Liquidity AI Sentinel",
       "type": "indicator",
-      "cat": "",
+      "cat": "probability",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "knn",
+        "liquidity sweep",
+        "reversal",
+        "stop hunt"
+      ],
       "boosts": 6,
       "slug": "qZBuVb4Q",
       "url": "https://www.tradingview.com/script/qZBuVb4Q/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "KNNを用いてRSI・出来高・ATRの3次元特徴量からスイープ後の反転確率を算出するシグナル指標。",
+      "en": "Detects swing-level liquidity sweeps and scores reversal probability via KNN over a stored library of up to 2000 labeled sweep patterns."
     },
     {
       "code": "AetherEdge AI Divergence Ghost",
@@ -1667,6 +1829,27 @@ window.AE_DATA = /*__DATA_START__*/{
       "needsReview": true,
       "ja": "",
       "en": ""
+    },
+    {
+      "code": "AetherEdge KNN Momentum Whisper",
+      "name": "",
+      "type": "library",
+      "cat": "",
+      "access": "open",
+      "color": "emerald",
+      "tags": [
+        "knn",
+        "momentum",
+        "pattern-matching",
+        "forecast"
+      ],
+      "boosts": 24,
+      "slug": "Ovnj2IxQ",
+      "url": "https://www.tradingview.com/script/Ovnj2IxQ/",
+      "featured": false,
+      "needsReview": false,
+      "ja": "KNNアルゴリズムで最大300件の過去パターンを照合し、逆距離加重で翌バーのモメンタムを予測するライブラリ。",
+      "en": "Pine Script library implementing KNN pattern matching against a 300-bar rolling dictionary using 3D feature vectors (returns, RSI, ATR z-score) to produce inverse-distance-weighted next-bar momentum forecasts."
     },
     {
       "code": "AetherEdge Neural Regime Switch",
