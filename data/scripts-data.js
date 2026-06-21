@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-06-21T18:25:31.837Z",
+  "updated": "2026-06-21T22:38:51.193Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -63,17 +63,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Adaptive Risk Engine",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "risk",
       "access": "open",
       "color": "magenta",
-      "tags": [],
+      "tags": [
+        "kelly criterion",
+        "position sizing",
+        "atr",
+        "online learning"
+      ],
       "boosts": 1,
       "slug": "Zxp8c8KY",
       "url": "https://www.tradingview.com/script/Zxp8c8KY/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "オンライン学習でP(win)を推定し、フラクショナルケリー基準でポジションサイズを算出するリスク管理ツール。",
+      "en": "Estimates win probability via online logistic regression and sizes positions using fractional Kelly criterion with ATR-based stops and loss-streak throttling."
     },
     {
       "code": "Pattern Edge Learner",
@@ -100,17 +105,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Mean-Reversion Bands",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "probability",
       "access": "open",
       "color": "emerald",
-      "tags": [],
+      "tags": [
+        "mean-reversion",
+        "probability",
+        "bands",
+        "regime-adaptive"
+      ],
       "boosts": 4,
       "slug": "LImygeiq",
       "url": "https://www.tradingview.com/script/LImygeiq/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "バンドタッチ時の平均回帰確率をオンライン・ロジスティック回帰と三重バリア法で推定し、UCBしきい値をレジーム別に調整する。",
+      "en": "Estimates mean-reversion probability at band touches via online logistic regression with triple-barrier labeling and UCB-adaptive per-regime thresholds."
     },
     {
       "code": "Intermarket Correlation",
@@ -132,17 +142,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Volatility Forecast",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "magenta",
-      "tags": [],
+      "tags": [
+        "volatility",
+        "ewma",
+        "conformal",
+        "regime"
+      ],
       "boosts": 3,
       "slug": "L1KM5jMe",
       "url": "https://www.tradingview.com/script/L1KM5jMe/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "適応的EWMAでボラティリティを予測し、コンフォーマル校正済みの期待レンジとポジションサイズ倍率を出力する。",
+      "en": "Adaptive EWMA variance model forecasts next-bar and N-bar volatility via a conformal-calibrated price envelope, regime labels, and vol-targeted position sizing."
     },
     {
       "code": "Adaptive Volume Profile",
@@ -173,7 +188,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "cyan",
       "tags": [],
-      "boosts": 526,
+      "boosts": 527,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
@@ -508,17 +523,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Multi-Armed Bandit",
       "name": "",
       "type": "strategy",
-      "cat": "",
+      "cat": "ai",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "bayesian",
+        "multi-armed-bandit",
+        "adaptive",
+        "multi-factor"
+      ],
       "boosts": 1,
       "slug": "WbBroPO3",
       "url": "https://www.tradingview.com/script/WbBroPO3/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "5つのサブシグナルをベイズBeta事後分布とThompson SamplingまたはUCBで動的に重み付けするバンディット戦略。",
+      "en": "Dynamically weights five sub-signals using online Bayesian Beta posteriors updated with a forgetting factor, via Thompson Sampling or UCB allocation."
     },
     {
       "code": "Bayesian Changepoint Detection",
@@ -608,17 +628,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Gaussian Mixture Regimes",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "regime",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "gaussian-mixture",
+        "online-em",
+        "soft-probability",
+        "volatility"
+      ],
       "boosts": 5,
       "slug": "DS6facyY",
       "url": "https://www.tradingview.com/script/DS6facyY/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "オンラインEMとGaussian混合モデルでモメンタム×ボラティリティの分布からK個のレジームを逐次推定する。",
+      "en": "Fits a K-component Gaussian mixture to the joint momentum-volatility distribution each bar via online EM with a forgetting factor, outputting soft regime probabilities."
     },
     {
       "code": "Q-Learning Regime Agent",
@@ -665,7 +690,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "purple",
       "tags": [],
-      "boosts": 259,
+      "boosts": 260,
       "slug": "DZ81TJie",
       "url": "https://www.tradingview.com/script/DZ81TJie/",
       "featured": false,
@@ -971,17 +996,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "NEXUS Consensus Engine",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "consensus",
+        "cusum",
+        "entropy",
+        "multi-mechanism"
+      ],
       "boosts": 13,
       "slug": "vUFqFhTp",
       "url": "https://www.tradingview.com/script/vUFqFhTp/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "6つの独立メカニズムの多数決でBUY/SELLシグナルを生成するコンセンサスエンジン。",
+      "en": "Fires BUY/SELL only when a weighted majority of six mechanisms agree, with conformal prediction and permutation-entropy gates as vetoes."
     },
     {
       "code": "Quantum-Inspired Entanglement Detector",
@@ -1003,17 +1033,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Evolutionary Strategy Genome",
       "name": "",
       "type": "strategy",
-      "cat": "",
+      "cat": "ai",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "genetic-algorithm",
+        "adaptive",
+        "multi-factor",
+        "meta-learning"
+      ],
       "boosts": 24,
       "slug": "uyl8TCov",
       "url": "https://www.tradingview.com/script/uyl8TCov/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "遺伝的アルゴリズムで5つの指標遺伝子の重みを世代ごとに進化させ、最良ゲノムのシグナルを提案する。",
+      "en": "Runs a genetic algorithm over a population of strategy genomes encoding weights for five indicator genes, evolving the best-fit strategy each generation."
     },
     {
       "code": "Causal Inference Filter",
@@ -1035,17 +1070,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Portfolio Regime Hedge Optimizer",
       "name": "Portfolio Regime Hedge Optimizer",
       "type": "indicator",
-      "cat": "",
+      "cat": "regime",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "correlation",
+        "hedge",
+        "multi-asset",
+        "regime"
+      ],
       "boosts": 3,
       "slug": "zsfH83bf",
       "url": "https://www.tradingview.com/script/zsfH83bf/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "最大2つの相関資産との転がり相関を分類し、ヘッジシグナルを生成するマルチアセット体制指標。",
+      "en": "Classifies rolling correlation between a main asset and up to two correlated instruments as coupled, decoupled, or inverse, then issues hedge and diversification signals."
     },
     {
       "code": "Hierarchical Temporal Memory Inspired",
@@ -1131,17 +1171,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Bayesian Neural Market Microstructure",
       "name": "Bayesian Neural Market Microstructure",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "bayesian",
+        "forecast",
+        "uncertainty",
+        "microstructure"
+      ],
       "boosts": 6,
       "slug": "F6phg3kx",
       "url": "https://www.tradingview.com/script/F6phg3kx/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "重み摂動サンプリングにより次の価格変動の平均予測と不確実性分布を出力するベイズNNインジケーター。",
+      "en": "Generates a mean price forecast and uncertainty bands via weight-perturbation sampling using volume delta, spread, and liquidity proxies as inputs."
     },
     {
       "code": "Self-Evolving RL Dashboard Lite",
@@ -1216,33 +1261,43 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "A2C Advantage Critic",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "reinforcement-learning",
+        "actor-critic",
+        "neural-network",
+        "signal-filter"
+      ],
       "boosts": 3,
       "slug": "1mRJjXuC",
       "url": "https://www.tradingview.com/script/1mRJjXuC/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "A2C強化学習でアドバンテージA=R+γV(s′)−V(s)が閾値を超えた時のみ売買矢印を出力する指標。",
+      "en": "A2C reinforcement learning agent firing directional signals only when |advantage A = R + γV(s′) − V(s)| clears a user-defined gate."
     },
     {
       "code": "PPO Policy Optimizer",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "probability",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "reinforcement learning",
+        "ppo",
+        "actor-critic",
+        "policy gradient"
+      ],
       "boosts": 3,
       "slug": "unc8uhcT",
       "url": "https://www.tradingview.com/script/unc8uhcT/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "PPOクリッピングで方策更新を制限し、LONG/SHORT/FLATの確率分布を出力するActor-Criticエージェント。",
+      "en": "Actor-Critic agent using PPO clipped objective to output a softmax probability distribution over LONG, SHORT, and FLAT actions."
     },
     {
       "code": "DuelingDQN Breakout Hunter",
@@ -1413,17 +1468,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Liquidity Sweep & Raid Detector",
       "name": "Liquidity Sweep & Raid Detector",
       "type": "strategy",
-      "cat": "",
+      "cat": "swing",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "smart-money",
+        "liquidity",
+        "stop-hunt",
+        "structure"
+      ],
       "boosts": 419,
       "slug": "1tgtnjBR",
       "url": "https://www.tradingview.com/script/1tgtnjBR/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ATRフィルタードピボットでリクイディティスイープと構造破壊を検出するSMC分析ツール。",
+      "en": "Detects liquidity sweeps and equal highs/lows via ATR-filtered pivots with three confirmation modes and break-of-structure signals."
     },
     {
       "code": "WaveTrend Oscillator Enhanced",
@@ -1484,33 +1544,43 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Hull MA Ribbon + Momentum Filter",
       "name": "Hull MA Ribbon + Momentum Filter",
       "type": "indicator",
-      "cat": "",
+      "cat": "trend",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "hull ma",
+        "ribbon",
+        "momentum",
+        "rsi+macd"
+      ],
       "boosts": 21,
       "slug": "XLCu0n94",
       "url": "https://www.tradingview.com/script/XLCu0n94/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "6本のHMAリボンとRSI+MACDの複合スコアで7段階のモメンタム強度を色分け表示する。",
+      "en": "Plots six Hull Moving Average lines as a ribbon colored by a composite RSI+MACD momentum score across seven strength tiers."
     },
     {
       "code": "Order Block + FVG Detector",
       "name": "",
       "type": "strategy",
-      "cat": "",
+      "cat": "swing",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "order-block",
+        "fvg",
+        "smc",
+        "market-structure"
+      ],
       "boosts": 15,
       "slug": "FLI6Eyql",
       "url": "https://www.tradingview.com/script/FLI6Eyql/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "BOS起点のオーダーブロックとFVGゾーンを自動検出し、未緩和ゾーンを右側に延長表示するSMC可視化ツール。",
+      "en": "Detects BOS-confirmed order blocks and 3-bar fair value gaps, tracks mitigation state, and displays active zones with configurable overlap entry mode."
     },
     {
       "code": "Smart RSI Divergence Hunter",
@@ -1525,7 +1595,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "price-structure",
         "pivot"
       ],
-      "boosts": 525,
+      "boosts": 527,
       "slug": "mAd4iDWL",
       "url": "https://www.tradingview.com/script/mAd4iDWL/",
       "featured": false,
@@ -1541,7 +1611,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "purple",
       "tags": [],
-      "boosts": 21,
+      "boosts": 22,
       "slug": "3tR3C2jE",
       "url": "https://www.tradingview.com/script/3tR3C2jE/",
       "featured": false,
@@ -1818,17 +1888,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "AetherEdge Adaptive Super Neural",
       "name": "AetherEdge Adaptive Super Neural",
       "type": "indicator",
-      "cat": "",
+      "cat": "trend",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "supertrend",
+        "adaptive",
+        "atr",
+        "epsilon-greedy"
+      ],
       "boosts": 3,
       "slug": "14gCSPwL",
       "url": "https://www.tradingview.com/script/14gCSPwL/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ATR期間×乗数の3×3グリッド（9候補）をε-greedy方式でリアルタイム選択するSuperTrend。",
+      "en": "Runs 9 SuperTrend parameter combinations in parallel and selects the highest rolling-reward configuration via ε-greedy logic each bar."
     },
     {
       "code": "AetherEdge KNN Momentum Whisper",
