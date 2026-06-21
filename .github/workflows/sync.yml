@@ -24,12 +24,23 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Run sync
+      - name: Run sync (titles / boosts / new scripts)
         run: node tools/sync-tradingview.mjs
+
+      - name: Enrich descriptions (LLM, optional)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AE_MODEL: claude-haiku-4-5-20251001
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "ANTHROPIC_API_KEY not set — skipping enrichment."
+            exit 0
+          fi
+          node tools/enrich-descriptions.mjs
 
       - name: Commit & push if changed
         run: |
           git config user.name "ae-sync-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/scripts-data.js
-          git diff --cached --quiet || (git commit -m "chore: sync TradingView catalog" && git push)
+          git diff --cached --quiet || (git commit -m "chore: sync TradingView catalog + descriptions" && git push)
