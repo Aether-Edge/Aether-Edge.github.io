@@ -29,11 +29,11 @@ jobs:
 
       - name: Enrich descriptions (LLM, optional)
         env:
+          POE_API_KEY: ${{ secrets.POE_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          AE_MODEL: claude-haiku-4-5-20251001
         run: |
-          if [ -z "$ANTHROPIC_API_KEY" ]; then
-            echo "ANTHROPIC_API_KEY not set — skipping enrichment."
+          if [ -z "$POE_API_KEY" ] && [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "No LLM API key set (POE_API_KEY / ANTHROPIC_API_KEY) — skipping enrichment."
             exit 0
           fi
           node tools/enrich-descriptions.mjs
