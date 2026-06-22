@@ -29,7 +29,8 @@ const LIMIT = process.env.AE_ENRICH_LIMIT ? parseInt(process.env.AE_ENRICH_LIMIT
 
 const CATS = {
   indicator: ['trend','oscillator','forecast','signal','probability','regime','smc','volume','mtf','risk'],
-  strategy:  ['ai','trend-follow','mean-reversion','breakout','momentum','volatility','multi-factor','swing','scalping','session']
+  strategy:  ['ai','trend-follow','mean-reversion','breakout','momentum','volatility','multi-factor','swing','scalping','session'],
+  library:   ['utility']
 };
 
 function readData() {
@@ -45,10 +46,9 @@ function writeData(text, data) {
       '/*__DATA_START__*/' + json + '/*__DATA_END__*/'), 'utf8');
 }
 
-function isCatType(t) { return t === 'indicator' || t === 'strategy'; }
+function isCatType(t) { return t === 'indicator' || t === 'strategy' || t === 'library'; }
 function needs(s) {
-  const catOK = isCatType(s.type) ? !!s.cat : true; // libraryはcat不要
-  return s.needsReview === true || !s.ja || !s.en || !catOK;
+  return s.needsReview === true || !s.ja || !s.en || !s.cat;
 }
 
 async function callLLM(system, user) {
@@ -58,7 +58,7 @@ async function callLLM(system, user) {
       headers: { Authorization: 'Bearer ' + POE_KEY, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: MODEL,
-        max_tokens: 400,
+        max_tokens: 1200,
         messages: [{ role: 'system', content: system }, { role: 'user', content: user }]
       })
     });
@@ -75,7 +75,7 @@ async function callLLM(system, user) {
         'content-type': 'application/json'
       },
       body: JSON.stringify({
-        model: MODEL, max_tokens: 400, system,
+        model: MODEL, max_tokens: 1200, system,
         messages: [{ role: 'user', content: user }]
       })
     });
@@ -130,12 +130,17 @@ async function classify(script, desc) {
     '- "en": one short factual English sentence (<=120 chars), no hype\n' +
     '- "tags": array of 2-4 short lowercase tags';
 
-  const txt = await callLLM(system, user);
+  let txt = (await callLLM(system, user)) || '';
+  txt = txt.replace(/```json/gi, '').replace(/```/g, '').trim();
   const m = txt.match(/\{[\s\S]*\}/);
-  if (!m) throw new Error('no JSON in model output');
+  if (!m) throw new Error('no JSON in model output | raw="' + txt.slice(0, 160).replace(/\n/g, ' ') + '"');
   const out = JSON.parse(m[0]);
-  if (useCat && !allowed.includes(out.cat)) out.cat = allowed[0];
-  if (!useCat) out.cat = '';
+  if (useCat) {
+    if (type === 'library') out.cat = 'utility';
+    else if (!allowed.includes(out.cat)) out.cat = allowed[0];
+  } else {
+    out.cat = '';
+  }
   if (!Array.isArray(out.tags)) out.tags = [];
   return out;
 }
@@ -165,7 +170,7 @@ async function main() {
         s.en = String(out.en || '').trim();
         if (isCatType(s.type) && out.cat) s.cat = out.cat;
         if (out.tags.length) s.tags = out.tags.map((tt) => String(tt).toLowerCase().slice(0, 24)).slice(0, 4);
-        const done = s.ja && s.en && (s.type === 'library' || s.cat);
+        const done = s.ja && s.en && s.cat;
         if (done) s.needsReview = false;
         ok += 1;
         console.log(`  [${n}/${targets.length}] ✓ ${s.code} → ${s.cat || s.type} | ${s.ja}`);
