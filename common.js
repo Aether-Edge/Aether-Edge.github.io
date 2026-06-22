@@ -140,7 +140,9 @@
       { id: 'scalping',      ja: 'スキャルピング',        en: 'Scalping' },
       { id: 'session',       ja: 'セッション・時間帯',   en: 'Session-Based' }
     ],
-    library: []
+    library: [
+      { id: 'utility',     ja: 'ユーティリティ',         en: 'Utility' }
+    ]
   };
 
   /* ============================================================
