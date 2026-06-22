@@ -324,9 +324,12 @@
   function renderFeatured() {
     var grid = document.getElementById('featured-grid');
     if (!grid) return;
-    var items = SCRIPTS.filter(function (s) { return s.featured; });
+    // ランキング（ブースト）上位6本を表示
+    var items = SCRIPTS.slice().sort(function (a, b) {
+      return (b.boosts || 0) - (a.boosts || 0);
+    }).slice(0, 6);
     var html = '';
-    for (var i = 0; i < items.length; i++) html += cardHtml(items[i], -1);
+    for (var i = 0; i < items.length; i++) html += cardHtml(items[i], i);
     grid.innerHTML = html;
   }
 
