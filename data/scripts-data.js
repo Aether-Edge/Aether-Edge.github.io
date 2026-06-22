@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-06-22T18:31:37.052Z",
+  "updated": "2026-06-22T23:06:55.038Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -205,7 +205,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "order flow",
         "smart money"
       ],
-      "boosts": 552,
+      "boosts": 560,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
@@ -1013,7 +1013,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "knn",
         "pattern"
       ],
-      "boosts": 11,
+      "boosts": 12,
       "slug": "bnyetf49",
       "url": "https://www.tradingview.com/script/bnyetf49/",
       "featured": false,
@@ -1422,7 +1422,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "neural-network",
         "signal-filter"
       ],
-      "boosts": 3,
+      "boosts": 4,
       "slug": "1mRJjXuC",
       "url": "https://www.tradingview.com/script/1mRJjXuC/",
       "featured": false,
@@ -1788,7 +1788,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "price-structure",
         "pivot"
       ],
-      "boosts": 529,
+      "boosts": 530,
       "slug": "mAd4iDWL",
       "url": "https://www.tradingview.com/script/mAd4iDWL/",
       "featured": false,
