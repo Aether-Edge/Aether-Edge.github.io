@@ -3,40 +3,48 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-06-22T17:57:53.768Z",
+  "updated": "2026-06-22T18:31:37.052Z",
   "totalPublished": 108,
   "scripts": [
     {
       "code": "Market Scanner",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "scanner",
+        "screener",
+        "signals"
+      ],
       "boosts": 3,
       "slug": "uIXZXUhk",
       "url": "https://www.tradingview.com/script/uIXZXUhk/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "複数銘柄を一括スキャンし条件に合致したものを抽出するスクリーナー。",
+      "en": "Scans multiple symbols at once and surfaces those meeting your conditions."
     },
     {
       "code": "Adaptive Anchored VWAP",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "volume",
       "access": "open",
       "color": "emerald",
-      "tags": [],
+      "tags": [
+        "vwap",
+        "volume",
+        "adaptive"
+      ],
       "boosts": 3,
       "slug": "fRCrxRLG",
       "url": "https://www.tradingview.com/script/fRCrxRLG/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "アンカー起点からの出来高加重平均を相場に応じて適応させるVWAP。",
+      "en": "Anchored VWAP that adapts its parameters to current market conditions."
     },
     {
       "code": "Seasonality",
@@ -189,49 +197,61 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Smart Money Flow",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "smc",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "smc",
+        "order flow",
+        "smart money"
+      ],
       "boosts": 552,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "スマートマネーの資金フローを可視化し方向性の偏りを示す。",
+      "en": "Visualizes smart-money order flow to reveal directional bias."
     },
     {
       "code": "Flow Anomaly Markov",
       "name": "",
       "type": "library",
-      "cat": "",
+      "cat": "utility",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "markov",
+        "library",
+        "anomaly"
+      ],
       "boosts": 5,
       "slug": "cEvBEkmc",
       "url": "https://www.tradingview.com/script/cEvBEkmc/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "マルコフ連鎖でフローの異常を検出する再利用可能なライブラリ。",
+      "en": "Reusable library detecting order-flow anomalies via Markov chains."
     },
     {
       "code": "TIDE | Flow + RL Oscillator",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "oscillator",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "oscillator",
+        "reinforcement learning",
+        "flow"
+      ],
       "boosts": 36,
       "slug": "kJ1yvvmI",
       "url": "https://www.tradingview.com/script/kJ1yvvmI/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "フロー分析と強化学習を組み合わせた適応型オシレーター。",
+      "en": "Adaptive oscillator combining order-flow analysis with reinforcement learning."
     },
     {
       "code": "Bayesian Level Probabilities",
@@ -453,17 +473,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Gaussian Process Bands",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "gaussian process",
+        "bands",
+        "regression"
+      ],
       "boosts": 42,
       "slug": "HquVbrsO",
       "url": "https://www.tradingview.com/script/HquVbrsO/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ガウス過程回帰で価格の予測帯（バンド）を描画する。",
+      "en": "Draws predictive price bands using Gaussian process regression."
     },
     {
       "code": "Hidden Markov Regime",
@@ -490,33 +514,41 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Bayesian Changepoint Shift",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "regime",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "bayesian",
+        "changepoint",
+        "regime"
+      ],
       "boosts": 5,
       "slug": "LTu6zkQ5",
       "url": "https://www.tradingview.com/script/LTu6zkQ5/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ベイズ的変化点検出でレジーム転換を捉える。",
+      "en": "Detects regime shifts using Bayesian changepoint detection."
     },
     {
       "code": "Wavelet Multi-Resolution",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "mtf",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "wavelet",
+        "multi-resolution",
+        "decomposition"
+      ],
       "boosts": 7,
       "slug": "tpwjfK1P",
       "url": "https://www.tradingview.com/script/tpwjfK1P/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ウェーブレット変換で価格を複数解像度に分解して分析する。",
+      "en": "Decomposes price into multiple resolutions via wavelet analysis."
     },
     {
       "code": "Autoencoder Anomaly",
@@ -690,65 +722,81 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Echo State Network",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "echo state network",
+        "reservoir",
+        "forecast"
+      ],
       "boosts": 12,
       "slug": "r6yBrWvn",
       "url": "https://www.tradingview.com/script/r6yBrWvn/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "エコーステートネットワーク（リザバー計算）で系列を予測する。",
+      "en": "Forecasts price sequences with an echo state (reservoir computing) network."
     },
     {
       "code": "Triaxial Consensus Strategy",
       "name": "",
       "type": "strategy",
-      "cat": "",
+      "cat": "multi-factor",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "consensus",
+        "multi-factor",
+        "ensemble"
+      ],
       "boosts": 262,
       "slug": "DZ81TJie",
       "url": "https://www.tradingview.com/script/DZ81TJie/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "3軸の合議で売買判断するマルチファクター戦略。",
+      "en": "Multi-factor strategy trading on a three-axis consensus."
     },
     {
       "code": "Triaxial Consensus Signals",
       "name": "",
       "type": "strategy",
-      "cat": "",
+      "cat": "multi-factor",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "consensus",
+        "signals",
+        "ensemble"
+      ],
       "boosts": 18,
       "slug": "XWsPoosv",
       "url": "https://www.tradingview.com/script/XWsPoosv/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "3軸合議によるシグナルを出力するマルチファクター戦略。",
+      "en": "Multi-factor strategy emitting signals from a three-axis consensus."
     },
     {
       "code": "Consensus Council",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "ensemble",
+        "voting",
+        "consensus"
+      ],
       "boosts": 13,
       "slug": "mOnZQiRJ",
       "url": "https://www.tradingview.com/script/mOnZQiRJ/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "複数モデルの合議（投票）で総合シグナルを出す。",
+      "en": "Aggregates multiple models by voting into a combined signal."
     },
     {
       "code": "Personal WinRate Coach",
@@ -772,17 +820,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Mini Multi-Agent Consensus",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "multi-agent",
+        "consensus",
+        "signal"
+      ],
       "boosts": 16,
       "slug": "RUjkjw2x",
       "url": "https://www.tradingview.com/script/RUjkjw2x/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "小型のマルチエージェント合議で方向性を判定する。",
+      "en": "Lightweight multi-agent consensus that judges directional bias."
     },
     {
       "code": "Adaptive Volume Surge Detector",
@@ -809,17 +861,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Pattern Probability Scanner",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "probability",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "pattern",
+        "probability",
+        "scanner"
+      ],
       "boosts": 335,
       "slug": "srmaIJLG",
       "url": "https://www.tradingview.com/script/srmaIJLG/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "チャートパターンの出現確率を統計的にスキャンする。",
+      "en": "Scans chart patterns and estimates their statistical probability."
     },
     {
       "code": "RL Momentum Filter",
@@ -846,17 +902,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Self-Evolving S/R",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "smc",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "support resistance",
+        "adaptive",
+        "levels"
+      ],
       "boosts": 26,
       "slug": "SHEsL83I",
       "url": "https://www.tradingview.com/script/SHEsL83I/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "価格構造に合わせて自動更新する支持/抵抗ライン。",
+      "en": "Support/resistance levels that self-update with evolving price structure."
     },
     {
       "code": "OneButton Trend Master",
@@ -883,17 +943,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Adaptive Smart RSI",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "oscillator",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "rsi",
+        "oscillator",
+        "adaptive"
+      ],
       "boosts": 44,
       "slug": "KAaTOG7D",
       "url": "https://www.tradingview.com/script/KAaTOG7D/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "相場に応じて感度を調整する適応型RSIオシレーター。",
+      "en": "Adaptive RSI oscillator that adjusts sensitivity to market conditions."
     },
     {
       "code": "Hypercube Heatmap (Horizon Field)",
@@ -941,17 +1005,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Contrastive Similarity Engine",
       "name": "Contrastive Similarity Engine",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "similarity",
+        "knn",
+        "pattern"
+      ],
       "boosts": 11,
       "slug": "bnyetf49",
       "url": "https://www.tradingview.com/script/bnyetf49/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "過去の類似局面を対照学習で探し将来挙動を推定する。",
+      "en": "Finds analogous historical states via contrastive similarity to infer likely moves."
     },
     {
       "code": "Generative Flow Synthesizer",
@@ -978,17 +1046,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "PULSE Adaptive Signal Intelligence",
       "name": "PULSE Adaptive Signal Intelligence",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "signal",
+        "adaptive",
+        "engine"
+      ],
       "boosts": 17,
       "slug": "D4M8vV79",
       "url": "https://www.tradingview.com/script/D4M8vV79/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "適応的にシグナルを生成する総合シグナルエンジン。",
+      "en": "Adaptive signal engine that generates combined entry/exit signals."
     },
     {
       "code": "STRUCTURA Adaptive Price-Action Intelligence",
@@ -1015,17 +1087,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "APEX Swing Engine",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "swing",
+        "signals",
+        "engine"
+      ],
       "boosts": 512,
       "slug": "1ro4FL1E",
       "url": "https://www.tradingview.com/script/1ro4FL1E/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "スイングトレード向けのシグナルを生成するエンジン。",
+      "en": "Signal engine geared toward swing-trading setups."
     },
     {
       "code": "NEXUS Consensus Engine",
@@ -1052,17 +1128,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Quantum-Inspired Entanglement Detector",
       "name": "Quantum-Inspired Entanglement Detector",
       "type": "indicator",
-      "cat": "",
+      "cat": "regime",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "quantum-inspired",
+        "correlation",
+        "regime"
+      ],
       "boosts": 7,
       "slug": "SVede4m1",
       "url": "https://www.tradingview.com/script/SVede4m1/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "量子着想の手法で系列間の結合（相関構造）の変化を検出する。",
+      "en": "Detects shifts in cross-series coupling using a quantum-inspired method."
     },
     {
       "code": "Evolutionary Strategy Genome",
@@ -1089,17 +1169,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Causal Inference Filter",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "probability",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "causal inference",
+        "filter",
+        "statistics"
+      ],
       "boosts": 7,
       "slug": "TuSQjlk8",
       "url": "https://www.tradingview.com/script/TuSQjlk8/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "因果推論でノイズを除去し有意な動きだけを抽出するフィルター。",
+      "en": "Filters out noise using causal inference to surface meaningful moves."
     },
     {
       "code": "Portfolio Regime Hedge Optimizer",
@@ -1126,81 +1210,101 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Hierarchical Temporal Memory Inspired",
       "name": "Hierarchical Temporal Memory Inspired",
       "type": "indicator",
-      "cat": "",
+      "cat": "regime",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "htm",
+        "anomaly",
+        "sequence"
+      ],
       "boosts": 1,
       "slug": "sBoZwZa4",
       "url": "https://www.tradingview.com/script/sBoZwZa4/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "HTM着想の逐次学習で系列の異常・レジーム変化を検出する。",
+      "en": "HTM-inspired sequence learning that detects anomalies and regime change."
     },
     {
       "code": "Sentiment-Proxy Correlation Mapper",
       "name": "Sentiment-Proxy Correlation Mapper",
       "type": "indicator",
-      "cat": "",
+      "cat": "probability",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "sentiment",
+        "correlation",
+        "mapping"
+      ],
       "boosts": 117,
       "slug": "5ZcJCljV",
       "url": "https://www.tradingview.com/script/5ZcJCljV/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "センチメント代理指標との相関を可視化するマッパー。",
+      "en": "Maps correlations against a sentiment-proxy series."
     },
     {
       "code": "Fractal Geometry + Diffusion Predictor",
       "name": "Fractal Geometry + Diffusion Predictor",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "fractal",
+        "diffusion",
+        "forecast"
+      ],
       "boosts": 6,
       "slug": "gVlgzy4u",
       "url": "https://www.tradingview.com/script/gVlgzy4u/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "フラクタル幾何と拡散モデルで価格経路を予測する。",
+      "en": "Predicts price paths using fractal geometry and a diffusion model."
     },
     {
       "code": "Multi-Agent RL Consensus Engine",
       "name": "Multi-Agent RL Consensus Engine",
       "type": "strategy",
-      "cat": "",
+      "cat": "ai",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "reinforcement learning",
+        "multi-agent",
+        "ensemble"
+      ],
       "boosts": 17,
       "slug": "4JKr9kyr",
       "url": "https://www.tradingview.com/script/4JKr9kyr/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "複数の強化学習エージェントの合議で売買する適応型AI戦略。",
+      "en": "Adaptive AI strategy trading on a consensus of reinforcement-learning agents."
     },
     {
       "code": "Transformer-Inspired Attention Bias",
       "name": "Transformer-Inspired Attention Bias",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "transformer",
+        "attention",
+        "bias"
+      ],
       "boosts": 8,
       "slug": "Mgb1RIwX",
       "url": "https://www.tradingview.com/script/Mgb1RIwX/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "Transformer着想のアテンションで方向バイアスを推定する。",
+      "en": "Estimates directional bias using transformer-inspired attention."
     },
     {
       "code": "Bayesian Neural Market Microstructure",
@@ -1227,33 +1331,41 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Self-Evolving RL Dashboard Lite",
       "name": "Self-Evolving RL Dashboard Lite",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "dashboard",
+        "reinforcement learning",
+        "signals"
+      ],
       "boosts": 20,
       "slug": "lqSuqj6n",
       "url": "https://www.tradingview.com/script/lqSuqj6n/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "強化学習ベースの指標を集約する軽量ダッシュボード。",
+      "en": "Lightweight dashboard aggregating reinforcement-learning indicators."
     },
     {
       "code": "KNN-Augmented RL Hybrid",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "knn",
+        "reinforcement learning",
+        "hybrid"
+      ],
       "boosts": 6,
       "slug": "c3iMNWNl",
       "url": "https://www.tradingview.com/script/c3iMNWNl/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "KNNと強化学習を組み合わせたハイブリッド予測指標。",
+      "en": "Hybrid indicator combining KNN with reinforcement learning."
     },
     {
       "code": "Q-Learning Trendline Drawer",
@@ -1343,65 +1455,81 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "DuelingDQN Breakout Hunter",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "dqn",
+        "breakout",
+        "reinforcement learning"
+      ],
       "boosts": 5,
       "slug": "NeydJUre",
       "url": "https://www.tradingview.com/script/NeydJUre/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "Dueling DQNでブレイクアウトを検出するシグナル指標。",
+      "en": "Detects breakouts using a Dueling DQN signal model."
     },
     {
       "code": "AetherEdge Hybrid Quantum-Inspired Predictor",
       "name": "AetherEdge Hybrid Quantum-Inspired Predictor",
       "type": "strategy",
-      "cat": "",
+      "cat": "ai",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "quantum-inspired",
+        "predictor",
+        "ai"
+      ],
       "boosts": 58,
       "slug": "HAy0GeWp",
       "url": "https://www.tradingview.com/script/HAy0GeWp/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "量子着想の予測を組み込んだ適応型AI戦略。",
+      "en": "Adaptive AI strategy built on a quantum-inspired predictor."
     },
     {
       "code": "AetherEdge Volatility Regime GAN Simulator",
       "name": "AetherEdge Volatility Regime GAN Simulator",
       "type": "strategy",
-      "cat": "",
+      "cat": "volatility",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "gan",
+        "volatility",
+        "regime"
+      ],
       "boosts": 15,
       "slug": "8AxyBq74",
       "url": "https://www.tradingview.com/script/8AxyBq74/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "GANでボラティリティ・レジームをシミュレートする戦略。",
+      "en": "Strategy simulating volatility regimes with a GAN."
     },
     {
       "code": "AetherEdge Multi-Feature Neural Divergence Hunter",
       "name": "AetherEdge Multi-Feature Neural Divergence Hunter",
       "type": "strategy",
-      "cat": "",
+      "cat": "momentum",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "divergence",
+        "neural",
+        "momentum"
+      ],
       "boosts": 263,
       "slug": "T6EZVEr1",
       "url": "https://www.tradingview.com/script/T6EZVEr1/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ニューラルで多特徴のダイバージェンスを検出するモメンタム戦略。",
+      "en": "Momentum strategy hunting multi-feature divergences with a neural model."
     },
     {
       "code": "AetherEdge RL Signal Optimizer",
@@ -1428,33 +1556,41 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "AetherEdge SMC AI Confidence Engine",
       "name": "AetherEdge SMC AI Confidence Engine",
       "type": "indicator",
-      "cat": "",
+      "cat": "smc",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "smc",
+        "confidence",
+        "ai"
+      ],
       "boosts": 21,
       "slug": "enLmyhYu",
       "url": "https://www.tradingview.com/script/enLmyhYu/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "スマートマネー構造の信頼度をAIで評価するエンジン。",
+      "en": "Scores smart-money structure confidence using AI."
     },
     {
       "code": "AetherEdge Adaptive LSTM-inspired Forecaster",
       "name": "AetherEdge Adaptive LSTM-inspired Forecaster",
       "type": "strategy",
-      "cat": "",
+      "cat": "ai",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "lstm",
+        "forecast",
+        "ai"
+      ],
       "boosts": 36,
       "slug": "j7jW6SCI",
       "url": "https://www.tradingview.com/script/j7jW6SCI/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "LSTM着想の予測で売買する適応型AI戦略。",
+      "en": "Adaptive AI strategy trading on an LSTM-inspired forecaster."
     },
     {
       "code": "AetherEdge KNN Regime Classifier",
@@ -1481,33 +1617,41 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "AetherEdge NeuraNet Trend Predictor",
       "name": "AetherEdge NeuraNet Trend Predictor",
       "type": "indicator",
-      "cat": "",
+      "cat": "trend",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "neural",
+        "trend",
+        "forecast"
+      ],
       "boosts": 14,
       "slug": "Jv7VkxlB",
       "url": "https://www.tradingview.com/script/Jv7VkxlB/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ニューラルネットでトレンド方向を予測する。",
+      "en": "Predicts trend direction with a neural network."
     },
     {
       "code": "All-in-One Dashboard",
       "name": "",
       "type": "strategy",
-      "cat": "",
+      "cat": "multi-factor",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "dashboard",
+        "multi-factor",
+        "overview"
+      ],
       "boosts": 17,
       "slug": "laG128wU",
       "url": "https://www.tradingview.com/script/laG128wU/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "主要指標を一画面に集約するオールインワン・ダッシュボード。",
+      "en": "All-in-one dashboard consolidating key indicators in one view."
     },
     {
       "code": "Liquidity Sweep & Raid Detector",
@@ -1534,17 +1678,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "WaveTrend Oscillator Enhanced",
       "name": "WaveTrend Oscillator Enhanced",
       "type": "strategy",
-      "cat": "",
+      "cat": "momentum",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "wavetrend",
+        "oscillator",
+        "momentum"
+      ],
       "boosts": 29,
       "slug": "jxd86tft",
       "url": "https://www.tradingview.com/script/jxd86tft/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "改良版WaveTrendオシレーターを用いたモメンタム戦略。",
+      "en": "Momentum strategy using an enhanced WaveTrend oscillator."
     },
     {
       "code": "SuperTrend Multi-Factor",
@@ -1652,17 +1800,21 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Volatility Squeeze Breaker",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "squeeze",
+        "breakout",
+        "volatility"
+      ],
       "boosts": 22,
       "slug": "3tR3C2jE",
       "url": "https://www.tradingview.com/script/3tR3C2jE/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ボラティリティのスクイーズ解放（ブレイク）を検出する。",
+      "en": "Detects volatility squeeze releases (breakouts)."
     },
     {
       "code": "Multi-Timeframe Trend Scanner",
@@ -1689,33 +1841,41 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "AetherEdge Self-Evolving S/R Grid",
       "name": "AetherEdge Self-Evolving S/R Grid",
       "type": "strategy",
-      "cat": "",
+      "cat": "mean-reversion",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "grid",
+        "support resistance",
+        "mean reversion"
+      ],
       "boosts": 4,
       "slug": "xTOZxD7X",
       "url": "https://www.tradingview.com/script/xTOZxD7X/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "自己進化する支持抵抗グリッドで売買する平均回帰戦略。",
+      "en": "Mean-reversion strategy trading a self-evolving support/resistance grid."
     },
     {
       "code": "AetherEdge Pattern Recognition Trendline",
       "name": "",
       "type": "library",
-      "cat": "",
+      "cat": "utility",
       "access": "open",
       "color": "magenta",
-      "tags": [],
+      "tags": [
+        "trendline",
+        "pattern",
+        "library"
+      ],
       "boosts": 11,
       "slug": "5QmKn0b2",
       "url": "https://www.tradingview.com/script/5QmKn0b2/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "トレンドライン/パターン認識を提供する再利用ライブラリ。",
+      "en": "Reusable library for trendline and pattern recognition."
     },
     {
       "code": "AetherEdge Quantum-Inspired Breakout Scanner",
@@ -1763,97 +1923,120 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "AetherEdge Regime-Aware Trend Channel",
       "name": "AetherEdge Regime-Aware Trend Channel",
       "type": "strategy",
-      "cat": "",
+      "cat": "trend-follow",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "regime",
+        "trend channel",
+        "trend following"
+      ],
       "boosts": 46,
       "slug": "a8321Ea4",
       "url": "https://www.tradingview.com/script/a8321Ea4/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "レジームを考慮したトレンドチャネルで順張りする戦略。",
+      "en": "Trend-following strategy using a regime-aware trend channel."
     },
     {
       "code": "AetherEdge Adaptive Fibonacci AI",
       "name": "AetherEdge Adaptive Fibonacci AI",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "fibonacci",
+        "adaptive",
+        "targets"
+      ],
       "boosts": 22,
       "slug": "70PFrCUR",
       "url": "https://www.tradingview.com/script/70PFrCUR/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "AIで適応的にフィボナッチ水準を引き目標を示す。",
+      "en": "Adaptively places Fibonacci levels and targets with AI."
     },
     {
       "code": "AetherEdge Neural Order Block Evolution",
       "name": "AetherEdge Neural Order Block Evolution",
       "type": "strategy",
-      "cat": "",
+      "cat": "ai",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "order block",
+        "neural",
+        "smc"
+      ],
       "boosts": 23,
       "slug": "K75NxVvO",
       "url": "https://www.tradingview.com/script/K75NxVvO/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ニューラルでオーダーブロックを進化的に捉える適応型AI戦略。",
+      "en": "Adaptive AI strategy evolving order-block detection with a neural model."
     },
     {
       "code": "AetherEdge KNN Breakout Fortress",
       "name": "AetherEdge KNN Breakout Fortress",
       "type": "strategy",
-      "cat": "",
+      "cat": "breakout",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "knn",
+        "breakout"
+      ],
       "boosts": 343,
       "slug": "14PzySpq",
       "url": "https://www.tradingview.com/script/14PzySpq/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "KNNでブレイクアウトを選別する順張り戦略。",
+      "en": "Breakout strategy filtering entries with KNN."
     },
     {
       "code": "AetherEdge AI Dynamic Trendline Architect",
       "name": "AetherEdge AI Dynamic Trendline Architect",
       "type": "strategy",
-      "cat": "",
+      "cat": "trend-follow",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "trendline",
+        "ai",
+        "trend following"
+      ],
       "boosts": 337,
       "slug": "E3Yv8XAJ",
       "url": "https://www.tradingview.com/script/E3Yv8XAJ/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "AIが動的にトレンドラインを引く順張り戦略。",
+      "en": "Trend-following strategy that draws dynamic trendlines with AI."
     },
     {
       "code": "AetherEdge Hybrid AI Bias",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "ai",
+        "bias",
+        "signal"
+      ],
       "boosts": 19,
       "slug": "9vS4tTwV",
       "url": "https://www.tradingview.com/script/9vS4tTwV/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "複数手法のハイブリッドAIで方向バイアスを示す。",
+      "en": "Shows directional bias from a hybrid AI of multiple methods."
     },
     {
       "code": "AetherEdge Reinforcement Filter MA",
@@ -1964,54 +2147,61 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "AetherEdge KNN Momentum Whisper",
       "name": "",
       "type": "library",
-      "cat": "",
+      "cat": "utility",
       "access": "open",
       "color": "emerald",
       "tags": [
         "knn",
         "momentum",
-        "pattern-matching",
-        "forecast"
+        "library"
       ],
       "boosts": 24,
       "slug": "Ovnj2IxQ",
       "url": "https://www.tradingview.com/script/Ovnj2IxQ/",
       "featured": false,
       "needsReview": false,
-      "ja": "KNNアルゴリズムで最大300件の過去パターンを照合し、逆距離加重で翌バーのモメンタムを予測するライブラリ。",
-      "en": "Pine Script library implementing KNN pattern matching against a 300-bar rolling dictionary using 3D feature vectors (returns, RSI, ATR z-score) to produce inverse-distance-weighted next-bar momentum forecasts."
+      "ja": "KNNによるモメンタム推定を提供する再利用ライブラリ。",
+      "en": "Reusable library providing KNN-based momentum estimation."
     },
     {
       "code": "AetherEdge Neural Regime Switch",
       "name": "AetherEdge Neural Regime Switch",
       "type": "strategy",
-      "cat": "",
+      "cat": "ai",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "regime",
+        "neural",
+        "adaptive"
+      ],
       "boosts": 1,
       "slug": "w1QQluia",
       "url": "https://www.tradingview.com/script/w1QQluia/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "ニューラルでレジームを切り替える適応型AI戦略。",
+      "en": "Adaptive AI strategy that switches behavior by neural-detected regime."
     },
     {
       "code": "AetherEdge AI Trend Pulse [KNN+NeuraLib]",
       "name": "AetherEdge AI Trend Pulse [KNN+NeuraLib]",
       "type": "indicator",
-      "cat": "",
+      "cat": "trend",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "knn",
+        "trend",
+        "neural"
+      ],
       "boosts": 8,
       "slug": "4pdpfBfU",
       "url": "https://www.tradingview.com/script/4pdpfBfU/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "KNNとニューラルでトレンドの勢いを測る。",
+      "en": "Gauges trend momentum using KNN and a neural library."
     }
   ]
 }/*__DATA_END__*/;
