@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-06-21T22:38:51.193Z",
+  "updated": "2026-06-22T17:57:53.768Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -114,7 +114,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "bands",
         "regime-adaptive"
       ],
-      "boosts": 4,
+      "boosts": 5,
       "slug": "LImygeiq",
       "url": "https://www.tradingview.com/script/LImygeiq/",
       "featured": false,
@@ -126,17 +126,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Intermarket Correlation",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "forecast",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "correlation",
+        "intermarket",
+        "regression",
+        "forecast"
+      ],
       "boosts": 1,
       "slug": "PrUMOHgf",
       "url": "https://www.tradingview.com/script/PrUMOHgf/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "6参照市場との相関・ベータを算出し、オンライン線形回帰で翌バーリターンを予測する。",
+      "en": "Computes rolling correlation and beta against six reference markets and fits an online linear regression to forecast next-bar return with a conformal prediction band."
     },
     {
       "code": "Volatility Forecast",
@@ -172,7 +177,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "breakout",
         "ucb-bandit"
       ],
-      "boosts": 11,
+      "boosts": 12,
       "slug": "HiRgqVon",
       "url": "https://www.tradingview.com/script/HiRgqVon/",
       "featured": false,
@@ -188,7 +193,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "cyan",
       "tags": [],
-      "boosts": 527,
+      "boosts": 552,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
@@ -311,7 +316,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "K-MEANS",
         "UCB-BANDIT"
       ],
-      "boosts": 446,
+      "boosts": 448,
       "slug": "9tSQp67Y",
       "url": "https://www.tradingview.com/script/9tSQp67Y/",
       "featured": true,
@@ -364,33 +369,43 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "KALMAN | State-Space Trend",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "trend",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "kalman",
+        "trend",
+        "adaptive",
+        "forecast"
+      ],
       "boosts": 14,
       "slug": "1coOxasg",
       "url": "https://www.tradingview.com/script/1coOxasg/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "2状態カルマンフィルタで価格のレベルと速度を再帰的に推定するトレンド指標。",
+      "en": "Two-state Kalman filter recursively estimates price level and velocity with ATR-scaled, innovation-adaptive noise tuning."
     },
     {
       "code": "STRATA | SMC + ML/RL",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "smc",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "smc",
+        "machine-learning",
+        "reinforcement-learning",
+        "probability"
+      ],
       "boosts": 22,
       "slug": "oxGH5tac",
       "url": "https://www.tradingview.com/script/oxGH5tac/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "SMC構造（OB・FVG・BOS/CHoCH）にオンラインML確率とRL行動提案を重ねたオーバーレイ指標。",
+      "en": "Overlay combining SMC elements (order blocks, FVGs, BOS/CHoCH, liquidity) with online ML probability and reinforcement learning action signals."
     },
     {
       "code": "Self-Attention Focus",
@@ -442,7 +457,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "cyan",
       "tags": [],
-      "boosts": 40,
+      "boosts": 42,
       "slug": "HquVbrsO",
       "url": "https://www.tradingview.com/script/HquVbrsO/",
       "featured": false,
@@ -507,17 +522,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Autoencoder Anomaly",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "autoencoder",
+        "anomaly-detection",
+        "online-learning",
+        "reconstruction-error"
+      ],
       "boosts": 10,
       "slug": "psorYWV3",
       "url": "https://www.tradingview.com/script/psorYWV3/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "線形オートエンコーダで6次元特徴ベクトルを再構成し、誤差をσスコア化して市場の異常を検出する。",
+      "en": "Linear autoencoder compresses a 6-feature bar state vector and flags bars with high reconstruction error as anomalies via a sigma score."
     },
     {
       "code": "Multi-Armed Bandit",
@@ -690,7 +710,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "purple",
       "tags": [],
-      "boosts": 260,
+      "boosts": 262,
       "slug": "DZ81TJie",
       "url": "https://www.tradingview.com/script/DZ81TJie/",
       "featured": false,
@@ -879,33 +899,43 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "Hypercube Heatmap (Horizon Field)",
       "name": "Hypercube Heatmap (Horizon Field)",
       "type": "indicator",
-      "cat": "",
+      "cat": "volume",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "heatmap",
+        "price-level",
+        "attention-weighting",
+        "multi-feature"
+      ],
       "boosts": 16,
       "slug": "lmZhqXEO",
       "url": "https://www.tradingview.com/script/lmZhqXEO/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "5特徴量のソフトマックス加重和を価格帯ごとの水平エネルギーバンドとして描画するヒートマップ。",
+      "en": "Plots horizontal price-level energy bands using softmax-weighted combination of momentum, volatility, volume, trend, and RSI, with Bayesian dispersion-based uncertainty shading."
     },
     {
       "code": "Adaptive Liquidation Heatmap",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "risk",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "liquidation",
+        "volume",
+        "leverage",
+        "heatmap"
+      ],
       "boosts": 148,
       "slug": "2WzPEzZ4",
       "url": "https://www.tradingview.com/script/2WzPEzZ4/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "価格・出来高からレバレッジ別清算価格帯を推定し、減衰重み付きで描画するインジケーター。",
+      "en": "Estimates leveraged liquidation price bands for 5×–100× tiers using volume-weighted back-calculation with adaptive per-tier reliability scoring."
     },
     {
       "code": "Contrastive Similarity Engine",
@@ -964,17 +994,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "STRUCTURA Adaptive Price-Action Intelligence",
       "name": "STRUCTURA Adaptive Price-Action Intelligence",
       "type": "indicator",
-      "cat": "",
+      "cat": "smc",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "smc",
+        "order blocks",
+        "fvg",
+        "online learning"
+      ],
       "boosts": 343,
       "slug": "kbDertHP",
       "url": "https://www.tradingview.com/script/kbDertHP/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "BOS/CHoCH・オーダーブロック・FVGをオンライン学習で信頼度スコア付きで表示するSMCインジケーター。",
+      "en": "Detects BOS, CHoCH, order blocks, and fair value gaps from confirmed swings, with online-learned confidence scores per zone type."
     },
     {
       "code": "APEX Swing Engine",
@@ -984,7 +1019,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "purple",
       "tags": [],
-      "boosts": 511,
+      "boosts": 512,
       "slug": "1ro4FL1E",
       "url": "https://www.tradingview.com/script/1ro4FL1E/",
       "featured": false,
@@ -1245,17 +1280,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "RainbowDQN Multi-Component",
       "name": "",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "reinforcement-learning",
+        "dqn",
+        "signal",
+        "multi-component"
+      ],
       "boosts": 1,
       "slug": "deHznKCB",
       "url": "https://www.tradingview.com/script/deHznKCB/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "Double・Dueling・優先リプレイの3要素を統合し、単一の方向シグナル矢印を出力するRainbow DQN指標。",
+      "en": "Combines Double, Dueling, and Prioritized Replay DQN components into a single directional arrow using composite reward learning."
     },
     {
       "code": "A2C Advantage Critic",
@@ -1355,7 +1395,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "cyan",
       "tags": [],
-      "boosts": 262,
+      "boosts": 263,
       "slug": "T6EZVEr1",
       "url": "https://www.tradingview.com/script/T6EZVEr1/",
       "featured": false,
@@ -1367,17 +1407,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "AetherEdge RL Signal Optimizer",
       "name": "AetherEdge RL Signal Optimizer",
       "type": "strategy",
-      "cat": "",
+      "cat": "ai",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "reinforcement-learning",
+        "q-learning",
+        "adaptive",
+        "multi-factor"
+      ],
       "boosts": 5,
       "slug": "fC9rkMGH",
       "url": "https://www.tradingview.com/script/fC9rkMGH/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "18状態×3行動のQテーブルをTD(0)法で更新し、ε-greeedyポリシーとMFE/MAE統計でTP/SLを動的調整するストラテジー。",
+      "en": "Q-learning agent with an 18-state × 3-action table, ε-greedy decay, and quantile-derived TP/SL from MFE/MAE trade history."
     },
     {
       "code": "AetherEdge SMC AI Confidence Engine",
@@ -1387,7 +1432,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "cyan",
       "tags": [],
-      "boosts": 20,
+      "boosts": 21,
       "slug": "enLmyhYu",
       "url": "https://www.tradingview.com/script/enLmyhYu/",
       "featured": false,
@@ -1595,7 +1640,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "price-structure",
         "pivot"
       ],
-      "boosts": 527,
+      "boosts": 529,
       "slug": "mAd4iDWL",
       "url": "https://www.tradingview.com/script/mAd4iDWL/",
       "featured": false,
@@ -1814,17 +1859,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "AetherEdge Reinforcement Filter MA",
       "name": "AetherEdge Reinforcement Filter MA",
       "type": "strategy",
-      "cat": "",
+      "cat": "ai",
       "access": "open",
       "color": "cyan",
-      "tags": [],
+      "tags": [
+        "q-learning",
+        "adaptive-ma",
+        "volatility",
+        "smoothing"
+      ],
       "boosts": 6,
       "slug": "VXZQY3M4",
       "url": "https://www.tradingview.com/script/VXZQY3M4/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "Q学習で9状態×5アクションのQテーブルを更新し、平滑化係数を動的に切り替える移動平均戦略。",
+      "en": "Moving average strategy that applies Q-learning across a 45-cell Q-table to dynamically select one of five smoothing coefficients based on volatility and trend-strength state."
     },
     {
       "code": "AetherEdge Cluster Probability Line",
@@ -1872,17 +1922,22 @@ window.AE_DATA = /*__DATA_START__*/{
       "code": "AetherEdge AI Divergence Ghost",
       "name": "AetherEdge AI Divergence Ghost",
       "type": "indicator",
-      "cat": "",
+      "cat": "signal",
       "access": "open",
       "color": "purple",
-      "tags": [],
+      "tags": [
+        "divergence",
+        "multi-oscillator",
+        "adaptive-weight",
+        "signal"
+      ],
       "boosts": 6,
       "slug": "E0nv7SCB",
       "url": "https://www.tradingview.com/script/E0nv7SCB/",
       "featured": false,
-      "needsReview": true,
-      "ja": "",
-      "en": ""
+      "needsReview": false,
+      "ja": "RSI・MACD等5指標をZスコア正規化し相関ベースの適応ウェイトでダイバージェンスを検出する。",
+      "en": "Detects regular and hidden divergences by fusing five Z-score-normalized oscillators with correlation-based adaptive weights."
     },
     {
       "code": "AetherEdge Adaptive Super Neural",
