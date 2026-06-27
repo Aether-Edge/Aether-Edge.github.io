@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-06-26T18:13:50.868Z",
+  "updated": "2026-06-27T09:33:13.652Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -59,7 +59,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "t-stat",
         "statistics"
       ],
-      "boosts": 3,
+      "boosts": 4,
       "slug": "3Br0G8Y8",
       "url": "https://www.tradingview.com/script/3Br0G8Y8/",
       "featured": false,
@@ -205,7 +205,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "order flow",
         "smart money"
       ],
-      "boosts": 586,
+      "boosts": 587,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
@@ -626,7 +626,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "eigenvalue",
         "systemic-risk"
       ],
-      "boosts": 0,
+      "boosts": 1,
       "slug": "glhV5HTd",
       "url": "https://www.tradingview.com/script/glhV5HTd/",
       "featured": false,
@@ -710,7 +710,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "reinforcement-learning",
         "signal"
       ],
-      "boosts": 6,
+      "boosts": 7,
       "slug": "j6hnLjfP",
       "url": "https://www.tradingview.com/script/j6hnLjfP/",
       "featured": false,
@@ -869,7 +869,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "probability",
         "scanner"
       ],
-      "boosts": 338,
+      "boosts": 339,
       "slug": "srmaIJLG",
       "url": "https://www.tradingview.com/script/srmaIJLG/",
       "featured": false,
@@ -993,7 +993,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "leverage",
         "heatmap"
       ],
-      "boosts": 150,
+      "boosts": 151,
       "slug": "2WzPEzZ4",
       "url": "https://www.tradingview.com/script/2WzPEzZ4/",
       "featured": false,
@@ -1605,7 +1605,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "machine-learning",
         "multi-factor"
       ],
-      "boosts": 5,
+      "boosts": 6,
       "slug": "nLqX6lQy",
       "url": "https://www.tradingview.com/script/nLqX6lQy/",
       "featured": false,
@@ -1951,7 +1951,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "adaptive",
         "targets"
       ],
-      "boosts": 22,
+      "boosts": 23,
       "slug": "70PFrCUR",
       "url": "https://www.tradingview.com/script/70PFrCUR/",
       "featured": false,
