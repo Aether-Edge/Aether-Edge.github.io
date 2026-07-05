@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-07-04T21:16:45.008Z",
+  "updated": "2026-07-05T09:47:57.540Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -440,7 +440,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "forecast",
         "machine-learning"
       ],
-      "boosts": 20,
+      "boosts": 21,
       "slug": "hAUvPolk",
       "url": "https://www.tradingview.com/script/hAUvPolk/",
       "featured": false,
@@ -647,7 +647,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "spectrogram",
         "fourier"
       ],
-      "boosts": 24,
+      "boosts": 25,
       "slug": "FJu1N0Pe",
       "url": "https://www.tradingview.com/script/FJu1N0Pe/",
       "featured": false,
@@ -1034,7 +1034,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "uncertainty",
         "ewma"
       ],
-      "boosts": 5,
+      "boosts": 6,
       "slug": "vb4Mne7r",
       "url": "https://www.tradingview.com/script/vb4Mne7r/",
       "featured": false,
@@ -1971,7 +1971,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "neural",
         "smc"
       ],
-      "boosts": 24,
+      "boosts": 25,
       "slug": "K75NxVvO",
       "url": "https://www.tradingview.com/script/K75NxVvO/",
       "featured": false,
