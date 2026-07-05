@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AetherEdge | Backtest Engine</title>
+<meta name="description" content="Pine Script™ サブセット対応・ブラウザ完結型バックテストエンジン。パラメータ最適化・IS/OOS検証・詳細メトリクス。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=Rajdhani:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+:root { --cyan:#00D4FF; --emerald:#00FF9F; --magenta:#FF00FF; --purple:#9D00FF; --red:#FF3860; --amber:#FFB020;
+  --bg:#0A0A0A; --panel:rgba(17,17,26,.92); --txt:#C8E6F5; --dim:rgba(174,240,255,.55); }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--txt); font-family:'JetBrains Mono',monospace; font-size:13px; }
+a { color:var(--cyan); text-decoration:none; }
+h1,h2,h3 { font-family:'Orbitron',sans-serif; margin:0; }
+button { font-family:'JetBrains Mono',monospace; cursor:pointer; }
+
+/* nav */
+.bt-nav { position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:1.6rem; padding:.9rem 1.6rem;
+  background:rgba(10,10,13,.85); backdrop-filter:blur(14px); border-bottom:1px solid rgba(0,212,255,.25); }
+.bt-logo { font-family:'Orbitron',sans-serif; font-weight:800; letter-spacing:.22em; color:#fff; font-size:1rem; }
+.bt-logo span { color:var(--cyan); text-shadow:0 0 12px rgba(0,212,255,.8); }
+.bt-nav .links { display:flex; gap:1.3rem; margin-left:auto; flex-wrap:wrap; }
+.bt-nav a { font-size:.72rem; letter-spacing:.18em; color:var(--dim); text-transform:uppercase; }
+.bt-nav a:hover, .bt-nav a.active { color:#fff; text-shadow:0 0 10px rgba(0,212,255,.9); }
+
+/* layout */
+.wrap { max-width:1560px; margin:0 auto; padding:1.4rem 1.4rem 4rem; }
+.hero { padding:1.6rem 0 1.2rem; }
+.eyebrow2 { font-size:.72rem; letter-spacing:.3em; color:rgba(0,212,255,.85); text-shadow:0 0 10px rgba(0,212,255,.6); }
+.hero h1 { font-size:clamp(1.5rem,3.4vw,2.4rem); letter-spacing:.08em; margin:.4rem 0;
+  background:linear-gradient(92deg,var(--cyan) 0%,var(--emerald) 48%,var(--purple) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero .sub { color:var(--dim); font-size:.78rem; letter-spacing:.06em; }
+.grid { display:grid; grid-template-columns:400px 1fr; gap:1.1rem; align-items:start; }
+@media (max-width:1080px){ .grid { grid-template-columns:1fr; } }
+
+/* cards */
+.card { position:relative; background:linear-gradient(165deg,rgba(17,17,26,.92) 0%,rgba(10,10,14,.94) 100%);
+  border:1px solid rgba(0,212,255,.26); box-shadow:0 0 12px rgba(0,212,255,.10), inset 0 0 26px rgba(0,212,255,.04);
+  padding:1rem 1.1rem; margin-bottom:1.1rem; }
+.card.em { border-color:rgba(0,255,159,.3); }
+.card h3 { font-size:.7rem; letter-spacing:.28em; color:rgba(0,212,255,.9); font-family:'JetBrains Mono',monospace;
+  font-weight:600; margin-bottom:.8rem; text-shadow:0 0 8px rgba(0,212,255,.5); }
+.card h3 .blink { animation:blink 1.1s steps(1) infinite; }
+@keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+
+/* form */
+.frow { display:flex; gap:.6rem; margin-bottom:.6rem; align-items:center; flex-wrap:wrap; }
+.frow label { font-size:.68rem; color:var(--dim); letter-spacing:.08em; min-width:106px; }
+.in, select.in { flex:1; min-width:70px; background:rgba(10,10,16,.85); border:1px solid rgba(0,212,255,.3); color:#D8F6FF;
+  font-family:'JetBrains Mono',monospace; font-size:.76rem; padding:.42rem .6rem; letter-spacing:.04em; }
+.in:focus { outline:none; border-color:rgba(0,212,255,.85); box-shadow:0 0 12px rgba(0,212,255,.3); }
+.in.sm { max-width:88px; flex:0 1 88px; }
+input[type=checkbox]{ accent-color:#00D4FF; width:15px; height:15px; }
+textarea.code { width:100%; min-height:330px; background:rgba(8,8,14,.95); color:#D8F6FF; border:1px solid rgba(0,212,255,.3);
+  font-family:'JetBrains Mono',monospace; font-size:.76rem; line-height:1.55; padding:.7rem; resize:vertical;
+  white-space:pre; tab-size:4; }
+textarea.code:focus { outline:none; border-color:rgba(0,255,159,.7); box-shadow:0 0 14px rgba(0,255,159,.2); }
+.parse-ok { color:var(--emerald); font-size:.7rem; }
+.parse-err { color:var(--red); font-size:.7rem; white-space:pre-wrap; }
+.note { color:var(--dim); font-size:.66rem; line-height:1.6; }
+
+/* buttons */
+.btn { position:relative; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; width:100%;
+  padding:.8rem 1.4rem; font-family:'Rajdhani',sans-serif; font-weight:700; font-size:.95rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--emerald); border:1px solid var(--emerald); background:rgba(0,255,159,.07);
+  clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);
+  box-shadow:0 0 10px rgba(0,255,159,.4), inset 0 0 12px rgba(0,255,159,.12); transition:all .25s ease; }
+.btn:hover:not(:disabled) { color:#04120b; background:var(--emerald); box-shadow:0 0 22px rgba(0,255,159,.8); }
+.btn:disabled { opacity:.45; cursor:not-allowed; }
+.btn.cy { color:var(--cyan); border-color:var(--cyan); background:rgba(0,212,255,.07); box-shadow:0 0 10px rgba(0,212,255,.4), inset 0 0 12px rgba(0,212,255,.12); }
+.btn.cy:hover:not(:disabled){ color:#04121a; background:var(--cyan); box-shadow:0 0 22px rgba(0,212,255,.8); }
+.btn.mg { color:var(--magenta); border-color:var(--magenta); background:rgba(255,0,255,.07); box-shadow:0 0 10px rgba(255,0,255,.35); }
+.btn.mg:hover:not(:disabled){ color:#150015; background:var(--magenta); }
+.btn.mini { width:auto; padding:.35rem .8rem; font-size:.7rem; letter-spacing:.14em; }
+
+/* tabs */
+.tabs { display:flex; gap:.2rem; border-bottom:1px solid rgba(0,212,255,.25); margin-bottom:1rem; flex-wrap:wrap; }
+.tab { background:none; border:none; border-bottom:2px solid transparent; color:var(--dim); font-size:.7rem;
+  letter-spacing:.18em; padding:.55rem .9rem; text-transform:uppercase; }
+.tab:hover { color:#fff; }
+.tab.active { color:#EAFFFF; border-bottom-color:var(--emerald); text-shadow:0 0 8px rgba(0,255,159,.7); }
+.tabpane { display:none; } .tabpane.show { display:block; }
+
+/* metrics */
+.mgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:.55rem; margin-bottom:1rem; }
+.mcard { border:1px solid rgba(0,212,255,.22); background:rgba(0,212,255,.04); padding:.55rem .7rem; }
+.mcard .k { font-size:.6rem; letter-spacing:.14em; color:var(--dim); text-transform:uppercase; }
+.mcard .v { font-size:1.02rem; font-weight:600; margin-top:.15rem; color:#EAFFFF; }
+.pos { color:var(--emerald) !important; text-shadow:0 0 8px rgba(0,255,159,.5); }
+.neg { color:var(--red) !important; text-shadow:0 0 8px rgba(255,56,96,.5); }
+.chartbox { border:1px solid rgba(0,212,255,.2); background:rgba(8,8,14,.6); margin-bottom:1rem; position:relative; }
+.chartbox .cap { position:absolute; top:.4rem; left:.6rem; z-index:5; font-size:.62rem; letter-spacing:.2em; color:var(--dim); }
+
+/* tables */
+.twrap { overflow:auto; max-height:520px; border:1px solid rgba(0,212,255,.2); }
+table.dt { border-collapse:collapse; width:100%; font-size:.7rem; }
+table.dt th { position:sticky; top:0; background:#0E1520; color:rgba(0,212,255,.9); text-align:right; padding:.45rem .6rem;
+  letter-spacing:.08em; cursor:pointer; white-space:nowrap; border-bottom:1px solid rgba(0,212,255,.35); }
+table.dt th:first-child, table.dt td:first-child { text-align:left; }
+table.dt td { padding:.35rem .6rem; text-align:right; border-bottom:1px solid rgba(0,212,255,.08); white-space:nowrap; color:#C8E6F5; }
+table.dt tr:hover td { background:rgba(0,212,255,.05); }
+.long { color:var(--emerald); } .short { color:var(--magenta); }
+
+/* monthly heatmap */
+.hm { border-collapse:collapse; font-size:.7rem; }
+.hm th, .hm td { padding:.4rem .55rem; text-align:right; border:1px solid rgba(0,212,255,.12); min-width:52px; }
+.hm th { color:var(--dim); }
+
+/* progress */
+.pbar { height:8px; background:rgba(0,212,255,.1); border:1px solid rgba(0,212,255,.3); margin:.5rem 0; }
+.pbar > div { height:100%; width:0%; background:linear-gradient(90deg,var(--cyan),var(--emerald)); box-shadow:0 0 10px rgba(0,255,159,.7); transition:width .2s; }
+.chip { display:inline-block; padding:.12rem .5rem; font-size:.58rem; letter-spacing:.16em; color:#FFD5FF;
+  border:1px solid rgba(255,0,255,.6); background:rgba(255,0,255,.08); margin-left:.5rem; vertical-align:middle; }
+.status { font-size:.7rem; color:var(--dim); margin-top:.4rem; min-height:1.1em; }
+.status.err { color:var(--red); }
+.status.ok { color:var(--emerald); }
+.opt-row { display:grid; grid-template-columns:22px 1fr 72px 72px 72px; gap:.4rem; align-items:center; margin-bottom:.4rem; }
+.opt-row .nm { font-size:.68rem; color:var(--txt); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.guide h4 { color:var(--cyan); font-size:.78rem; letter-spacing:.12em; margin:1.1rem 0 .4rem; }
+.guide p, .guide li { font-size:.72rem; line-height:1.75; color:var(--txt); }
+.guide code { color:var(--emerald); background:rgba(0,255,159,.07); padding:0 .3em; }
+.guide .warn { color:var(--amber); }
+.footer { margin-top:2.5rem; border-top:1px solid rgba(0,212,255,.18); padding-top:1rem; font-size:.64rem; color:var(--dim); line-height:1.8; }
+</style>
+</head>
+<body>
+
+<nav class="bt-nav">
+  <a class="bt-logo" href="index.html">AETHER<span>EDGE</span></a>
+  <div class="links">
+    <a href="index.html">Home</a>
+    <a href="scripts.html">Scripts</a>
+    <a href="market.html">Market</a>
+    <a href="backtester.html" class="active">Backtester</a>
+    <a href="https://jp.tradingview.com/u/AetherEdge/#published-scripts" target="_blank" rel="noopener">TradingView ↗</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow2">// STRATEGY_LAB<span class="blink">▮</span></div>
+    <h1>BACKTEST ENGINE</h1>
+    <div class="sub">Pine Script™ サブセット対応・ブラウザ完結型バックテスター — パラメータ最適化 / IS・OOS検証 / 詳細メトリクス <span id="engver"></span></div>
+  </div>
+
+  <div class="grid">
+    <!-- ============ LEFT: CONFIG ============ -->
+    <div>
+      <div class="card">
+        <h3>// DATA_FEED<span class="blink">▮</span></h3>
+        <div class="frow"><label>ソース</label>
+          <select id="src" class="in">
+            <option value="spot">Binance Spot</option>
+            <option value="fut">Binance Futures (USDT-M)</option>
+            <option value="us">Binance.US</option>
+            <option value="csv">CSV アップロード</option>
+          </select>
+        </div>
+        <div class="frow" id="row-symbol"><label>シンボル</label>
+          <input id="symbol" class="in" value="BTCUSDT" list="symlist" spellcheck="false">
+          <datalist id="symlist">
+            <option>BTCUSDT</option><option>ETHUSDT</option><option>SOLUSDT</option><option>XRPUSDT</option>
+            <option>BNBUSDT</option><option>DOGEUSDT</option><option>ADAUSDT</option><option>AVAXUSDT</option>
+          </datalist>
+        </div>
+        <div class="frow" id="row-tf"><label>時間足</label>
+          <select id="interval" class="in">
+            <option>1m</option><option>3m</option><option>5m</option><option>15m</option><option>30m</option>
+            <option value="1h" selected>1h</option><option>2h</option><option>4h</option><option>6h</option>
+            <option>12h</option><option>1d</option><option>3d</option><option>1w</option>
+          </select>
+          <label style="min-width:auto">本数</label>
+          <select id="nbars" class="in sm">
+            <option>1000</option><option>3000</option><option selected>5000</option><option>10000</option>
+            <option>20000</option><option>50000</option><option>100000</option>
+          </select>
+        </div>
+        <div class="frow" id="row-csv" style="display:none"><label>CSVファイル</label>
+          <input type="file" id="csvfile" class="in" accept=".csv,.txt">
+        </div>
+        <button class="btn cy" id="loadBtn">⬇ LOAD DATA</button>
+        <div class="status" id="dataStatus">未ロード</div>
+        <div class="note" id="row-csv-note" style="display:none">形式: time,open,high,low,close,volume (ヘッダー行任意 / time はISO日時または epoch 秒・ミリ秒)</div>
+      </div>
+
+      <div class="card em">
+        <h3>// STRATEGY_SOURCE<span class="blink">▮</span></h3>
+        <div class="frow"><label>プリセット</label>
+          <select id="preset" class="in">
+            <option value="ema">EMA Cross + ATR Bracket</option>
+            <option value="rsi">RSI Mean Reversion</option>
+            <option value="st">Supertrend Follower</option>
+            <option value="blank">(空にする)</option>
+          </select>
+        </div>
+        <textarea id="code" class="code" spellcheck="false" wrap="off"></textarea>
+        <div id="parseStatus" class="parse-ok"></div>
+      </div>
+
+      <div class="card">
+        <h3>// INPUTS<span class="blink">▮</span></h3>
+        <div id="inputsForm"><div class="note">スクリプトを解析すると input.* が自動でフォーム化されます</div></div>
+      </div>
+
+      <div class="card">
+        <h3>// EXECUTION_MODEL<span class="blink">▮</span></h3>
+        <div class="frow"><label>初期資金</label><input id="cap" class="in" type="number" value="10000" min="1"></div>
+        <div class="frow"><label>数量タイプ</label>
+          <select id="qtyType" class="in">
+            <option value="percent_of_equity">資産の%</option>
+            <option value="cash">固定額 (quote)</option>
+            <option value="fixed">固定数量</option>
+          </select>
+          <input id="qtyValue" class="in sm" type="number" value="95" step="any">
+        </div>
+        <div class="frow"><label>手数料</label>
+          <select id="commType" class="in">
+            <option value="percent">% (往復各)</option>
+            <option value="cash_per_contract">額/枚</option>
+            <option value="cash_per_order">額/注文</option>
+          </select>
+          <input id="commValue" class="in sm" type="number" value="0.06" step="any">
+        </div>
+        <div class="frow"><label>スリッページ</label><input id="slippage" class="in sm" type="number" value="2" min="0"> <span class="note">ティック</span></div>
+        <div class="frow"><label>最小ティック</label><input id="mintick" class="in sm" placeholder="auto" type="number" step="any"> <span class="note">空欄=自動推定</span></div>
+        <div class="frow"><label>SL/TP同足競合</label>
+          <select id="ambiguity" class="in">
+            <option value="conservative">保守的 (SL優先)</option>
+            <option value="optimistic">楽観的 (TP優先)</option>
+          </select>
+        </div>
+        <div class="frow"><label>約定タイミング</label>
+          <select id="fillMode" class="in">
+            <option value="nextopen">次バー始値 (TV標準)</option>
+            <option value="onclose">当バー終値</option>
+          </select>
+        </div>
+        <div class="frow"><label>IS/OOS分割</label><input id="splitPct" class="in sm" type="number" value="70" min="0" max="95"> <span class="note">% (0=無効)</span></div>
+        <div class="note">※ TradingViewのデフォルトと同じ「シグナル翌バー始値約定」。同足でSL/TP両方に到達したバーの解決規則を明示指定できます(TVは非公開の内部規則)。</div>
+      </div>
+
+      <div class="card em">
+        <button class="btn" id="runBtn" disabled>▶ RUN BACKTEST</button>
+        <div class="status" id="runStatus"></div>
+      </div>
+
+      <div class="card">
+        <h3>// OPTIMIZER <span class="chip">GRID SEARCH</span></h3>
+        <div id="optRows"><div class="note">数値 input が最適化対象として表示されます</div></div>
+        <div class="frow" style="margin-top:.6rem"><label>目的関数</label>
+          <select id="optMetric" class="in">
+            <option value="np">純利益 %</option>
+            <option value="pf">プロフィットファクター</option>
+            <option value="sharpe">シャープレシオ</option>
+            <option value="npdd">純利益% ÷ 最大DD%</option>
+          </select>
+        </div>
+        <div class="note" id="comboCount">組み合わせ: -</div>
+        <div class="pbar"><div id="optProg"></div></div>
+        <div style="display:flex; gap:.5rem">
+          <button class="btn mg" id="optBtn" disabled>⚙ OPTIMIZE</button>
+          <button class="btn mini" id="optCancel" style="display:none">CANCEL</button>
+        </div>
+        <div class="status" id="optStatus"></div>
+        <div class="note" style="margin-top:.5rem">PRO予定: ウォークフォワード分析 / モンテカルロ / バーマグニファイア(下位足精密約定)</div>
+      </div>
+    </div>
+
+    <!-- ============ RIGHT: RESULTS ============ -->
+    <div>
+      <div class="tabs">
+        <button class="tab active" data-tab="overview">Overview</button>
+        <button class="tab" data-tab="chart">Chart</button>
+        <button class="tab" data-tab="trades">Trades</button>
+        <button class="tab" data-tab="opt">Optimizer</button>
+        <button class="tab" data-tab="monthly">Monthly</button>
+        <button class="tab" data-tab="guide">Guide</button>
+      </div>
+
+      <div class="tabpane show" id="pane-overview">
+        <div class="note" id="ovEmpty">データをロードし、RUN BACKTEST を押すと結果が表示されます。</div>
+        <div id="ovBody" style="display:none">
+          <div class="mgrid" id="mgrid"></div>
+          <div id="isoos"></div>
+          <div class="chartbox"><div class="cap">EQUITY CURVE vs BUY&amp;HOLD</div><div id="eqChart" style="height:300px"></div></div>
+          <div class="chartbox"><div class="cap">DRAWDOWN %</div><div id="ddChart" style="height:140px"></div></div>
+          <div class="status" id="warnBox"></div>
+        </div>
+      </div>
+
+      <div class="tabpane" id="pane-chart">
+        <div class="note" id="chEmpty">バックテスト実行後、価格チャート+約定マーカー+plot()系列が表示されます。</div>
+        <div class="chartbox" style="display:none" id="chBox"><div class="cap" id="chCap">PRICE</div><div id="priceChart" style="height:430px"></div></div>
+        <div class="chartbox" style="display:none" id="chBox2"><div class="cap">INDICATOR PANE</div><div id="indChart" style="height:180px"></div></div>
+      </div>
+
+      <div class="tabpane" id="pane-trades">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:.6rem">
+          <div class="note" id="trCount">-</div>
+          <button class="btn mini cy" id="csvBtn">⬇ CSV EXPORT</button>
+        </div>
+        <div class="twrap"><table class="dt" id="trTable"></table></div>
+      </div>
+
+      <div class="tabpane" id="pane-opt">
+        <div class="note" id="optEmpty">OPTIMIZE 実行後、全組み合わせの成績一覧が表示されます。列見出しクリックでソート、[適用]でそのパラメータを反映します。</div>
+        <div class="twrap" style="max-height:600px"><table class="dt" id="optTable"></table></div>
+      </div>
+
+      <div class="tabpane" id="pane-monthly">
+        <div class="note" id="moEmpty">バックテスト実行後、月次リターンのヒートマップが表示されます。</div>
+        <div style="overflow:auto"><table class="hm" id="moTable"></table></div>
+      </div>
+
+      <div class="tabpane guide" id="pane-guide">
+        <h4>▍このバックテスターについて</h4>
+        <p>Pine Script™ v5/v6 の実用サブセットをブラウザ内で解釈・実行するエンジンです。データ取得から計算まで全てクライアントサイドで完結し、サーバーへコードが送信されることはありません。</p>
+        <h4>▍対応している主な構文・関数</h4>
+        <p>
+          <code>strategy()</code> 宣言(initial_capital / default_qty_* / commission_* / slippage / pyramiding / process_orders_on_close)、
+          <code>input.*</code>(int/float/bool/string/source)、<code>var</code>宣言、<code>:=</code>再代入、<code>if/else</code>、<code>for</code>、三項演算子、
+          ユーザー定義関数(<code>=&gt;</code>)、タプル分解、ヒストリー参照 <code>[]</code>。<br>
+          <code>ta.*</code>: sma ema rma wma vwma hma rsi macd atr tr stoch cci mfi obv bb bbw kc vwap stdev variance dev change mom roc cum
+          highest lowest highestbars lowestbars crossover crossunder cross rising falling barssince valuewhen linreg pivothigh pivotlow
+          supertrend correlation median percentrank<br>
+          <code>math.*</code> 全般 / <code>nz na fixnan</code> / <code>strategy.entry order close close_all exit cancel cancel_all</code>(stop/limit/profit/loss/trail_*)/
+          <code>strategy.position_size equity netprofit openprofit</code> ほか / <code>plot()</code>(チャート描画)
+        </p>
+        <h4 class="warn">▍未対応 (v1)</h4>
+        <p class="warn">request.security(マルチTF)、array./matrix./map.、switch、while、type/method、ライブラリimport、描画オブジェクト(label/line/box/table は無視されます)。これらを含むスクリプトは該当行のエラーメッセージを表示します。</p>
+        <h4>▍約定モデル(明示仕様)</h4>
+        <p>
+          ① シグナルはバー確定時に評価、成行はデフォルトで<b>次バー始値</b>で約定(TV標準と同一)。<br>
+          ② stop/limit注文はギャップを考慮: 始値が既に条件を満たす場合は<b>始値</b>で約定。<br>
+          ③ 同一バー内でSL・TP両方に到達した場合の順序は<b>設定で明示指定</b>(保守的=SL優先 / 楽観的=TP優先)。TradingViewはこのケースを内部規則で暗黙処理しますが、本エンジンは仮定を明示し両方を検証できます。<br>
+          ④ スリッページは成行・ストップ系にのみ適用、リミットは指値で約定。<br>
+          ⑤ ta.ema/ta.rma 等のウォームアップは Pine リファレンスの擬似コード(SMAシード)に準拠。
+        </p>
+        <h4>▍TradingView 内蔵テスターとの差分(本エンジンの付加価値)</h4>
+        <p>グリッドサーチ最適化 / IS・OOS(インサンプル・アウトオブサンプル)分割検証 / SQN・ソルティノ・カルマー・MAE/MFE等の拡張メトリクス / トレードCSVエクスポート / 約定規則の明示化。</p>
+        <h4>▍免責事項</h4>
+        <p>本ツールはシミュレーションであり、投資助言ではありません。過去データの検証結果は将来の運用成果を保証しません。データはBinance Public API等の外部ソースに依存し、正確性は保証されません。Pine Script™ および TradingView は TradingView, Inc. の商標であり、当サイトは同社と提携関係にありません。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 AetherEdge — Backtest Engine <span id="engver2"></span> · Real Math. Honest Scope. · Pine Script™ is a trademark of TradingView, Inc.<br>
+    シミュレーション結果は将来の成果を保証するものではありません。本ページは投資助言を提供しません。
+  </div>
+</div>
+
+<script src="ae-engine.js"></script>
+<script>
+'use strict';
+/* ================= helpers ================= */
+const $ = (id) => document.getElementById(id);
+const fmt = (v, d=2) => (v===null||v===undefined||!isFinite(v)) ? '–' : Number(v).toLocaleString('ja-JP',{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmtI = (v) => (v===null||v===undefined||!isFinite(v)) ? '–' : Math.round(v).toLocaleString('ja-JP');
+const fdate = (ms) => new Date(ms).toISOString().replace('T',' ').slice(0,16) + ' UTC';
+const PALETTE = ['#00D4FF','#00FF9F','#FF00FF','#9D00FF','#FFB020','#F23645','#B2B5BE','#00E676'];
+
+const HOSTS = { spot:'https://api.binance.com/api/v3/klines', fut:'https://fapi.binance.com/fapi/v1/klines', us:'https://api.binance.us/api/v3/klines' };
+const TFMS = { '1m':6e4,'3m':18e4,'5m':3e5,'15m':9e5,'30m':18e5,'1h':36e5,'2h':72e5,'4h':144e5,'6h':216e5,'12h':432e5,'1d':864e5,'3d':2592e5,'1w':6048e5 };
+
+let DATA = null;          // {t,o,h,l,c,v} plain arrays
+let LAST = null;          // last run result
+let worker = null, engineSrc = null, optRunning = false, lwcReady = null;
+let charts = [];          // for teardown
+
+/* ================= presets ================= */
+const PRESETS = {
+ema:`//@version=6
+strategy("AE EMA Cross", overlay=true, initial_capital=10000,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=95,
+     commission_type=strategy.commission.percent, commission_value=0.06,
+     slippage=2, pyramiding=0)
+fastLen  = input.int(21, "Fast EMA", minval=2, maxval=200)
+slowLen  = input.int(55, "Slow EMA", minval=5, maxval=400)
+atrLen   = input.int(14, "ATR Length", minval=2, maxval=100)
+slMult   = input.float(2.0, "SL x ATR", minval=0.5, maxval=10, step=0.5)
+tpMult   = input.float(4.0, "TP x ATR", minval=0.5, maxval=20, step=0.5)
+useShort = input.bool(true, "Enable Shorts")
+fast = ta.ema(close, fastLen)
+slow = ta.ema(close, slowLen)
+atrV = ta.atr(atrLen)
+longSig  = ta.crossover(fast, slow)
+shortSig = ta.crossunder(fast, slow)
+if longSig
+    strategy.entry("L", strategy.long)
+if shortSig and useShort
+    strategy.entry("S", strategy.short)
+if shortSig and not useShort
+    strategy.close("L")
+if strategy.position_size > 0
+    strategy.exit("L-X", "L", stop=strategy.position_avg_price - atrV * slMult, limit=strategy.position_avg_price + atrV * tpMult)
+if strategy.position_size < 0
+    strategy.exit("S-X", "S", stop=strategy.position_avg_price + atrV * slMult, limit=strategy.position_avg_price - atrV * tpMult)
+plot(fast, "Fast EMA", color.cyan)
+plot(slow, "Slow EMA", color.purple)`,
+rsi:`//@version=6
+strategy("AE RSI Reversion", overlay=false, initial_capital=10000,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=95,
+     commission_type=strategy.commission.percent, commission_value=0.06, slippage=2)
+rsiLen  = input.int(14, "RSI Length", minval=2, maxval=50)
+osLevel = input.float(30, "Oversold", minval=5, maxval=45, step=1)
+exLevel = input.float(55, "Exit Level", minval=40, maxval=80, step=1)
+smaLen  = input.int(200, "Trend Filter SMA", minval=10, maxval=400)
+slMult  = input.float(3.0, "SL x ATR", minval=1, maxval=10, step=0.5)
+r = ta.rsi(close, rsiLen)
+trendOk = close > ta.sma(close, smaLen)
+atrV = ta.atr(14)
+if ta.crossover(r, osLevel) and trendOk
+    strategy.entry("L", strategy.long)
+if r > exLevel
+    strategy.close("L")
+if strategy.position_size > 0
+    strategy.exit("L-SL", "L", stop=strategy.position_avg_price - atrV * slMult)
+plot(r, "RSI")`,
+st:`//@version=6
+strategy("AE Supertrend", overlay=true, initial_capital=10000,
+     default_qty_type=strategy.percent_of_equity, default_qty_value=95,
+     commission_type=strategy.commission.percent, commission_value=0.06, slippage=2)
+factor = input.float(3.0, "Factor", minval=1, maxval=8, step=0.5)
+atrLen = input.int(10, "ATR Period", minval=2, maxval=50)
+useTrail = input.bool(false, "ATR Trailing Exit")
+trailMult = input.float(3.0, "Trail x ATR", minval=1, maxval=10, step=0.5)
+[st, dir] = ta.supertrend(factor, atrLen)
+goLong  = ta.crossunder(dir, 0)
+goShort = ta.crossover(dir, 0)
+if goLong
+    strategy.entry("L", strategy.long)
+if goShort
+    strategy.entry("S", strategy.short)
+atrV = ta.atr(14)
+if useTrail and strategy.position_size > 0
+    strategy.exit("L-TR", "L", trail_points=atrV * trailMult / syminfo.mintick, trail_offset=atrV / syminfo.mintick)
+plot(st, "Supertrend", color.teal)`,
+blank:`//@version=6
+strategy("My Strategy", overlay=true, initial_capital=10000)
+// ここに Pine スクリプトを貼り付け
+`};
+
+/* ================= engine bootstrap ================= */
+async function boot() {
+  $('engver').textContent = 'engine v' + (window.AE ? AE.VERSION : '?');
+  $('engver2').textContent = 'v' + (window.AE ? AE.VERSION : '?');
+  try {
+    const r = await fetch('ae-engine.js');
+    engineSrc = await r.text();
+    worker = new Worker(URL.createObjectURL(new Blob([engineSrc], {type:'text/javascript'})));
+    worker.onmessage = onWorkerMsg;
+  } catch (e) {
+    $('runStatus').textContent = 'Worker初期化失敗(メインスレッドで実行します): ' + e.message;
+  }
+  const saved = localStorage.getItem('ae_bt_code');
+  $('code').value = saved || PRESETS.ema;
+  parseNow();
+}
+
+/* ================= parsing / inputs form ================= */
+let parsedCache = null, parseTimer = null;
+function parseNow() {
+  const code = $('code').value;
+  localStorage.setItem('ae_bt_code', code);
+  parsedCache = AE.parseCode(code);
+  const st = $('parseStatus');
+  if (parsedCache.errors.length) {
+    const e = parsedCache.errors[0];
+    st.className = 'parse-err';
+    st.textContent = `✖ 行${e.line}: ${e.message}`;
+  } else {
+    st.className = 'parse-ok';
+    const d = parsedCache.decl;
+    st.textContent = `✔ ${d.title} — input ${parsedCache.inputs.length}件 / overlay=${d.overlay !== false}`;
+    applyDeclDefaults(d);
+  }
+  buildInputsForm();
+  buildOptRows();
+  updateRunnable();
+}
+function applyDeclDefaults(d) {
+  const set = (id, v) => { const el = $(id); if (el && el.dataset.user !== '1' && v !== undefined) el.value = v; };
+  set('cap', d.initial_capital);
+  set('qtyValue', d.default_qty_value);
+  set('commValue', d.commission_value);
+  set('slippage', d.slippage);
+  const qt = $('qtyType'); if (qt.dataset.user !== '1' && d.default_qty_type) qt.value = d.default_qty_type;
+  const ct = $('commType'); if (ct.dataset.user !== '1' && d.commission_type) ct.value = d.commission_type;
+  const fm = $('fillMode'); if (fm.dataset.user !== '1') fm.value = d.process_orders_on_close ? 'onclose' : 'nextopen';
+}
+function buildInputsForm() {
+  const box = $('inputsForm');
+  box.innerHTML = '';
+  if (!parsedCache || !parsedCache.inputs.length) { box.innerHTML = '<div class="note">input.* は見つかりませんでした</div>'; return; }
+  for (const sp of parsedCache.inputs) {
+    const row = document.createElement('div'); row.className = 'frow';
+    const lab = document.createElement('label'); lab.textContent = sp.title; lab.title = sp.key; row.appendChild(lab);
+    let el;
+    if (sp.type === 'bool') { el = document.createElement('input'); el.type = 'checkbox'; el.checked = !!sp.defval; }
+    else if (sp.options && sp.options.length) {
+      el = document.createElement('select'); el.className = 'in';
+      sp.options.forEach(o => { const op = document.createElement('option'); op.value = o; op.textContent = o; el.appendChild(op); });
+      el.value = sp.defval;
+    } else if (sp.type === 'source') {
+      el = document.createElement('select'); el.className = 'in';
+      ['close','open','high','low','hl2','hlc3','ohlc4','hlcc4','volume'].forEach(o => { const op = document.createElement('option'); op.value = o; op.textContent = o; el.appendChild(op); });
+      el.value = sp.defval || 'close';
+    } else {
+      el = document.createElement('input'); el.className = 'in'; el.value = sp.defval !== undefined ? sp.defval : '';
+      if (sp.type === 'int' || sp.type === 'float') {
+        el.type = 'number';
+        if (sp.minval !== undefined) el.min = sp.minval;
+        if (sp.maxval !== undefined) el.max = sp.maxval;
+        el.step = sp.step !== undefined ? sp.step : (sp.type === 'int' ? 1 : 'any');
+      }
+    }
+    el.dataset.key = sp.key; el.dataset.type = sp.type;
+    row.appendChild(el);
+    box.appendChild(row);
+  }
+}
+function collectInputs() {
+  const out = {};
+  $('inputsForm').querySelectorAll('[data-key]').forEach(el => {
+    const ty = el.dataset.type;
+    let v;
+    if (el.type === 'checkbox') v = el.checked;
+    else if (ty === 'int') v = parseInt(el.value, 10);
+    else if (ty === 'float') v = parseFloat(el.value);
+    else v = el.value;
+    if (v === '' || (typeof v === 'number' && isNaN(v))) return;
+    out[el.dataset.key] = v;
+  });
+  return out;
+}
+
+/* ================= optimizer rows ================= */
+function buildOptRows() {
+  const box = $('optRows');
+  box.innerHTML = '';
+  const nums = (parsedCache && !parsedCache.errors.length) ? parsedCache.inputs.filter(i => i.type === 'int' || i.type === 'float') : [];
+  if (!nums.length) { box.innerHTML = '<div class="note">数値 input が見つかりません</div>'; updateComboCount(); return; }
+  const head = document.createElement('div'); head.className = 'opt-row note';
+  head.innerHTML = '<span></span><span>パラメータ</span><span>from</span><span>to</span><span>step</span>';
+  box.appendChild(head);
+  for (const sp of nums) {
+    const row = document.createElement('div'); row.className = 'opt-row';
+    const cb = document.createElement('input'); cb.type = 'checkbox'; cb.dataset.optKey = sp.key;
+    const nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = sp.title; nm.title = sp.title;
+    const d = sp.defval || 1;
+    const lo = sp.minval !== undefined ? sp.minval : Math.max(sp.type==='int'?1:0.1, d / 2);
+    const hi = sp.maxval !== undefined ? sp.maxval : d * 2;
+    const stp = sp.step !== undefined ? sp.step : (sp.type === 'int' ? Math.max(1, Math.round((hi - lo) / 20)) : (hi - lo) / 20);
+    const mk = (v, cls) => { const i = document.createElement('input'); i.className = 'in'; i.type = 'number'; i.step = 'any'; i.value = Math.round(v * 1e6) / 1e6; i.dataset[cls] = sp.key; return i; };
+    row.append(cb, nm, mk(lo, 'from'), mk(hi, 'to'), mk(stp, 'step'));
+    box.appendChild(row);
+    cb.addEventListener('change', updateComboCount);
+    row.querySelectorAll('input[type=number]').forEach(i => i.addEventListener('input', updateComboCount));
+  }
+  updateComboCount();
+}
+function collectGrid() {
+  const grid = [];
+  document.querySelectorAll('[data-opt-key]').forEach(cb => {
+    if (!cb.checked) return;
+    const key = cb.dataset.optKey;
+    const g = (attr) => parseFloat(document.querySelector(`[data-${attr}="${key}"]`).value);
+    const from = g('from'), to = g('to'), step = g('step');
+    if (isFinite(from) && isFinite(to) && isFinite(step) && step > 0 && to >= from) grid.push({ key, from, to, step });
+  });
+  return grid;
+}
+function updateComboCount() {
+  const grid = collectGrid();
+  const n = grid.length ? AE.countCombos(grid) : 0;
+  $('comboCount').textContent = `組み合わせ: ${n.toLocaleString()}` + (n > 3000 ? ' ⚠ 多すぎると時間がかかります(バー数×組合せに比例)' : '');
+  $('optBtn').disabled = !(DATA && grid.length && n > 0 && !optRunning && parsedCache && !parsedCache.errors.length);
+}
+function updateRunnable() {
+  $('runBtn').disabled = !(DATA && parsedCache && !parsedCache.errors.length);
+  updateComboCount();
+}
+
+/* ================= data loading ================= */
+async function loadData() {
+  const src = $('src').value;
+  const st = $('dataStatus');
+  st.className = 'status';
+  if (src === 'csv') { $('csvfile').click(); return; }
+  const symbol = $('symbol').value.trim().toUpperCase();
+  const interval = $('interval').value;
+  const want = parseInt($('nbars').value, 10);
+  const host = HOSTS[src];
+  $('loadBtn').disabled = true;
+  try {
+    let rows = [];
+    let end = Date.now();
+    while (rows.length < want) {
+      const lim = Math.min(1000, want - rows.length);
+      const url = `${host}?symbol=${symbol}&interval=${interval}&limit=${lim}&endTime=${end}`;
+      st.textContent = `取得中… ${rows.length.toLocaleString()} / ${want.toLocaleString()}`;
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(`HTTP ${r.status} — シンボル/接続を確認してください`);
+      const js = await r.json();
+      if (!Array.isArray(js) || js.length === 0) break;
+      rows = js.concat(rows);
+      end = js[0][0] - 1;
+      if (js.length < lim) break;
+    }
+    if (rows.length < 50) throw new Error('データが少なすぎます');
+    // de-dup & sort
+    const seen = new Set();
+    rows = rows.filter(r => { if (seen.has(r[0])) return false; seen.add(r[0]); return true; }).sort((a, b) => a[0] - b[0]);
+    DATA = { t: rows.map(r => r[0]), o: rows.map(r => +r[1]), h: rows.map(r => +r[2]), l: rows.map(r => +r[3]), c: rows.map(r => +r[4]), v: rows.map(r => +r[5]),
+      symbol, timeframe: interval, tfMs: TFMS[interval] || 36e5 };
+    st.className = 'status ok';
+    st.textContent = `✔ ${symbol} ${interval} — ${DATA.t.length.toLocaleString()}本 (${fdate(DATA.t[0])} → ${fdate(DATA.t[DATA.t.length-1])})`;
+  } catch (e) {
+    st.className = 'status err';
+    st.textContent = '✖ ' + e.message + (src !== 'us' ? ' / 地域によりBinance APIがブロックされる場合があります(Binance.USやCSVをお試しください)' : '');
+    DATA = null;
+  }
+  $('loadBtn').disabled = false;
+  updateRunnable();
+}
+function parseCsv(text, name) {
+  const lines = text.split(/\r?\n/).filter(l => l.trim());
+  if (!lines.length) throw new Error('空のCSVです');
+  const first = lines[0].split(',').map(s => s.trim().toLowerCase());
+  let idx = { t: 0, o: 1, h: 2, l: 3, c: 4, v: 5 }, start = 0;
+  if (isNaN(parseFloat(first[1]))) {
+    const find = (names, def) => { for (const nm of names) { const i = first.findIndex(f => f.includes(nm)); if (i >= 0) return i; } return def; };
+    idx = { t: find(['time','date'],0), o: find(['open'],1), h: find(['high'],2), l: find(['low'],3), c: find(['close'],4), v: find(['vol'],5) };
+    start = 1;
+  }
+  const d = { t: [], o: [], h: [], l: [], c: [], v: [], symbol: name.replace(/\.\w+$/,''), timeframe: 'csv' };
+  for (let i = start; i < lines.length; i++) {
+    const p = lines[i].split(',');
+    let tm = p[idx.t]; let ms;
+    if (/^\d+(\.\d+)?$/.test(tm)) { ms = parseFloat(tm); if (ms < 1e11) ms *= 1000; }
+    else { ms = Date.parse(tm); }
+    if (!isFinite(ms)) continue;
+    const o = +p[idx.o], h = +p[idx.h], l = +p[idx.l], c = +p[idx.c];
+    if (![o,h,l,c].every(isFinite)) continue;
+    d.t.push(ms); d.o.push(o); d.h.push(h); d.l.push(l); d.c.push(c); d.v.push(isFinite(+p[idx.v]) ? +p[idx.v] : NaN);
+  }
+  if (d.t.length < 50) throw new Error('有効な行が50本未満です');
+  // sort by time
+  const ord = d.t.map((_, i) => i).sort((a, b) => d.t[a] - d.t[b]);
+  for (const k of ['t','o','h','l','c','v']) d[k] = ord.map(i => d[k][i]);
+  d.tfMs = d.t[1] - d.t[0];
+  return d;
+}
+
+/* ================= run ================= */
+function gatherSettings() {
+  return {
+    inputs: collectInputs(),
+    initialCapital: parseFloat($('cap').value),
+    qtyType: $('qtyType').value, qtyValue: parseFloat($('qtyValue').value),
+    commType: $('commType').value, commValue: parseFloat($('commValue').value),
+    slippage: parseFloat($('slippage').value) || 0,
+    mintick: $('mintick').value ? parseFloat($('mintick').value) : undefined,
+    ambiguity: $('ambiguity').value,
+    procOnClose: $('fillMode').value === 'onclose',
+    splitPct: parseFloat($('splitPct').value) || 0,
+    symbol: DATA.symbol, timeframe: DATA.timeframe, tfMs: DATA.tfMs,
+  };
+}
+function runBacktest() {
+  if (!DATA || !parsedCache || parsedCache.errors.length) return;
+  $('runBtn').disabled = true;
+  $('runStatus').textContent = '実行中…';
+  const payload = { cmd: 'run', code: $('code').value, data: DATA, settings: gatherSettings() };
+  if (worker) worker.postMessage(payload);
+  else { // fallback: main thread
+    try { const res = AE.runBacktest(AE.parseCode(payload.code), DATA, payload.settings); onRunResult({ ok: true, result: res }); }
+    catch (e) { onRunResult({ ok: false, errors: [{ line: e.pineLine || 0, message: e.message }] }); }
+  }
+}
+function onWorkerMsg(e) {
+  const m = e.data;
+  if (m.type === 'runResult') onRunResult(m);
+  else if (m.type === 'prog') {
+    const pct = m.total ? (m.done / m.total * 100) : 0;
+    $('optProg').style.width = pct.toFixed(1) + '%';
+    $('optStatus').textContent = `${m.done.toLocaleString()} / ${m.total.toLocaleString()} (${(m.elapsedMs/1000).toFixed(1)}s)`;
+  }
+  else if (m.type === 'optResult') onOptResult(m);
+}
+function onRunResult(m) {
+  $('runBtn').disabled = false;
+  if (!m.ok) {
+    const e = m.errors[0];
+    $('runStatus').innerHTML = `<span style="color:var(--red)">✖ 行${e.line}: ${esc(e.message)}</span>`;
+    return;
+  }
+  LAST = m.result;
+  $('runStatus').innerHTML = `<span style="color:var(--emerald)">✔ 完了 (${LAST.metrics.elapsedMs}ms / ${DATA.t.length.toLocaleString()}本)</span>`;
+  renderOverview(); renderTrades(); renderMonthly(); renderChart();
+}
+
+/* ================= rendering ================= */
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function mcard(k, v, cls) { return `<div class="mcard"><div class="k">${k}</div><div class="v ${cls||''}">${v}</div></div>`; }
+function pn(v) { return v > 0 ? 'pos' : v < 0 ? 'neg' : ''; }
+
+function renderOverview() {
+  const M = LAST.metrics;
+  $('ovEmpty').style.display = 'none';
+  $('ovBody').style.display = 'block';
+  const g = $('mgrid');
+  g.innerHTML =
+    mcard('純利益', `${fmt(M.netProfit)} <small>(${fmt(M.netProfitPct)}%)</small>`, pn(M.netProfit)) +
+    mcard('最終資産', fmt(M.finalEquity), '') +
+    mcard('Buy & Hold', fmt(M.buyHoldPct) + '%', pn(M.buyHoldPct)) +
+    mcard('プロフィットファクター', M.pf === Infinity ? '∞' : fmt(M.pf), M.pf >= 1 ? 'pos' : 'neg') +
+    mcard('トレード数', fmtI(M.trades), '') +
+    mcard('勝率', fmt(M.winRate, 1) + '%', '') +
+    mcard('最大ドローダウン', `${fmt(M.maxDDPct)}% <small>(${fmt(M.maxDD)})</small>`, 'neg') +
+    mcard('シャープレシオ', fmt(M.sharpe), pn(M.sharpe)) +
+    mcard('ソルティノレシオ', fmt(M.sortino), pn(M.sortino)) +
+    mcard('CAGR', fmt(M.cagr) + '%', pn(M.cagr)) +
+    mcard('カルマーレシオ', fmt(M.calmar), pn(M.calmar)) +
+    mcard('SQN', fmt(M.sqn), pn(M.sqn)) +
+    mcard('期待値 / トレード', fmt(M.expectancy), pn(M.expectancy)) +
+    mcard('ペイオフレシオ', fmt(M.payoff), '') +
+    mcard('平均MAE / MFE', `${fmt(M.avgMAE,1)}% / ${fmt(M.avgMFE,1)}%`, '') +
+    mcard('平均保有バー', fmt(M.avgBars, 1), '') +
+    mcard('市場滞在率', fmt(M.exposurePct, 1) + '%', '') +
+    mcard('総手数料', fmt(M.commission), '') +
+    mcard('最大連勝 / 連敗', `${fmtI(M.maxConsecWins)} / ${fmtI(M.maxConsecLosses)}`, '') +
+    mcard('年率ボラティリティ', fmt(M.volAnnPct, 1) + '%', '');
+  // IS/OOS
+  const io = $('isoos');
+  if (LAST.isMetrics) {
+    const A = LAST.isMetrics, B = LAST.oosMetrics;
+    const pct = Math.round(LAST.splitIdx / LAST.equity.length * 100);
+    io.innerHTML = `<div class="twrap" style="max-height:none;margin-bottom:1rem"><table class="dt">
+      <tr><th>区間</th><th>純利益%</th><th>PF</th><th>最大DD%</th><th>シャープ</th><th>トレード</th><th>勝率%</th></tr>
+      <tr><td>IS — In-Sample (前半${pct}%)</td><td class="${pn(A.netProfitPct)}">${fmt(A.netProfitPct)}</td><td>${A.pf===Infinity?'∞':fmt(A.pf)}</td><td>${fmt(A.maxDDPct)}</td><td>${fmt(A.sharpe)}</td><td>${fmtI(A.trades)}</td><td>${fmt(A.winRate,1)}</td></tr>
+      <tr><td>OOS — Out-of-Sample (後半${100-pct}%)</td><td class="${pn(B.netProfitPct)}">${fmt(B.netProfitPct)}</td><td>${B.pf===Infinity?'∞':fmt(B.pf)}</td><td>${fmt(B.maxDDPct)}</td><td>${fmt(B.sharpe)}</td><td>${fmtI(B.trades)}</td><td>${fmt(B.winRate,1)}</td></tr>
+    </table></div>`;
+  } else io.innerHTML = '';
+  $('warnBox').textContent = LAST.warnings.length ? '⚠ ' + LAST.warnings.join(' / ') : '';
+  drawEquity();
+}
+
+async function ensureLWC() {
+  if (window.LightweightCharts) return true;
+  if (!lwcReady) lwcReady = new Promise((resolve) => {
+    const urls = ['https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js',
+                  'https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js'];
+    let i = 0;
+    const tryNext = () => {
+      if (i >= urls.length) { resolve(false); return; }
+      const s = document.createElement('script');
+      s.src = urls[i++]; s.onload = () => resolve(true); s.onerror = tryNext;
+      document.head.appendChild(s);
+    };
+    tryNext();
+  });
+  return lwcReady;
+}
+const CHART_OPTS = (h) => ({ layout: { background: { color: 'transparent' }, textColor: '#7FB6C9', fontFamily: "'JetBrains Mono', monospace", fontSize: 10 },
+  grid: { vertLines: { color: 'rgba(0,212,255,.06)' }, horzLines: { color: 'rgba(0,212,255,.06)' } },
+  timeScale: { timeVisible: true, borderColor: 'rgba(0,212,255,.25)' },
+  rightPriceScale: { borderColor: 'rgba(0,212,255,.25)' },
+  crosshair: { mode: 0 }, height: h, autoSize: true });
+function killCharts() { charts.forEach(c => { try { c.remove(); } catch(e){} }); charts = []; }
+
+async function drawEquity() {
+  if (!await ensureLWC()) { $('eqChart').innerHTML = '<div class="note" style="padding:1rem">チャートライブラリを読み込めませんでした(オフライン?)</div>'; return; }
+  killCharts();
+  const eqEl = $('eqChart'), ddEl = $('ddChart');
+  eqEl.innerHTML = ''; ddEl.innerHTML = '';
+  const eq = LightweightCharts.createChart(eqEl, CHART_OPTS(300));
+  const s1 = eq.addAreaSeries({ lineColor: '#00FF9F', topColor: 'rgba(0,255,159,.25)', bottomColor: 'rgba(0,255,159,.01)', lineWidth: 2, priceFormat: { type: 'price', precision: 0, minMove: 1 } });
+  const times = DATA.t;
+  s1.setData(Array.from(LAST.equity).map((v, i) => ({ time: times[i] / 1000, value: v })));
+  const s2 = eq.addLineSeries({ color: 'rgba(0,212,255,.55)', lineWidth: 1, priceFormat: { type: 'price', precision: 0 } });
+  const c0 = DATA.c[0], init = LAST.metrics.initial;
+  s2.setData(DATA.c.map((c, i) => ({ time: times[i] / 1000, value: init * c / c0 })));
+  if (LAST.splitIdx) {
+    s1.setMarkers([{ time: times[LAST.splitIdx] / 1000, position: 'aboveBar', color: '#FFB020', shape: 'arrowDown', text: 'IS｜OOS' }]);
+  }
+  const dd = LightweightCharts.createChart(ddEl, CHART_OPTS(140));
+  const s3 = dd.addAreaSeries({ lineColor: '#FF3860', topColor: 'rgba(255,56,96,.02)', bottomColor: 'rgba(255,56,96,.3)', lineWidth: 1 });
+  let peak = -Infinity; const ddData = [];
+  for (let i = 0; i < LAST.equity.length; i++) { peak = Math.max(peak, LAST.equity[i]); ddData.push({ time: times[i] / 1000, value: peak > 0 ? -(peak - LAST.equity[i]) / peak * 100 : 0 }); }
+  s3.setData(ddData);
+  charts.push(eq, dd);
+  eq.timeScale().fitContent(); dd.timeScale().fitContent();
+}
+
+let chartDrawn = false;
+async function renderChart() {
+  chartDrawn = false;
+  if (document.querySelector('.tab[data-tab=chart]').classList.contains('active')) drawPriceChart();
+}
+async function drawPriceChart() {
+  if (!LAST || chartDrawn) return;
+  if (!await ensureLWC()) return;
+  chartDrawn = true;
+  $('chEmpty').style.display = 'none';
+  $('chBox').style.display = 'block';
+  const el = $('priceChart'); el.innerHTML = '';
+  const ch = LightweightCharts.createChart(el, CHART_OPTS(430));
+  const cs = ch.addCandlestickSeries({ upColor: '#00FF9F', downColor: '#F23645', borderVisible: false, wickUpColor: 'rgba(0,255,159,.7)', wickDownColor: 'rgba(242,54,69,.7)' });
+  const times = DATA.t;
+  // cap render size for very large datasets
+  const MAXB = 30000;
+  const from = Math.max(0, DATA.t.length - MAXB);
+  cs.setData(times.slice(from).map((t, k) => { const i = k + from; return { time: t / 1000, open: DATA.o[i], high: DATA.h[i], low: DATA.l[i], close: DATA.c[i] }; }));
+  $('chCap').textContent = `PRICE — ${DATA.symbol} ${DATA.timeframe}` + (from > 0 ? ` (直近${MAXB.toLocaleString()}本を表示)` : '');
+  // markers
+  const mk = LAST.markers.filter(m => m.bar >= from).map(m => ({
+    time: m.time / 1000,
+    position: m.type === 'entry' ? (m.dir > 0 ? 'belowBar' : 'aboveBar') : (m.dir > 0 ? 'belowBar' : 'aboveBar'),
+    color: m.type === 'entry' ? (m.dir > 0 ? '#00FF9F' : '#FF00FF') : '#B2B5BE',
+    shape: m.type === 'entry' ? (m.dir > 0 ? 'arrowUp' : 'arrowDown') : 'circle',
+    text: m.type === 'entry' ? m.id : (m.reason || ''),
+  }));
+  cs.setMarkers(mk.slice(-800));
+  charts.push(ch);
+  // plots
+  const overlayPlots = LAST.overlay ? LAST.plots : [];
+  const panePlots = LAST.overlay ? [] : LAST.plots;
+  overlayPlots.slice(0, 8).forEach((p, ix) => {
+    const s = ch.addLineSeries({ color: p.color || PALETTE[ix % PALETTE.length], lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
+    const rows = [];
+    for (let i = from; i < times.length; i++) if (isFinite(p.data[i])) rows.push({ time: times[i] / 1000, value: p.data[i] });
+    s.setData(rows);
+  });
+  if (panePlots.length) {
+    $('chBox2').style.display = 'block';
+    const el2 = $('indChart'); el2.innerHTML = '';
+    const ch2 = LightweightCharts.createChart(el2, CHART_OPTS(180));
+    panePlots.slice(0, 8).forEach((p, ix) => {
+      const s = ch2.addLineSeries({ color: p.color || PALETTE[ix % PALETTE.length], lineWidth: 1, title: p.title });
+      const rows = [];
+      for (let i = from; i < times.length; i++) if (isFinite(p.data[i])) rows.push({ time: times[i] / 1000, value: p.data[i] });
+      s.setData(rows);
+    });
+    charts.push(ch2);
+    ch2.timeScale().fitContent();
+  } else $('chBox2').style.display = 'none';
+  ch.timeScale().fitContent();
+}
+
+function renderTrades() {
+  const rows = LAST.trades;
+  $('trCount').textContent = `${rows.length}件 (クローズ済 ${rows.filter(t => t.reason !== 'OPEN').length} / 未決済 ${rows.filter(t => t.reason === 'OPEN').length})`;
+  const tb = $('trTable');
+  const H = ['#','方向','ID','エントリー時刻','価格','決済時刻','価格','数量','損益','損益%','MAE%','MFE%','バー','事由'];
+  let html = '<tr>' + H.map(h => `<th>${h}</th>`).join('') + '</tr>';
+  rows.forEach((t, i) => {
+    html += `<tr><td>${i+1}</td><td class="${t.dir>0?'long':'short'}">${t.dir>0?'LONG':'SHORT'}</td><td>${esc(t.id)}</td>`+
+      `<td>${fdate(t.entryTime)}</td><td>${fmt(t.entryPrice, 4)}</td>`+
+      `<td>${t.exitTime?fdate(t.exitTime):'–'}</td><td>${isFinite(t.exitPrice)?fmt(t.exitPrice,4):'–'}</td>`+
+      `<td>${fmt(t.qty, 6)}</td><td class="${pn(t.pnl)}">${fmt(t.pnl)}</td><td class="${pn(t.pnlPct)}">${fmt(t.pnlPct)}%</td>`+
+      `<td>${fmt(t.mae,1)}</td><td>${fmt(t.mfe,1)}</td><td>${t.bars}</td><td>${esc(t.reason)}</td></tr>`;
+  });
+  tb.innerHTML = html;
+}
+function exportCsv() {
+  if (!LAST) return;
+  const H = 'num,side,id,entry_time,entry_price,exit_time,exit_price,qty,pnl,pnl_pct,mae_pct,mfe_pct,bars,reason';
+  const lines = LAST.trades.map((t, i) => [i+1, t.dir>0?'long':'short', t.id, new Date(t.entryTime).toISOString(), t.entryPrice,
+    t.exitTime?new Date(t.exitTime).toISOString():'', isFinite(t.exitPrice)?t.exitPrice:'', t.qty, t.pnl, t.pnlPct, t.mae, t.mfe, t.bars, t.reason].join(','));
+  const blob = new Blob([H + '\n' + lines.join('\n')], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `aetheredge_trades_${DATA.symbol}_${DATA.timeframe}.csv`;
+  a.click();
+}
+
+function renderMonthly() {
+  $('moEmpty').style.display = 'none';
+  const tb = $('moTable');
+  const MO = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+  let html = '<tr><th>年</th>' + MO.map(m => `<th>${m}</th>`).join('') + '<th>年計</th></tr>';
+  for (const row of LAST.monthly) {
+    let ytd = 1;
+    html += `<tr><th>${row.year}</th>`;
+    for (const v of row.months) {
+      if (v === null) { html += '<td>–</td>'; continue; }
+      ytd *= (1 + v / 100);
+      const a = Math.min(Math.abs(v) / 12, 1);
+      const bg = v >= 0 ? `rgba(0,255,159,${(a*.4).toFixed(3)})` : `rgba(255,56,96,${(a*.45).toFixed(3)})`;
+      html += `<td style="background:${bg}">${fmt(v, 1)}</td>`;
+    }
+    const y = (ytd - 1) * 100;
+    html += `<td class="${pn(y)}">${fmt(y, 1)}%</td></tr>`;
+  }
+  tb.innerHTML = html;
+}
+
+/* ================= optimizer ================= */
+function runOptimize() {
+  const grid = collectGrid();
+  if (!grid.length || !DATA) return;
+  if (!worker) { $('optStatus').textContent = '✖ 最適化には Worker が必要です。HTTP経由でページを開いてください (file:// 不可)'; return; }
+  const n = AE.countCombos(grid);
+  if (n > 20000) { $('optStatus').textContent = '✖ 組み合わせが20,000を超えています。範囲を絞ってください。'; return; }
+  optRunning = true;
+  $('optBtn').disabled = true; $('optCancel').style.display = 'inline-flex';
+  $('optStatus').textContent = '最適化中…'; $('optProg').style.width = '0%';
+  worker.postMessage({ cmd: 'optimize', code: $('code').value, data: DATA, settings: gatherSettings(), grid,
+    opts: { splitPct: parseFloat($('splitPct').value) || 0 } });
+  document.querySelector('.tab[data-tab=opt]').click();
+}
+let optRows = [], optSort = { key: 'score', dir: -1 };
+function onOptResult(m) {
+  optRunning = false;
+  $('optBtn').disabled = false; $('optCancel').style.display = 'none';
+  $('optProg').style.width = '100%';
+  if (!m.ok) { $('optStatus').textContent = '✖ ' + (m.errors && m.errors[0] ? m.errors[0].message : 'エラー'); return; }
+  $('optStatus').textContent = `✔ ${m.done.toLocaleString()}通り完了 (${(m.elapsedMs/1000).toFixed(1)}s)`;
+  const metric = $('optMetric').value;
+  optRows = m.rows.filter(r => !r.error).map(r => ({ ...r, score: metric === 'npdd' ? (r.dd > 0 ? r.np / r.dd : r.np) : (r[metric] === Infinity ? 1e18 : r[metric]) }));
+  optSort = { key: 'score', dir: -1 };
+  renderOptTable();
+  updateComboCount();
+}
+function renderOptTable() {
+  $('optEmpty').style.display = optRows.length ? 'none' : 'block';
+  const tb = $('optTable');
+  if (!optRows.length) { tb.innerHTML = ''; return; }
+  const pkeys = Object.keys(optRows[0].params);
+  const cols = [...pkeys.map(k => ({ k: 'p:' + k, lbl: k })),
+    { k: 'np', lbl: '純利益%' }, { k: 'pf', lbl: 'PF' }, { k: 'dd', lbl: 'DD%' }, { k: 'sharpe', lbl: 'シャープ' },
+    { k: 'trades', lbl: '回数' }, { k: 'winRate', lbl: '勝率%' }, { k: 'isNp', lbl: 'IS純益%' }, { k: 'oosNp', lbl: 'OOS純益%' }, { k: 'score', lbl: '目的関数' }];
+  const rows = [...optRows].sort((a, b) => {
+    const g = (r) => optSort.key.startsWith('p:') ? r.params[optSort.key.slice(2)] : r[optSort.key];
+    const va = g(a), vb = g(b);
+    return ((va === null || !isFinite(va) ? -Infinity : va) - (vb === null || !isFinite(vb) ? -Infinity : vb)) * optSort.dir;
+  }).slice(0, 300);
+  let html = '<tr>' + cols.map(c => `<th data-sort="${c.k}">${c.lbl}${optSort.key===c.k?(optSort.dir<0?' ▼':' ▲'):''}</th>`).join('') + '<th></th></tr>';
+  rows.forEach((r, i) => {
+    html += '<tr>' + pkeys.map(k => `<td>${r.params[k]}</td>`).join('') +
+      `<td class="${pn(r.np)}">${fmt(r.np,1)}</td><td>${r.pf===Infinity?'∞':fmt(r.pf)}</td><td>${fmt(r.dd,1)}</td><td>${fmt(r.sharpe)}</td>`+
+      `<td>${r.trades}</td><td>${fmt(r.winRate,1)}</td>`+
+      `<td class="${pn(r.isNp)}">${r.isNp===null?'–':fmt(r.isNp,1)}</td><td class="${pn(r.oosNp)}">${r.oosNp===null?'–':fmt(r.oosNp,1)}</td>`+
+      `<td>${fmt(r.score)}</td><td><button class="btn mini" data-apply="${i}">適用</button></td></tr>`;
+  });
+  tb.innerHTML = html;
+  tb.querySelectorAll('th[data-sort]').forEach(th => th.addEventListener('click', () => {
+    const k = th.dataset.sort;
+    optSort = { key: k, dir: optSort.key === k ? -optSort.dir : -1 };
+    renderOptTable();
+  }));
+  tb.querySelectorAll('[data-apply]').forEach(b => b.addEventListener('click', () => {
+    const r = rows[parseInt(b.dataset.apply, 10)];
+    for (const [k, v] of Object.entries(r.params)) {
+      const el = document.querySelector(`#inputsForm [data-key="${CSS.escape(k)}"]`);
+      if (el) el.value = v;
+    }
+    runBacktest();
+    document.querySelector('.tab[data-tab=overview]').click();
+  }));
+}
+
+/* ================= wiring ================= */
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('.tabpane').forEach(x => x.classList.remove('show'));
+  t.classList.add('active');
+  $('pane-' + t.dataset.tab).classList.add('show');
+  if (t.dataset.tab === 'chart') drawPriceChart();
+}));
+$('src').addEventListener('change', () => {
+  const csv = $('src').value === 'csv';
+  $('row-symbol').style.display = csv ? 'none' : 'flex';
+  $('row-tf').style.display = csv ? 'none' : 'flex';
+  $('row-csv').style.display = csv ? 'flex' : 'none';
+  $('row-csv-note').style.display = csv ? 'block' : 'none';
+});
+$('csvfile').addEventListener('change', async (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const st = $('dataStatus');
+  try {
+    DATA = parseCsv(await f.text(), f.name);
+    st.className = 'status ok';
+    st.textContent = `✔ ${f.name} — ${DATA.t.length.toLocaleString()}本 (${fdate(DATA.t[0])} → ${fdate(DATA.t[DATA.t.length-1])})`;
+  } catch (err) { st.className = 'status err'; st.textContent = '✖ ' + err.message; DATA = null; }
+  updateRunnable();
+});
+$('loadBtn').addEventListener('click', loadData);
+$('runBtn').addEventListener('click', runBacktest);
+$('optBtn').addEventListener('click', runOptimize);
+$('optCancel').addEventListener('click', () => { worker.postMessage({ cmd: 'cancel' }); $('optStatus').textContent = 'キャンセル中…'; });
+$('csvBtn').addEventListener('click', exportCsv);
+$('preset').addEventListener('change', () => { $('code').value = PRESETS[$('preset').value]; parseNow(); });
+$('code').addEventListener('input', () => { clearTimeout(parseTimer); parseTimer = setTimeout(parseNow, 450); });
+$('code').addEventListener('keydown', (e) => {
+  if (e.key === 'Tab') { e.preventDefault(); const el = e.target, s = el.selectionStart;
+    el.value = el.value.slice(0, s) + '    ' + el.value.slice(el.selectionEnd);
+    el.selectionStart = el.selectionEnd = s + 4; }
+});
+['cap','qtyType','qtyValue','commType','commValue','slippage','fillMode'].forEach(id => $(id).addEventListener('change', (e) => e.target.dataset.user = '1'));
+$('optMetric').addEventListener('change', () => { if (optRows.length) { const metric = $('optMetric').value;
+  optRows.forEach(r => r.score = metric === 'npdd' ? (r.dd > 0 ? r.np / r.dd : r.np) : (r[metric] === Infinity ? 1e18 : r[metric]));
+  optSort = { key: 'score', dir: -1 }; renderOptTable(); } });
+
+boot();
+</script>
+</body>
+</html>
