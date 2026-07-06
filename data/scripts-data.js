@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-07-05T21:38:12.078Z",
+  "updated": "2026-07-06T14:07:40.270Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -205,7 +205,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "order flow",
         "smart money"
       ],
-      "boosts": 594,
+      "boosts": 596,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
@@ -336,7 +336,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "K-MEANS",
         "UCB-BANDIT"
       ],
-      "boosts": 467,
+      "boosts": 468,
       "slug": "9tSQp67Y",
       "url": "https://www.tradingview.com/script/9tSQp67Y/",
       "featured": true,
@@ -419,7 +419,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "reinforcement-learning",
         "probability"
       ],
-      "boosts": 22,
+      "boosts": 23,
       "slug": "oxGH5tac",
       "url": "https://www.tradingview.com/script/oxGH5tac/",
       "featured": false,
@@ -461,7 +461,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "uncertainty",
         "trend"
       ],
-      "boosts": 10,
+      "boosts": 11,
       "slug": "fBAL7mVM",
       "url": "https://www.tradingview.com/script/fBAL7mVM/",
       "featured": false,
@@ -502,7 +502,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "probability",
         "gaussian"
       ],
-      "boosts": 20,
+      "boosts": 21,
       "slug": "9fBuHHkN",
       "url": "https://www.tradingview.com/script/9fBuHHkN/",
       "featured": false,
@@ -2155,7 +2155,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "momentum",
         "library"
       ],
-      "boosts": 24,
+      "boosts": 25,
       "slug": "Ovnj2IxQ",
       "url": "https://www.tradingview.com/script/Ovnj2IxQ/",
       "featured": false,
