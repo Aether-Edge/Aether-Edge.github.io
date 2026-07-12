@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-07-11T20:31:37.750Z",
+  "updated": "2026-07-12T07:50:59.322Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -336,7 +336,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "K-MEANS",
         "UCB-BANDIT"
       ],
-      "boosts": 474,
+      "boosts": 476,
       "slug": "9tSQp67Y",
       "url": "https://www.tradingview.com/script/9tSQp67Y/",
       "featured": true,
@@ -770,7 +770,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "signals",
         "ensemble"
       ],
-      "boosts": 18,
+      "boosts": 17,
       "slug": "XWsPoosv",
       "url": "https://www.tradingview.com/script/XWsPoosv/",
       "featured": false,
@@ -790,7 +790,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "voting",
         "consensus"
       ],
-      "boosts": 13,
+      "boosts": 14,
       "slug": "mOnZQiRJ",
       "url": "https://www.tradingview.com/script/mOnZQiRJ/",
       "featured": false,
@@ -993,7 +993,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "leverage",
         "heatmap"
       ],
-      "boosts": 152,
+      "boosts": 153,
       "slug": "2WzPEzZ4",
       "url": "https://www.tradingview.com/script/2WzPEzZ4/",
       "featured": false,
@@ -1075,7 +1075,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "fvg",
         "online learning"
       ],
-      "boosts": 350,
+      "boosts": 351,
       "slug": "kbDertHP",
       "url": "https://www.tradingview.com/script/kbDertHP/",
       "featured": false,
@@ -1278,7 +1278,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "multi-agent",
         "ensemble"
       ],
-      "boosts": 19,
+      "boosts": 20,
       "slug": "4JKr9kyr",
       "url": "https://www.tradingview.com/script/4JKr9kyr/",
       "featured": false,
@@ -1686,7 +1686,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "oscillator",
         "momentum"
       ],
-      "boosts": 29,
+      "boosts": 30,
       "slug": "jxd86tft",
       "url": "https://www.tradingview.com/script/jxd86tft/",
       "featured": false,
