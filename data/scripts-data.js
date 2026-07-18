@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-07-17T19:10:20.232Z",
+  "updated": "2026-07-18T02:32:38.111Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -80,7 +80,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "atr",
         "online learning"
       ],
-      "boosts": 3,
+      "boosts": 4,
       "slug": "Zxp8c8KY",
       "url": "https://www.tradingview.com/script/Zxp8c8KY/",
       "featured": false,
@@ -185,7 +185,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "breakout",
         "ucb-bandit"
       ],
-      "boosts": 14,
+      "boosts": 15,
       "slug": "HiRgqVon",
       "url": "https://www.tradingview.com/script/HiRgqVon/",
       "featured": false,
@@ -750,7 +750,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "multi-factor",
         "ensemble"
       ],
-      "boosts": 276,
+      "boosts": 277,
       "slug": "DZ81TJie",
       "url": "https://www.tradingview.com/script/DZ81TJie/",
       "featured": false,
@@ -1095,7 +1095,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "signals",
         "engine"
       ],
-      "boosts": 518,
+      "boosts": 519,
       "slug": "1ro4FL1E",
       "url": "https://www.tradingview.com/script/1ro4FL1E/",
       "featured": false,
@@ -1523,7 +1523,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "neural",
         "momentum"
       ],
-      "boosts": 272,
+      "boosts": 273,
       "slug": "T6EZVEr1",
       "url": "https://www.tradingview.com/script/T6EZVEr1/",
       "featured": false,
@@ -1726,7 +1726,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "VOLUME-PROFILE",
         "SESSION"
       ],
-      "boosts": 8,
+      "boosts": 9,
       "slug": "pt732MUy",
       "url": "https://www.tradingview.com/script/pt732MUy/",
       "featured": false,
