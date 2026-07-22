@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-07-22T13:55:33.075Z",
+  "updated": "2026-07-22T19:20:44.475Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -205,7 +205,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "order flow",
         "smart money"
       ],
-      "boosts": 609,
+      "boosts": 610,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
@@ -336,7 +336,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "K-MEANS",
         "UCB-BANDIT"
       ],
-      "boosts": 489,
+      "boosts": 490,
       "slug": "9tSQp67Y",
       "url": "https://www.tradingview.com/script/9tSQp67Y/",
       "featured": true,
@@ -1075,7 +1075,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "fvg",
         "online learning"
       ],
-      "boosts": 364,
+      "boosts": 366,
       "slug": "kbDertHP",
       "url": "https://www.tradingview.com/script/kbDertHP/",
       "featured": false,
@@ -1463,7 +1463,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "breakout",
         "reinforcement learning"
       ],
-      "boosts": 5,
+      "boosts": 6,
       "slug": "NeydJUre",
       "url": "https://www.tradingview.com/script/NeydJUre/",
       "featured": false,
@@ -1666,7 +1666,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "stop-hunt",
         "structure"
       ],
-      "boosts": 430,
+      "boosts": 431,
       "slug": "1tgtnjBR",
       "url": "https://www.tradingview.com/script/1tgtnjBR/",
       "featured": false,
@@ -1788,7 +1788,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "price-structure",
         "pivot"
       ],
-      "boosts": 539,
+      "boosts": 540,
       "slug": "mAd4iDWL",
       "url": "https://www.tradingview.com/script/mAd4iDWL/",
       "featured": false,
