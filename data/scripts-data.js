@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-07-23T14:01:48.396Z",
+  "updated": "2026-07-23T19:19:06.280Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -80,7 +80,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "atr",
         "online learning"
       ],
-      "boosts": 4,
+      "boosts": 5,
       "slug": "Zxp8c8KY",
       "url": "https://www.tradingview.com/script/Zxp8c8KY/",
       "featured": false,
@@ -398,7 +398,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "adaptive",
         "forecast"
       ],
-      "boosts": 15,
+      "boosts": 16,
       "slug": "1coOxasg",
       "url": "https://www.tradingview.com/script/1coOxasg/",
       "featured": false,
@@ -1013,7 +1013,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "knn",
         "pattern"
       ],
-      "boosts": 13,
+      "boosts": 14,
       "slug": "bnyetf49",
       "url": "https://www.tradingview.com/script/bnyetf49/",
       "featured": false,
@@ -1075,7 +1075,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "fvg",
         "online learning"
       ],
-      "boosts": 366,
+      "boosts": 367,
       "slug": "kbDertHP",
       "url": "https://www.tradingview.com/script/kbDertHP/",
       "featured": false,
