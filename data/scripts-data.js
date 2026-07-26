@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-07-26T08:26:59.669Z",
+  "updated": "2026-07-26T13:23:28.052Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -101,7 +101,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "pattern",
         "non-parametric"
       ],
-      "boosts": 6,
+      "boosts": 7,
       "slug": "Zc7zhbEn",
       "url": "https://www.tradingview.com/script/Zc7zhbEn/",
       "featured": false,
@@ -282,7 +282,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "ORDER-BLOCK",
         "SCREENER"
       ],
-      "boosts": 5,
+      "boosts": 6,
       "slug": "VkKnnX2M",
       "url": "https://www.tradingview.com/script/VkKnnX2M/",
       "featured": false,
@@ -1075,7 +1075,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "fvg",
         "online learning"
       ],
-      "boosts": 374,
+      "boosts": 375,
       "slug": "kbDertHP",
       "url": "https://www.tradingview.com/script/kbDertHP/",
       "featured": false,
@@ -1422,7 +1422,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "neural-network",
         "signal-filter"
       ],
-      "boosts": 4,
+      "boosts": 5,
       "slug": "1mRJjXuC",
       "url": "https://www.tradingview.com/script/1mRJjXuC/",
       "featured": false,
@@ -1483,7 +1483,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "predictor",
         "ai"
       ],
-      "boosts": 62,
+      "boosts": 63,
       "slug": "HAy0GeWp",
       "url": "https://www.tradingview.com/script/HAy0GeWp/",
       "featured": false,
@@ -1544,7 +1544,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "adaptive",
         "multi-factor"
       ],
-      "boosts": 7,
+      "boosts": 8,
       "slug": "fC9rkMGH",
       "url": "https://www.tradingview.com/script/fC9rkMGH/",
       "featured": false,
@@ -1990,7 +1990,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "knn",
         "breakout"
       ],
-      "boosts": 355,
+      "boosts": 356,
       "slug": "14PzySpq",
       "url": "https://www.tradingview.com/script/14PzySpq/",
       "featured": false,
