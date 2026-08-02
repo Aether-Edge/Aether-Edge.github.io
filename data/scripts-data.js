@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-08-02T08:25:01.066Z",
+  "updated": "2026-08-02T13:22:06.693Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -300,7 +300,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "MTF",
         "ONLINE-ML"
       ],
-      "boosts": 9,
+      "boosts": 10,
       "slug": "AJmXcJOe",
       "url": "https://www.tradingview.com/script/AJmXcJOe/",
       "featured": false,
@@ -440,7 +440,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "forecast",
         "machine-learning"
       ],
-      "boosts": 24,
+      "boosts": 25,
       "slug": "hAUvPolk",
       "url": "https://www.tradingview.com/script/hAUvPolk/",
       "featured": false,
@@ -1319,7 +1319,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "uncertainty",
         "microstructure"
       ],
-      "boosts": 13,
+      "boosts": 14,
       "slug": "F6phg3kx",
       "url": "https://www.tradingview.com/script/F6phg3kx/",
       "featured": false,
@@ -1523,7 +1523,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "neural",
         "momentum"
       ],
-      "boosts": 278,
+      "boosts": 279,
       "slug": "T6EZVEr1",
       "url": "https://www.tradingview.com/script/T6EZVEr1/",
       "featured": false,
@@ -1645,7 +1645,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "multi-factor",
         "overview"
       ],
-      "boosts": 20,
+      "boosts": 21,
       "slug": "laG128wU",
       "url": "https://www.tradingview.com/script/laG128wU/",
       "featured": false,
