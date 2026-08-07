@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-08-07T07:16:23.395Z",
+  "updated": "2026-08-07T13:04:27.906Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -101,7 +101,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "pattern",
         "non-parametric"
       ],
-      "boosts": 7,
+      "boosts": 8,
       "slug": "Zc7zhbEn",
       "url": "https://www.tradingview.com/script/Zc7zhbEn/",
       "featured": false,
@@ -225,7 +225,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "library",
         "anomaly"
       ],
-      "boosts": 9,
+      "boosts": 10,
       "slug": "cEvBEkmc",
       "url": "https://www.tradingview.com/script/cEvBEkmc/",
       "featured": false,
@@ -710,7 +710,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "reinforcement-learning",
         "signal"
       ],
-      "boosts": 7,
+      "boosts": 8,
       "slug": "j6hnLjfP",
       "url": "https://www.tradingview.com/script/j6hnLjfP/",
       "featured": false,
@@ -1136,7 +1136,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "correlation",
         "regime"
       ],
-      "boosts": 8,
+      "boosts": 9,
       "slug": "SVede4m1",
       "url": "https://www.tradingview.com/script/SVede4m1/",
       "featured": false,
