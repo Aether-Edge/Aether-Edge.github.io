@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-08-11T07:08:25.543Z",
+  "updated": "2026-08-11T13:05:50.873Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -1463,7 +1463,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "breakout",
         "reinforcement learning"
       ],
-      "boosts": 6,
+      "boosts": 7,
       "slug": "NeydJUre",
       "url": "https://www.tradingview.com/script/NeydJUre/",
       "featured": false,
