@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-08-15T12:37:34.069Z",
+  "updated": "2026-08-15T18:30:07.403Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -18,7 +18,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "screener",
         "signals"
       ],
-      "boosts": 6,
+      "boosts": 7,
       "slug": "uIXZXUhk",
       "url": "https://www.tradingview.com/script/uIXZXUhk/",
       "featured": false,
@@ -205,7 +205,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "order flow",
         "smart money"
       ],
-      "boosts": 622,
+      "boosts": 623,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
@@ -1157,7 +1157,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "multi-factor",
         "meta-learning"
       ],
-      "boosts": 29,
+      "boosts": 30,
       "slug": "uyl8TCov",
       "url": "https://www.tradingview.com/script/uyl8TCov/",
       "featured": false,
@@ -1238,7 +1238,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "correlation",
         "mapping"
       ],
-      "boosts": 118,
+      "boosts": 119,
       "slug": "5ZcJCljV",
       "url": "https://www.tradingview.com/script/5ZcJCljV/",
       "featured": false,
@@ -2195,7 +2195,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "trend",
         "neural"
       ],
-      "boosts": 18,
+      "boosts": 19,
       "slug": "4pdpfBfU",
       "url": "https://www.tradingview.com/script/4pdpfBfU/",
       "featured": false,
