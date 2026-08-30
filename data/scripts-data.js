@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-08-30T04:01:40.641Z",
+  "updated": "2026-08-30T11:24:35.354Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -264,7 +264,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "BAYES",
         "LEVELS"
       ],
-      "boosts": 15,
+      "boosts": 16,
       "slug": "nxv2N5Wm",
       "url": "https://www.tradingview.com/script/nxv2N5Wm/",
       "featured": false,
@@ -282,7 +282,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "ORDER-BLOCK",
         "SCREENER"
       ],
-      "boosts": 10,
+      "boosts": 11,
       "slug": "VkKnnX2M",
       "url": "https://www.tradingview.com/script/VkKnnX2M/",
       "featured": false,
@@ -502,7 +502,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "probability",
         "gaussian"
       ],
-      "boosts": 39,
+      "boosts": 40,
       "slug": "9fBuHHkN",
       "url": "https://www.tradingview.com/script/9fBuHHkN/",
       "featured": false,
@@ -563,7 +563,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "online-learning",
         "reconstruction-error"
       ],
-      "boosts": 12,
+      "boosts": 13,
       "slug": "psorYWV3",
       "url": "https://www.tradingview.com/script/psorYWV3/",
       "featured": false,
@@ -910,7 +910,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "adaptive",
         "levels"
       ],
-      "boosts": 28,
+      "boosts": 29,
       "slug": "SHEsL83I",
       "url": "https://www.tradingview.com/script/SHEsL83I/",
       "featured": false,
@@ -1054,7 +1054,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "adaptive",
         "engine"
       ],
-      "boosts": 22,
+      "boosts": 23,
       "slug": "D4M8vV79",
       "url": "https://www.tradingview.com/script/D4M8vV79/",
       "featured": false,
