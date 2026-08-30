@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-08-29T20:30:31.442Z",
+  "updated": "2026-08-30T04:01:40.641Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -1686,7 +1686,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "oscillator",
         "momentum"
       ],
-      "boosts": 36,
+      "boosts": 37,
       "slug": "jxd86tft",
       "url": "https://www.tradingview.com/script/jxd86tft/",
       "featured": false,
