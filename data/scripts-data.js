@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-09-04T03:15:50.713Z",
+  "updated": "2026-09-04T10:46:19.982Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -849,7 +849,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "logistic-regression",
         "signal-filter"
       ],
-      "boosts": 7,
+      "boosts": 8,
       "slug": "dcNqtPeI",
       "url": "https://www.tradingview.com/script/dcNqtPeI/",
       "featured": false,
