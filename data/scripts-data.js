@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-09-06T03:18:32.459Z",
+  "updated": "2026-09-06T10:24:26.865Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -2195,7 +2195,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "trend",
         "neural"
       ],
-      "boosts": 22,
+      "boosts": 23,
       "slug": "4pdpfBfU",
       "url": "https://www.tradingview.com/script/4pdpfBfU/",
       "featured": false,
