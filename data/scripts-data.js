@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-09-08T03:24:31.348Z",
+  "updated": "2026-09-08T10:44:16.338Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -1443,7 +1443,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "actor-critic",
         "policy gradient"
       ],
-      "boosts": 4,
+      "boosts": 5,
       "slug": "unc8uhcT",
       "url": "https://www.tradingview.com/script/unc8uhcT/",
       "featured": false,
