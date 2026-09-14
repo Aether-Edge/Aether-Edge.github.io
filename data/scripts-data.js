@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-09-14T12:00:20.484Z",
+  "updated": "2026-09-14T18:03:37.033Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -225,7 +225,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "library",
         "anomaly"
       ],
-      "boosts": 10,
+      "boosts": 11,
       "slug": "cEvBEkmc",
       "url": "https://www.tradingview.com/script/cEvBEkmc/",
       "featured": false,
