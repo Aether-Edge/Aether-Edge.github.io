@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-09-14T03:44:11.668Z",
+  "updated": "2026-09-14T12:00:20.484Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -122,7 +122,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "bands",
         "regime-adaptive"
       ],
-      "boosts": 6,
+      "boosts": 7,
       "slug": "LImygeiq",
       "url": "https://www.tradingview.com/script/LImygeiq/",
       "featured": false,
@@ -869,7 +869,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "probability",
         "scanner"
       ],
-      "boosts": 358,
+      "boosts": 359,
       "slug": "srmaIJLG",
       "url": "https://www.tradingview.com/script/srmaIJLG/",
       "featured": false,
@@ -2093,7 +2093,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "reversal",
         "stop hunt"
       ],
-      "boosts": 9,
+      "boosts": 10,
       "slug": "qZBuVb4Q",
       "url": "https://www.tradingview.com/script/qZBuVb4Q/",
       "featured": false,
