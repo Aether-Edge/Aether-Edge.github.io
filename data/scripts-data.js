@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-09-17T21:00:43.979Z",
+  "updated": "2026-09-18T03:33:24.785Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -18,7 +18,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "screener",
         "signals"
       ],
-      "boosts": 8,
+      "boosts": 9,
       "slug": "uIXZXUhk",
       "url": "https://www.tradingview.com/script/uIXZXUhk/",
       "featured": false,
@@ -809,7 +809,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "SELF-COACH",
         "REGIME"
       ],
-      "boosts": 89,
+      "boosts": 90,
       "slug": "qjPbh7py",
       "url": "https://www.tradingview.com/script/qjPbh7py/",
       "featured": false,
@@ -849,7 +849,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "logistic-regression",
         "signal-filter"
       ],
-      "boosts": 8,
+      "boosts": 9,
       "slug": "dcNqtPeI",
       "url": "https://www.tradingview.com/script/dcNqtPeI/",
       "featured": false,
@@ -869,7 +869,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "probability",
         "scanner"
       ],
-      "boosts": 360,
+      "boosts": 361,
       "slug": "srmaIJLG",
       "url": "https://www.tradingview.com/script/srmaIJLG/",
       "featured": false,
@@ -951,7 +951,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "oscillator",
         "adaptive"
       ],
-      "boosts": 47,
+      "boosts": 48,
       "slug": "KAaTOG7D",
       "url": "https://www.tradingview.com/script/KAaTOG7D/",
       "featured": false,
@@ -1319,7 +1319,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "uncertainty",
         "microstructure"
       ],
-      "boosts": 15,
+      "boosts": 16,
       "slug": "F6phg3kx",
       "url": "https://www.tradingview.com/script/F6phg3kx/",
       "featured": false,
@@ -1767,7 +1767,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "smc",
         "market-structure"
       ],
-      "boosts": 30,
+      "boosts": 31,
       "slug": "FLI6Eyql",
       "url": "https://www.tradingview.com/script/FLI6Eyql/",
       "featured": false,
@@ -1971,7 +1971,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "neural",
         "smc"
       ],
-      "boosts": 28,
+      "boosts": 29,
       "slug": "K75NxVvO",
       "url": "https://www.tradingview.com/script/K75NxVvO/",
       "featured": false,
