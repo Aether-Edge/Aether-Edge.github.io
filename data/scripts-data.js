@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-09-19T15:29:32.279Z",
+  "updated": "2026-09-19T20:09:14.562Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -1013,7 +1013,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "knn",
         "pattern"
       ],
-      "boosts": 15,
+      "boosts": 16,
       "slug": "bnyetf49",
       "url": "https://www.tradingview.com/script/bnyetf49/",
       "featured": false,
