@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-09-24T16:38:03.257Z",
+  "updated": "2026-09-24T21:13:46.587Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -647,7 +647,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "spectrogram",
         "fourier"
       ],
-      "boosts": 48,
+      "boosts": 49,
       "slug": "FJu1N0Pe",
       "url": "https://www.tradingview.com/script/FJu1N0Pe/",
       "featured": false,
@@ -869,7 +869,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "probability",
         "scanner"
       ],
-      "boosts": 363,
+      "boosts": 364,
       "slug": "srmaIJLG",
       "url": "https://www.tradingview.com/script/srmaIJLG/",
       "featured": false,
@@ -931,7 +931,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "regime",
         "signal"
       ],
-      "boosts": 29,
+      "boosts": 30,
       "slug": "iMUZhIc3",
       "url": "https://www.tradingview.com/script/iMUZhIc3/",
       "featured": false,
@@ -1116,7 +1116,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "entropy",
         "multi-mechanism"
       ],
-      "boosts": 15,
+      "boosts": 16,
       "slug": "vUFqFhTp",
       "url": "https://www.tradingview.com/script/vUFqFhTp/",
       "featured": false,
@@ -1584,7 +1584,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "forecast",
         "ai"
       ],
-      "boosts": 42,
+      "boosts": 43,
       "slug": "j7jW6SCI",
       "url": "https://www.tradingview.com/script/j7jW6SCI/",
       "featured": false,
@@ -1625,7 +1625,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "trend",
         "forecast"
       ],
-      "boosts": 17,
+      "boosts": 18,
       "slug": "Jv7VkxlB",
       "url": "https://www.tradingview.com/script/Jv7VkxlB/",
       "featured": false,
@@ -1767,7 +1767,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "smc",
         "market-structure"
       ],
-      "boosts": 31,
+      "boosts": 32,
       "slug": "FLI6Eyql",
       "url": "https://www.tradingview.com/script/FLI6Eyql/",
       "featured": false,
