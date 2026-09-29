@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-09-29T04:37:38.513Z",
+  "updated": "2026-09-29T12:16:22.123Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -216,7 +216,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "Flow Anomaly Markov",
       "name": "",
-      "type": "library",
+      "type": "indicator",
       "cat": "utility",
       "access": "open",
       "color": "purple",
@@ -574,7 +574,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "Multi-Armed Bandit",
       "name": "",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "ai",
       "access": "open",
       "color": "purple",
@@ -595,7 +595,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "Bayesian Changepoint Detection",
       "name": "Bayesian Changepoint Detection",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "ai",
       "access": "open",
       "color": "cyan",
@@ -761,7 +761,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "Triaxial Consensus Signals",
       "name": "",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "multi-factor",
       "access": "open",
       "color": "cyan",
@@ -1269,7 +1269,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "Multi-Agent RL Consensus Engine",
       "name": "Multi-Agent RL Consensus Engine",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "ai",
       "access": "open",
       "color": "cyan",
@@ -1474,7 +1474,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge Hybrid Quantum-Inspired Predictor",
       "name": "AetherEdge Hybrid Quantum-Inspired Predictor",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "ai",
       "access": "open",
       "color": "cyan",
@@ -1494,7 +1494,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge Volatility Regime GAN Simulator",
       "name": "AetherEdge Volatility Regime GAN Simulator",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "volatility",
       "access": "open",
       "color": "purple",
@@ -1514,7 +1514,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge Multi-Feature Neural Divergence Hunter",
       "name": "AetherEdge Multi-Feature Neural Divergence Hunter",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "momentum",
       "access": "open",
       "color": "cyan",
@@ -1534,7 +1534,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge RL Signal Optimizer",
       "name": "AetherEdge RL Signal Optimizer",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "ai",
       "access": "open",
       "color": "purple",
@@ -1575,7 +1575,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge Adaptive LSTM-inspired Forecaster",
       "name": "AetherEdge Adaptive LSTM-inspired Forecaster",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "ai",
       "access": "open",
       "color": "purple",
@@ -1595,7 +1595,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge KNN Regime Classifier",
       "name": "AetherEdge KNN Regime Classifier",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "ai",
       "access": "open",
       "color": "cyan",
@@ -1636,7 +1636,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "All-in-One Dashboard",
       "name": "",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "multi-factor",
       "access": "open",
       "color": "cyan",
@@ -1656,7 +1656,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "Liquidity Sweep & Raid Detector",
       "name": "Liquidity Sweep & Raid Detector",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "swing",
       "access": "open",
       "color": "purple",
@@ -1677,7 +1677,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "WaveTrend Oscillator Enhanced",
       "name": "WaveTrend Oscillator Enhanced",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "momentum",
       "access": "open",
       "color": "cyan",
@@ -1757,7 +1757,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "Order Block + FVG Detector",
       "name": "",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "swing",
       "access": "open",
       "color": "purple",
@@ -1767,7 +1767,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "smc",
         "market-structure"
       ],
-      "boosts": 33,
+      "boosts": 34,
       "slug": "FLI6Eyql",
       "url": "https://www.tradingview.com/script/FLI6Eyql/",
       "featured": false,
@@ -1840,7 +1840,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge Self-Evolving S/R Grid",
       "name": "AetherEdge Self-Evolving S/R Grid",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "mean-reversion",
       "access": "open",
       "color": "purple",
@@ -1860,7 +1860,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge Pattern Recognition Trendline",
       "name": "",
-      "type": "library",
+      "type": "indicator",
       "cat": "utility",
       "access": "open",
       "color": "magenta",
@@ -1922,7 +1922,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge Regime-Aware Trend Channel",
       "name": "AetherEdge Regime-Aware Trend Channel",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "trend-follow",
       "access": "open",
       "color": "cyan",
@@ -1962,7 +1962,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge Neural Order Block Evolution",
       "name": "AetherEdge Neural Order Block Evolution",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "ai",
       "access": "open",
       "color": "cyan",
@@ -1982,7 +1982,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge KNN Breakout Fortress",
       "name": "AetherEdge KNN Breakout Fortress",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "breakout",
       "access": "open",
       "color": "purple",
@@ -2001,7 +2001,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge AI Dynamic Trendline Architect",
       "name": "AetherEdge AI Dynamic Trendline Architect",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "trend-follow",
       "access": "open",
       "color": "cyan",
@@ -2041,7 +2041,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge Reinforcement Filter MA",
       "name": "AetherEdge Reinforcement Filter MA",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "ai",
       "access": "open",
       "color": "cyan",
@@ -2166,7 +2166,7 @@ window.AE_DATA = /*__DATA_START__*/{
     {
       "code": "AetherEdge Neural Regime Switch",
       "name": "AetherEdge Neural Regime Switch",
-      "type": "strategy",
+      "type": "indicator",
       "cat": "ai",
       "access": "open",
       "color": "purple",
