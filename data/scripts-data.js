@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-10-06T05:14:14.376Z",
+  "updated": "2026-10-06T12:54:11.656Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -101,7 +101,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "pattern",
         "non-parametric"
       ],
-      "boosts": 8,
+      "boosts": 9,
       "slug": "Zc7zhbEn",
       "url": "https://www.tradingview.com/script/Zc7zhbEn/",
       "featured": false,
@@ -205,7 +205,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "order flow",
         "smart money"
       ],
-      "boosts": 639,
+      "boosts": 640,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
@@ -356,7 +356,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "prediction interval",
         "atr-normalized"
       ],
-      "boosts": 4,
+      "boosts": 5,
       "slug": "M0KTXsDX",
       "url": "https://www.tradingview.com/script/M0KTXsDX/",
       "featured": false,
@@ -522,7 +522,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "changepoint",
         "regime"
       ],
-      "boosts": 22,
+      "boosts": 23,
       "slug": "LTu6zkQ5",
       "url": "https://www.tradingview.com/script/LTu6zkQ5/",
       "featured": false,
@@ -542,7 +542,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "multi-resolution",
         "decomposition"
       ],
-      "boosts": 10,
+      "boosts": 11,
       "slug": "tpwjfK1P",
       "url": "https://www.tradingview.com/script/tpwjfK1P/",
       "featured": false,
@@ -605,7 +605,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "regime-detection",
         "probabilistic"
       ],
-      "boosts": 26,
+      "boosts": 28,
       "slug": "HxBDk9yC",
       "url": "https://www.tradingview.com/script/HxBDk9yC/",
       "featured": false,
@@ -626,7 +626,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "eigenvalue",
         "systemic-risk"
       ],
-      "boosts": 1,
+      "boosts": 2,
       "slug": "glhV5HTd",
       "url": "https://www.tradingview.com/script/glhV5HTd/",
       "featured": false,
@@ -1034,7 +1034,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "uncertainty",
         "ewma"
       ],
-      "boosts": 6,
+      "boosts": 7,
       "slug": "vb4Mne7r",
       "url": "https://www.tradingview.com/script/vb4Mne7r/",
       "featured": false,
@@ -1359,7 +1359,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "reinforcement learning",
         "hybrid"
       ],
-      "boosts": 11,
+      "boosts": 12,
       "slug": "c3iMNWNl",
       "url": "https://www.tradingview.com/script/c3iMNWNl/",
       "featured": false,
@@ -1401,7 +1401,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "signal",
         "multi-component"
       ],
-      "boosts": 3,
+      "boosts": 4,
       "slug": "deHznKCB",
       "url": "https://www.tradingview.com/script/deHznKCB/",
       "featured": false,
@@ -1443,7 +1443,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "actor-critic",
         "policy gradient"
       ],
-      "boosts": 6,
+      "boosts": 7,
       "slug": "unc8uhcT",
       "url": "https://www.tradingview.com/script/unc8uhcT/",
       "featured": false,
@@ -1686,7 +1686,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "oscillator",
         "momentum"
       ],
-      "boosts": 39,
+      "boosts": 40,
       "slug": "jxd86tft",
       "url": "https://www.tradingview.com/script/jxd86tft/",
       "featured": false,
@@ -2010,7 +2010,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "ai",
         "trend following"
       ],
-      "boosts": 374,
+      "boosts": 375,
       "slug": "E3Yv8XAJ",
       "url": "https://www.tradingview.com/script/E3Yv8XAJ/",
       "featured": false,
