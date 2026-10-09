@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-10-09T12:42:13.435Z",
+  "updated": "2026-10-09T22:21:37.751Z",
   "totalPublished": 48,
   "scripts": [
     {
@@ -38,7 +38,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "volume",
         "adaptive"
       ],
-      "boosts": 5,
+      "boosts": 6,
       "slug": "fRCrxRLG",
       "url": "https://www.tradingview.com/script/fRCrxRLG/",
       "featured": false,
@@ -122,7 +122,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "bands",
         "regime-adaptive"
       ],
-      "boosts": 7,
+      "boosts": 8,
       "slug": "LImygeiq",
       "url": "https://www.tradingview.com/script/LImygeiq/",
       "featured": false,
@@ -205,7 +205,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "order flow",
         "smart money"
       ],
-      "boosts": 641,
+      "boosts": 642,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
@@ -356,7 +356,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "prediction interval",
         "atr-normalized"
       ],
-      "boosts": 5,
+      "boosts": 6,
       "slug": "M0KTXsDX",
       "url": "https://www.tradingview.com/script/M0KTXsDX/",
       "featured": false,
@@ -419,7 +419,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "reinforcement-learning",
         "probability"
       ],
-      "boosts": 35,
+      "boosts": 36,
       "slug": "oxGH5tac",
       "url": "https://www.tradingview.com/script/oxGH5tac/",
       "featured": false,
@@ -890,7 +890,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "adaptive-filter",
         "signal"
       ],
-      "boosts": 25,
+      "boosts": 26,
       "slug": "Ri3VZ3lS",
       "url": "https://www.tradingview.com/script/Ri3VZ3lS/",
       "featured": false,
