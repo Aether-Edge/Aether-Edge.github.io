@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-10-11T04:26:25.186Z",
+  "updated": "2026-10-11T12:14:16.008Z",
   "totalPublished": 48,
   "scripts": [
     {
@@ -419,7 +419,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "reinforcement-learning",
         "probability"
       ],
-      "boosts": 36,
+      "boosts": 37,
       "slug": "oxGH5tac",
       "url": "https://www.tradingview.com/script/oxGH5tac/",
       "featured": false,
@@ -689,7 +689,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "soft-probability",
         "volatility"
       ],
-      "boosts": 9,
+      "boosts": 10,
       "slug": "DS6facyY",
       "url": "https://www.tradingview.com/script/DS6facyY/",
       "featured": false,
