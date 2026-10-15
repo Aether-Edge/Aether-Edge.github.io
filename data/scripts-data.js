@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-10-15T16:27:10.798Z",
+  "updated": "2026-10-15T21:00:21.310Z",
   "totalPublished": 48,
   "scripts": [
     {
@@ -461,7 +461,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "uncertainty",
         "trend"
       ],
-      "boosts": 15,
+      "boosts": 16,
       "slug": "fBAL7mVM",
       "url": "https://www.tradingview.com/script/fBAL7mVM/",
       "featured": false,
@@ -481,7 +481,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "bands",
         "regression"
       ],
-      "boosts": 57,
+      "boosts": 58,
       "slug": "HquVbrsO",
       "url": "https://www.tradingview.com/script/HquVbrsO/",
       "featured": false,
