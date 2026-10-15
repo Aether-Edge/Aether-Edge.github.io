@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-10-15T03:31:58.283Z",
+  "updated": "2026-10-15T10:57:52.544Z",
   "totalPublished": 48,
   "scripts": [
     {
@@ -18,7 +18,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "screener",
         "signals"
       ],
-      "boosts": 10,
+      "boosts": 11,
       "slug": "uIXZXUhk",
       "url": "https://www.tradingview.com/script/uIXZXUhk/",
       "featured": false,
@@ -80,7 +80,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "atr",
         "online learning"
       ],
-      "boosts": 6,
+      "boosts": 7,
       "slug": "Zxp8c8KY",
       "url": "https://www.tradingview.com/script/Zxp8c8KY/",
       "featured": false,
@@ -205,7 +205,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "order flow",
         "smart money"
       ],
-      "boosts": 643,
+      "boosts": 644,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
@@ -750,7 +750,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "multi-factor",
         "ensemble"
       ],
-      "boosts": 286,
+      "boosts": 287,
       "slug": "DZ81TJie",
       "url": "https://www.tradingview.com/script/DZ81TJie/",
       "featured": false,
@@ -790,7 +790,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "voting",
         "consensus"
       ],
-      "boosts": 15,
+      "boosts": 16,
       "slug": "mOnZQiRJ",
       "url": "https://www.tradingview.com/script/mOnZQiRJ/",
       "featured": false,
