@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-10-17T03:18:21.263Z",
+  "updated": "2026-10-17T10:15:34.851Z",
   "totalPublished": 48,
   "scripts": [
     {
@@ -336,7 +336,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "K-MEANS",
         "UCB-BANDIT"
       ],
-      "boosts": 528,
+      "boosts": 529,
       "slug": "9tSQp67Y",
       "url": "https://www.tradingview.com/script/9tSQp67Y/",
       "featured": true,
@@ -377,7 +377,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "trade management",
         "position sizing"
       ],
-      "boosts": 11,
+      "boosts": 12,
       "slug": "P07r06gT",
       "url": "https://www.tradingview.com/script/P07r06gT/",
       "featured": false,
@@ -647,7 +647,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "spectrogram",
         "fourier"
       ],
-      "boosts": 63,
+      "boosts": 64,
       "slug": "FJu1N0Pe",
       "url": "https://www.tradingview.com/script/FJu1N0Pe/",
       "featured": false,
@@ -931,7 +931,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "regime",
         "signal"
       ],
-      "boosts": 33,
+      "boosts": 34,
       "slug": "iMUZhIc3",
       "url": "https://www.tradingview.com/script/iMUZhIc3/",
       "featured": false,
