@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-10-18T15:29:13.329Z",
+  "updated": "2026-10-18T20:11:57.233Z",
   "totalPublished": 48,
   "scripts": [
     {
@@ -951,7 +951,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "oscillator",
         "adaptive"
       ],
-      "boosts": 50,
+      "boosts": 51,
       "slug": "KAaTOG7D",
       "url": "https://www.tradingview.com/script/KAaTOG7D/",
       "featured": false,
