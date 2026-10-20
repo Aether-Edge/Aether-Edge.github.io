@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-10-19T22:03:49.746Z",
+  "updated": "2026-10-20T03:44:59.240Z",
   "totalPublished": 48,
   "scripts": [
     {
@@ -440,7 +440,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "forecast",
         "machine-learning"
       ],
-      "boosts": 28,
+      "boosts": 29,
       "slug": "hAUvPolk",
       "url": "https://www.tradingview.com/script/hAUvPolk/",
       "featured": false,
