@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-10-23T16:35:54.143Z",
+  "updated": "2026-10-23T21:04:48.949Z",
   "totalPublished": 48,
   "scripts": [
     {
@@ -647,7 +647,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "spectrogram",
         "fourier"
       ],
-      "boosts": 64,
+      "boosts": 65,
       "slug": "FJu1N0Pe",
       "url": "https://www.tradingview.com/script/FJu1N0Pe/",
       "featured": false,
