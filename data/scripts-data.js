@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-11-06T13:50:55.004Z",
+  "updated": "2026-11-06T22:55:31.518Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -563,7 +563,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "online-learning",
         "reconstruction-error"
       ],
-      "boosts": 14,
+      "boosts": 15,
       "slug": "psorYWV3",
       "url": "https://www.tradingview.com/script/psorYWV3/",
       "featured": false,
@@ -730,7 +730,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "reservoir",
         "forecast"
       ],
-      "boosts": 24,
+      "boosts": 25,
       "slug": "r6yBrWvn",
       "url": "https://www.tradingview.com/script/r6yBrWvn/",
       "featured": false,
@@ -1068,7 +1068,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "emerald",
       "tags": [],
-      "boosts": 576,
+      "boosts": 577,
       "slug": "1ro4FL1E",
       "url": "https://www.tradingview.com/script/1ro4FL1E/",
       "featured": false,
@@ -1483,7 +1483,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "purple",
       "tags": [],
-      "boosts": 8,
+      "boosts": 9,
       "slug": "nLqX6lQy",
       "url": "https://www.tradingview.com/script/nLqX6lQy/",
       "featured": false,
