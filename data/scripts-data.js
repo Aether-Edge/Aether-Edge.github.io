@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-11-12T14:44:50.830Z",
+  "updated": "2026-11-12T23:16:05.323Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -282,7 +282,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "ORDER-BLOCK",
         "SCREENER"
       ],
-      "boosts": 15,
+      "boosts": 16,
       "slug": "VkKnnX2M",
       "url": "https://www.tradingview.com/script/VkKnnX2M/",
       "featured": false,
@@ -750,7 +750,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "multi-factor",
         "ensemble"
       ],
-      "boosts": 288,
+      "boosts": 289,
       "slug": "DZ81TJie",
       "url": "https://www.tradingview.com/script/DZ81TJie/",
       "featured": false,
@@ -849,7 +849,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "logistic-regression",
         "signal-filter"
       ],
-      "boosts": 10,
+      "boosts": 11,
       "slug": "dcNqtPeI",
       "url": "https://www.tradingview.com/script/dcNqtPeI/",
       "featured": false,
@@ -1084,7 +1084,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "purple",
       "tags": [],
-      "boosts": 17,
+      "boosts": 18,
       "slug": "vUFqFhTp",
       "url": "https://www.tradingview.com/script/vUFqFhTp/",
       "featured": false,
@@ -1212,7 +1212,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "purple",
       "tags": [],
-      "boosts": 27,
+      "boosts": 28,
       "slug": "4JKr9kyr",
       "url": "https://www.tradingview.com/script/4JKr9kyr/",
       "featured": false,
@@ -1675,7 +1675,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "purple",
       "tags": [],
-      "boosts": 4,
+      "boosts": 5,
       "slug": "xTOZxD7X",
       "url": "https://www.tradingview.com/script/xTOZxD7X/",
       "featured": false,
@@ -1787,7 +1787,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "emerald",
       "tags": [],
-      "boosts": 374,
+      "boosts": 375,
       "slug": "14PzySpq",
       "url": "https://www.tradingview.com/script/14PzySpq/",
       "featured": false,
