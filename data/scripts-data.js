@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-11-15T22:32:47.041Z",
+  "updated": "2026-11-16T05:07:51.446Z",
   "totalPublished": 108,
   "scripts": [
     {
