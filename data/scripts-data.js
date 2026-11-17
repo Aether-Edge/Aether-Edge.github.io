@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-11-16T15:00:01.129Z",
+  "updated": "2026-11-17T01:40:19.895Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -205,7 +205,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "order flow",
         "smart money"
       ],
-      "boosts": 662,
+      "boosts": 663,
       "slug": "jkgBMcNr",
       "url": "https://www.tradingview.com/script/jkgBMcNr/",
       "featured": false,
@@ -336,7 +336,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "K-MEANS",
         "UCB-BANDIT"
       ],
-      "boosts": 537,
+      "boosts": 538,
       "slug": "9tSQp67Y",
       "url": "https://www.tradingview.com/script/9tSQp67Y/",
       "featured": true,
@@ -377,7 +377,7 @@ window.AE_DATA = /*__DATA_START__*/{
         "trade management",
         "position sizing"
       ],
-      "boosts": 13,
+      "boosts": 14,
       "slug": "P07r06gT",
       "url": "https://www.tradingview.com/script/P07r06gT/",
       "featured": false,
@@ -1004,7 +1004,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "emerald",
       "tags": [],
-      "boosts": 19,
+      "boosts": 20,
       "slug": "bnyetf49",
       "url": "https://www.tradingview.com/script/bnyetf49/",
       "featured": false,
@@ -1036,7 +1036,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "magenta",
       "tags": [],
-      "boosts": 27,
+      "boosts": 28,
       "slug": "D4M8vV79",
       "url": "https://www.tradingview.com/script/D4M8vV79/",
       "featured": false,
@@ -1068,7 +1068,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "emerald",
       "tags": [],
-      "boosts": 586,
+      "boosts": 587,
       "slug": "1ro4FL1E",
       "url": "https://www.tradingview.com/script/1ro4FL1E/",
       "featured": false,
@@ -1563,7 +1563,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "magenta",
       "tags": [],
-      "boosts": 266,
+      "boosts": 267,
       "slug": "FHHAvW1O",
       "url": "https://www.tradingview.com/script/FHHAvW1O/",
       "featured": false,
@@ -1595,7 +1595,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "emerald",
       "tags": [],
-      "boosts": 27,
+      "boosts": 28,
       "slug": "XLCu0n94",
       "url": "https://www.tradingview.com/script/XLCu0n94/",
       "featured": false,
