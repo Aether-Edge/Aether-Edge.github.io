@@ -3,7 +3,7 @@
    このファイルは tools/sync-tradingview.mjs により自動更新されます。
    ============================================================ */
 window.AE_DATA = /*__DATA_START__*/{
-  "updated": "2026-11-20T06:00:13.330Z",
+  "updated": "2026-11-20T15:19:10.792Z",
   "totalPublished": 108,
   "scripts": [
     {
@@ -1100,7 +1100,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "magenta",
       "tags": [],
-      "boosts": 11,
+      "boosts": 12,
       "slug": "SVede4m1",
       "url": "https://www.tradingview.com/script/SVede4m1/",
       "featured": false,
@@ -1643,7 +1643,7 @@ window.AE_DATA = /*__DATA_START__*/{
       "access": "open",
       "color": "cyan",
       "tags": [],
-      "boosts": 29,
+      "boosts": 30,
       "slug": "3tR3C2jE",
       "url": "https://www.tradingview.com/script/3tR3C2jE/",
       "featured": false,
